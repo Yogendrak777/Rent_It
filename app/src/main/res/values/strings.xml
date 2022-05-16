@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Rent it</string>
+    <string name="rent_it"><i>RENT IT</i></string>
+    <string name="welcome_to_rent_it">Welcome TO Rent it</string>
+</resources>
