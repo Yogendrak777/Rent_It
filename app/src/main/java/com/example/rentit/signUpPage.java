@@ -45,7 +45,7 @@ public class signUpPage extends AppCompatActivity {
         progressBar = findViewById(R.id.progress);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("RentIt").child("9902915607").child("car1");
+        databaseReference = firebaseDatabase.getReference("RentIt").child("RentBy");
 
     }
 

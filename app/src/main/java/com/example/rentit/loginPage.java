@@ -41,8 +41,6 @@ public class loginPage extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         button = findViewById(R.id.button);
 
-
-
     }
 
     @Override
@@ -50,7 +48,7 @@ public class loginPage extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if(user!= null){
-            startActivity(new Intent(loginPage.this,MainActivity.class));
+            startActivity(new Intent(loginPage.this,displayContentPage.class));
             this.finish();
         }
     }

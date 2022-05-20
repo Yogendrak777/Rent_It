@@ -6,14 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header"
-        android:layout_width="414dp"
-        android:layout_height="173dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
         android:background="@drawable/header"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -56,42 +57,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/hello" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/white_background"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settigs">
 
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@null"
-                android:hint="Search here"
-                android:imeOptions="actionSearch"
-                android:inputType="text"
-                android:paddingStart="15dp"
-                android:textColor="#5d4037"
-                android:textSize="23sp" />
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="50dp"
-                android:background="@drawable/searchbar_background"
-                android:contentDescription="Search bar"
-                android:padding="5dp"
-                android:src="@drawable/ic_baseline_search_24" />
-
-
-        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -99,7 +68,19 @@
         android:overScrollMode="never"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header">
+        app:layout_constraintTop_toTopOf="@+id/header"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="176dp"
+            android:layout_marginTop="341dp"
+            android:layout_marginEnd="187dp"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/progress_back"
+            android:visibility="gone" />
 
 
     </ScrollView>
@@ -115,6 +96,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navigation_menu" />
+
+
+
 
 
 
