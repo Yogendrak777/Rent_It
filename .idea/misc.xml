@@ -20,6 +20,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/next_button.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/progress_back.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/rounded.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/searchbar_background.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/signin_page.xml" value="0.165" />
         <entry key="app/src/main/res/drawable/signup_button.xml" value="0.1705" />
@@ -30,7 +31,8 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/activity_sign_up_page.xml" value="0.1539855072463768" />
         <entry key="app/src/main/res/layout/activity_welcome_page.xml" value="0.2640625" />
-        <entry key="app/src/main/res/layout/house_rv_item.xml" value="0.1539855072463768" />
+        <entry key="app/src/main/res/layout/details_page.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/house_rv_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/rv_item.xml" value="0.25" />
         <entry key="app/src/main/res/menu/navigation_menu.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/menu/search.xml" value="0.28229166666666666" />
