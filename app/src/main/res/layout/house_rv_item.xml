@@ -11,16 +11,25 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"
+        android:padding="5dp"
         >
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:id="@+id/objImg"
-            android:layout_width="102dp"
-            android:layout_height="110dp"
+            android:layout_width="199dp"
+            android:layout_height="202dp"
             android:src="@mipmap/ic_launcher"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp" />
+
+<!--        <de.hdodenhof.circleimageview.CircleImageView-->
+<!--            android:id="@+id/objImg"-->
+<!--            android:layout_width="102dp"-->
+<!--            android:layout_height="110dp"-->
+<!--            android:src="@mipmap/ic_launcher"-->
+<!--            app:civ_border_color="#FF000000"-->
+<!--            app:civ_border_width="2dp" />-->
+
 
         <TextView
             android:layout_width="match_parent"
@@ -36,42 +45,52 @@
             />
 
         <TextView
+            android:id="@+id/ObjPrise"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ObjPrise"
-            android:text="Rs."
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_toRightOf="@+id/objImg"
             android:layout_below="@+id/ObjName"
             android:layout_marginLeft="10dp"
-            />
+            android:layout_toRightOf="@+id/objImg"
+            android:text="Rs."
+            android:textColor="@color/purple_700"
+            android:textSize="35sp"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/ObjBhk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ObjBhk"
-            android:text="BHK"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_toRightOf="@+id/objImg"
             android:layout_below="@+id/ObjPrise"
             android:layout_marginLeft="10dp"
-            />
+            android:layout_toRightOf="@+id/objImg"
+            android:text="BHK"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ObjArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ObjBhk"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/objImg"
+            android:text="Area"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ObjBhk"
+            android:layout_below="@+id/ObjArea"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/ShowDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="190dp"
+                android:layout_marginLeft="220dp"
                 android:layout_marginRight="5dp"
                 android:text=" Show Details" />
 

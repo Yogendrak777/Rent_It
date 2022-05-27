@@ -6,6 +6,8 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/forgot_back.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/header.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1605" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_a_photo_24.xml" value="0.1605" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_right_24.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_baseline_bubble_chart_24.xml" value="0.1705" />
@@ -31,7 +33,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/activity_sign_up_page.xml" value="0.1539855072463768" />
         <entry key="app/src/main/res/layout/activity_welcome_page.xml" value="0.2640625" />
-        <entry key="app/src/main/res/layout/details_page.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/details_page.xml" value="0.25" />
         <entry key="app/src/main/res/layout/house_rv_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/rv_item.xml" value="0.25" />
         <entry key="app/src/main/res/menu/navigation_menu.xml" value="0.2833333333333333" />
