@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".displayContentPage">
+    tools:context=".carRvContainer">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,21 +16,21 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.SearchView
-            android:id="@+id/search"
+            android:id="@+id/search1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="10dp"
             app:queryHint="Address"
-           >
+            >
 
         </androidx.appcompat.widget.SearchView>
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/Rv"
+            android:id="@+id/Rv1"
             android:layout_width="409dp"
             android:layout_height="664dp"
-           android:layout_margin="2dp"
+            android:layout_margin="2dp"
             />
 
         <ProgressBar
@@ -48,4 +48,5 @@
             app:layout_constraintVertical_bias="0.381" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

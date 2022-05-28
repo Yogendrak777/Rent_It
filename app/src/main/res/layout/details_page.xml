@@ -175,12 +175,11 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:layout_width="104dp"
+                        android:layout_width="146dp"
                         android:layout_height="wrap_content"
-                        android:text="Price"
+                        android:text="Rent /Month"
                         android:textAppearance="?android:textAppearanceSmall"
-                        android:textSize="19sp"
-                        />
+                        android:textSize="19sp" />
 
                     <TextView
                         android:id="@+id/Dprise"

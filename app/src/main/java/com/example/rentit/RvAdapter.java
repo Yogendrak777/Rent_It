@@ -107,7 +107,6 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 DbusStand.setText(model.getNearbusStopDistance());
                 Dfuel.setText(model.getNearPetrolBunkDistance());
 
-                 //img1.setImageURI(model.getHouseUrl1());
 
                 Picasso.get().load(model.getHouseUrl1()).into(img1);
                 Picasso.get().load(model.getHouseUrl2()).into(img2);
