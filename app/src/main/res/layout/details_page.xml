@@ -87,6 +87,12 @@
         android:text=" "
             android:textStyle="bold"
         />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffcdd2"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
 
         <TextView
             android:layout_width="143dp"
@@ -95,10 +101,15 @@
             android:text="Overview"
             android:textSize="23sp"
             />
+        </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="3dp"
+
             android:background="#ffcdd2">
 
             <LinearLayout
@@ -109,253 +120,287 @@
 
                 <LinearLayout
                     android:id="@+id/one"
-                    android:layout_width="200dp"
+                    android:layout_width="190dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="15dp">
 
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_home_24"
+                        />
+
+
                     <TextView
                         android:layout_width="97dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="BHK"
-                        android:textSize="23sp" />
+                        android:text=" BHK"
+                        android:textSize="19sp"
+                        android:textAppearance="?android:textAppearanceSmall"/>
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/DBhk"
-                        android:layout_width="136dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/rounded"
-                        android:gravity="center"
+                        android:layout_marginBottom="15dp"
                         android:text=" "
-                        android:textSize="23sp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="104dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:text="Advance"
-                        android:textSize="23sp" />
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textSize="19sp" />
 
                     <TextView
                         android:id="@+id/DAdvance"
-                        android:layout_width="136dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/rounded"
-                        android:gravity="center"
+                        android:layout_marginBottom="15dp"
                         android:text=" "
-                        android:textSize="23sp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="104dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:text="Price"
-                        android:textSize="23sp" />
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textSize="19sp"
+                        />
 
                     <TextView
                         android:id="@+id/Dprise"
-                        android:layout_width="136dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/rounded"
-                        android:gravity="center"
+                        android:layout_marginBottom="15dp"
                         android:text=" "
-                        android:textSize="23sp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="97dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:text="Area"
-                        android:textSize="23sp" />
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textSize="19sp"/>
 
                     <TextView
                         android:id="@+id/DArea"
-                        android:layout_width="136dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/rounded"
-                        android:gravity="center"
+                        android:layout_marginBottom="15dp"
                         android:text=" "
-                        android:textSize="23sp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="104dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:text="Facing"
-                        android:textSize="23sp" />
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textSize="19sp"
+                         />
 
                     <TextView
                         android:id="@+id/DFacing"
-                        android:layout_width="136dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/rounded"
-                        android:gravity="center"
+                        android:layout_marginBottom="15dp"
                         android:text=" "
-                        android:textSize="23sp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="163dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:text="Food Prefer"
-                        android:textSize="23sp" />
+                        android:textSize="19sp"
+                        android:textAppearance="?android:textAppearanceSmall"
+                       />
 
                     <TextView
                         android:id="@+id/DFood"
-                        android:layout_width="136dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/rounded"
-                        android:gravity="center"
+                        android:layout_marginBottom="15dp"
                         android:text=" "
-                        android:textSize="23sp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/two"
-                    android:layout_width="wrap_content"
+                    android:layout_width="195dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="3dp"
                     android:orientation="vertical"
                     android:padding="15dp">
 
                     <TextView
                         android:layout_width="97dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:textSize="19sp"
+                        android:textAppearance="?android:textAppearanceSmall"
                         android:text="Parking"
-                        android:textSize="23sp" />
+                        />
 
                     <TextView
                         android:id="@+id/Dparking"
-                        android:layout_width="136dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/rounded"
-                        android:gravity="center"
+                        android:layout_marginBottom="15dp"
                         android:text=" "
-                        android:textSize="23sp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:layout_width="162dp"
+                        android:layout_width="159dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:text="water Supply"
-                        android:textSize="23sp" />
+                        android:textSize="19sp"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        />
 
                     <TextView
                         android:id="@+id/Dwater"
-                        android:layout_width="136dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/rounded"
-                        android:gravity="center"
+                        android:layout_marginBottom="15dp"
                         android:text=" "
-                        android:textSize="23sp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="104dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:text="Floor"
-                        android:textSize="23sp" />
+                        android:textSize="19sp"
+                        android:textAppearance="?android:textAppearanceSmall"
+                         />
 
                     <TextView
                         android:id="@+id/DFloor"
-                        android:layout_width="136dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/rounded"
-                        android:gravity="center"
+                        android:layout_marginBottom="15dp"
                         android:text=" "
-                        android:textSize="23sp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="114dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:text="SqFt"
-                        android:textSize="23sp" />
+                        android:textSize="19sp"
+                        android:textAppearance="?android:textAppearanceSmall" />
 
                     <TextView
                         android:id="@+id/DSqft"
                         android:layout_width="136dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/rounded"
-                        android:gravity="center"
+                        android:layout_marginBottom="15dp"
                         android:text=" "
-                        android:textSize="23sp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="127dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:text="BathRoom"
-                        android:textSize="23sp" />
+                        android:textSize="19sp"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        />
 
                     <TextView
                         android:id="@+id/DBathroom"
-                        android:layout_width="136dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/rounded"
-                        android:gravity="center"
+                        android:layout_marginBottom="15dp"
                         android:text=" "
-                        android:textSize="23sp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_baseline_family"
+                            />
 
                     <TextView
-                        android:layout_width="118dp"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:text="Family/batchelor"
-                        android:textSize="23sp" />
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textSize="19sp" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/DFamily"
-                        android:layout_width="136dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/rounded"
-                        android:gravity="center"
+                        android:layout_marginBottom="15dp"
                         android:text=" "
-                        android:textSize="23sp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_baseline_pets_24"/>
 
                     <TextView
                         android:layout_width="136dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Pet Perfer"
-                        android:textSize="23sp" />
+                        android:text=" Pet Perfer"
+                        android:textSize="19sp"
+                        android:textAppearance="?android:textAppearanceSmall"/>
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/Dpet"
-                        android:layout_width="136dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:background="@drawable/rounded"
-                        android:gravity="center"
                         android:text=" "
-                        android:textSize="23sp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>

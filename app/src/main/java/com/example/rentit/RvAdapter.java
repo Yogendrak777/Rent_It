@@ -33,9 +33,8 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
 
     @Override
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull houseRvModel model) {
-        holder.Address.setText(model.getHouseAddress());
-        holder.Prise.setText(model.getHousePrise());
-        holder.Bhk.setText(model.getHouseBHK());
+        holder.Address.setText(model.getHouseBHK()+", "+model.getHouseAddress());
+        holder.Prise.setText("\u20B9"+" "+model.getHousePrise() +" /month");
         holder.Area.setText(model.getHouseArea());
 
         Glide.with(holder.img.getContext())
@@ -84,7 +83,7 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 TextView Dfuel = view.findViewById(R.id.Dpetrol);
 
 
-                Daddress.setText(model.getHouseAddress());
+                Daddress.setText( model.getHouseBHK()+","+model.getHouseAddress()+","+model.getHouseArea());
                 Dbhk.setText(model.getHouseBHK());
                 Dprice.setText(model.getHousePrise());
                 Dparking.setText(model.getHouseParking());
@@ -133,7 +132,7 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
 
         //CircleImageView img;
         ImageView img;
-        TextView Address,Prise,Bhk,Area;
+        TextView Address,Prise,Area;
         Button Details;
 
         public myViewHolder(@NonNull View itemView) {
@@ -143,7 +142,6 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
             img = (ImageView)itemView.findViewById(R.id.objImg);
             Address = (TextView) itemView.findViewById(R.id.ObjName);
             Prise = (TextView) itemView.findViewById(R.id.ObjPrise);
-            Bhk = (TextView) itemView.findViewById(R.id.ObjBhk);
             Area = (TextView)itemView.findViewById(R.id.ObjArea);
 
             Details = (Button)itemView.findViewById(R.id.ShowDetails);

@@ -44,13 +44,13 @@ public class displayContentPage extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                txtSearch(query);
+                txtSearch(query.toUpperCase());
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String query) {
-                txtSearch(query);
+                txtSearch(query.toUpperCase());
                 return false;
             }
         });
@@ -73,7 +73,7 @@ public class displayContentPage extends AppCompatActivity {
     public void txtSearch (String str){
         FirebaseRecyclerOptions<houseRvModel> options =
                 new FirebaseRecyclerOptions.Builder<houseRvModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("house").orderByChild("houseAddress").startAt(str).endAt(str+"~"),houseRvModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("house").orderByChild("houseArea").startAt(str).endAt(str+"~"),houseRvModel.class)
                         .build();
 
         rvAdapter = new RvAdapter(options);
