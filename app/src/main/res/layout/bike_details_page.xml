@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:scrollbars="none"
+    android:background="#ede7f6">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text=" Bike Details"
+            android:background="#9575cd"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:textColor="#ffffff"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="334dp"
+            android:orientation="horizontal"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/objBikeImg1"
+                    android:layout_width="359dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:src="@mipmap/ic_launcher"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp" />
+
+                <ImageView
+                    android:id="@+id/objBikeImg2"
+                    android:layout_width="376dp"
+                    android:layout_height="335dp"
+                    android:layout_margin="5dp"
+                    android:src="@mipmap/ic_launcher"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp" />
+
+                <ImageView
+                    android:id="@+id/objBikeImg3"
+                    android:layout_width="376dp"
+                    android:layout_height="335dp"
+                    android:layout_margin="5dp"
+                    android:src="@mipmap/ic_launcher"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp" />
+
+                <ImageView
+                    android:id="@+id/objBikeImg4"
+                    android:layout_width="376dp"
+                    android:layout_height="335dp"
+                    android:layout_margin="5dp"
+                    android:src="@mipmap/ic_launcher"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp" />
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+        <TextView
+            android:id="@+id/DBikeModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="23sp"
+            android:background="@drawable/rounded"
+            android:layout_margin="15dp"
+            android:text=" "
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/DBikeAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="23sp"
+            android:background="@color/white"
+            android:layout_margin="10dp"
+            android:text=" "
+            />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffcdd2"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+
+            <TextView
+                android:layout_width="143dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Overview"
+                android:textSize="23sp"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="3dp"
+
+            android:background="#ffcdd2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                >
+
+                <LinearLayout
+                    android:id="@+id/one"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_baseline_home_24"
+                            />
+
+
+                        <TextView
+                            android:layout_width="97dp"
+                            android:layout_height="wrap_content"
+                            android:text=" Advance"
+                            android:textSize="19sp"
+                            android:textAppearance="?android:textAppearanceSmall"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/DBikeAdvance"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:text=" "
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="104dp"
+                        android:layout_height="wrap_content"
+                        android:text=" Bike Age"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textSize="19sp" />
+
+                    <TextView
+                        android:id="@+id/DBikeAge"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:text=" "
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="104dp"
+                        android:layout_height="wrap_content"
+                        android:text="Body Type"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textSize="19sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/DBikeBodyType"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:text=" "
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/two"
+                    android:layout_width="195dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:layout_width="97dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="19sp"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:text="Rent /Day"
+                        />
+
+                    <TextView
+                        android:id="@+id/DBikeRent"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:text=" "
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:text="Mileage"
+                        android:textSize="19sp"
+                        android:textAppearance="?android:textAppearanceSmall" />
+
+                    <TextView
+                        android:id="@+id/DBikeMileage"
+                        android:layout_width="136dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:text=" "
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Last Serviced Date"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textSize="19sp" />
+
+                    <TextView
+                        android:id="@+id/DBikeService"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:text=" "
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffcdd2"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+
+            <TextView
+                android:layout_width="143dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Overview"
+                android:textSize="23sp"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/DBikeDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="23sp"
+            android:background="@drawable/rounded"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="15dp"
+            android:text=" "
+            />
+    </LinearLayout>
+
+</ScrollView>
