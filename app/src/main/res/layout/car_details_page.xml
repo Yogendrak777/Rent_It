@@ -371,7 +371,7 @@
                 android:layout_width="143dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Overview"
+                android:text="Description"
                 android:textSize="23sp"
                 />
         </androidx.cardview.widget.CardView>
