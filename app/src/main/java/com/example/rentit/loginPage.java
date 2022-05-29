@@ -48,7 +48,7 @@ public class loginPage extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if(user!= null){
-            startActivity(new Intent(loginPage.this,SpeakerRvContainer.class));
+            startActivity(new Intent(loginPage.this,ClothRvContiner.class));
             this.finish();
         }
     }

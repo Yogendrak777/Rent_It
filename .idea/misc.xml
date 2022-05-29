@@ -30,6 +30,7 @@
         <entry key="app/src/main/res/layout/activity_bike_rv_container.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_camera_details_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_car_rv_container.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_cloth_rv_continer.xml" value="0.2677083333333333" />
         <entry key="app/src/main/res/layout/activity_display_content_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_forgot_password_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.24296416674310115" />
@@ -43,6 +44,8 @@
         <entry key="app/src/main/res/layout/camera_rv_item.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/car_details_page.xml" value="0.26171529619805484" />
         <entry key="app/src/main/res/layout/car_rv_item.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/cloth_detail_page.xml" value="0.26171529619805484" />
+        <entry key="app/src/main/res/layout/cloth_rv_item.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/details_page.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/house_rv_item.xml" value="0.25" />
