@@ -17,6 +17,9 @@
         android:theme="@style/Theme.RentIt"
         tools:targetApi="31">
         <activity
+            android:name=".SpeakerRvContainer"
+            android:exported="false" />
+        <activity
             android:name=".CameraDetailsPage"
             android:exported="false" />
         <activity

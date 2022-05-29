@@ -6,15 +6,17 @@
     app:cardCornerRadius="10dp"
     android:elevation="6dp"
     app:cardUseCompatPadding="true">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="6dp"
         android:background="#f3e5f5"
         android:orientation="vertical"
-        android:padding="6dp">
+        >
 
         <ImageView
-            android:id="@+id/objImgCamera"
+            android:id="@+id/objSpeImg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
@@ -31,17 +33,17 @@
 
 
         <TextView
-            android:id="@+id/ObjCamModel"
+            android:id="@+id/ObjSpeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Camera Model"
+            android:text="Model Name"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/black"
             android:textSize="19sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/ObjCamPrise"
+            android:id="@+id/ObjSpePrise"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Rs."
@@ -51,7 +53,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/ObjCamArea"
+            android:id="@+id/ObjSpeArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Area"
@@ -61,12 +63,13 @@
 
 
         <Button
-            android:id="@+id/ShowCamDetails"
+            android:id="@+id/ShowSpeDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="220dp"
             android:layout_marginEnd="5dp"
-            android:text=" Show Details" />
+            android:text=" Show Details"
+            />
 
 
     </LinearLayout>
