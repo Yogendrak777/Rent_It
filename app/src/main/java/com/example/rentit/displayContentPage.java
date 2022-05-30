@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
@@ -24,6 +25,9 @@ public class displayContentPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_content_page);
+
+        Toast.makeText(this, "Please wait...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "data is Loading...", Toast.LENGTH_SHORT).show();
 
         recyclerView = findViewById(R.id.Rv);
         searchView = findViewById(R.id.search);

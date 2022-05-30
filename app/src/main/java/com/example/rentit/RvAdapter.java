@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -44,7 +45,7 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 .error(R.drawable.ic_baseline_account_circle_24)
                 .into(holder.img);
 
-        holder.Details.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
@@ -132,7 +133,7 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
         //CircleImageView img;
         ImageView img;
         TextView Address,Prise,Area;
-        Button Details;
+        CardView cardView;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -143,7 +144,7 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
             Prise = (TextView) itemView.findViewById(R.id.ObjPrise);
             Area = (TextView)itemView.findViewById(R.id.ObjArea);
 
-            Details = (Button)itemView.findViewById(R.id.ShowDetails);
+           cardView = (CardView)itemView.findViewById(R.id.card1);
 
 
 

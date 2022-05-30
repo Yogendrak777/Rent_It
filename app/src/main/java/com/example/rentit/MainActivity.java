@@ -26,11 +26,21 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         progressBar = findViewById(R.id.progress);
+
         bottomNavigationView = findViewById(R.id.buttomNavigationBar);
-        bottomNavigationView.setOnClickListener(new View.OnClickListener() {
+
+        bottomNavigationView.setSelectedItemId(R.id.menuHome);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,displayContentPage.class));
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.menuSearch:
+                        startActivity(new Intent(MainActivity.this,SearchItemPage.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
             }
         });
 

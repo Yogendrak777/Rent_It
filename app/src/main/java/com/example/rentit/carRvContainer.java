@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
@@ -20,6 +21,9 @@ public class carRvContainer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_rv_container);
+
+        Toast.makeText(this, "Please wait...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "data is Loading...", Toast.LENGTH_SHORT).show();
 
         recyclerView = (RecyclerView)findViewById(R.id.Rv1);
         searchView = (SearchView)findViewById(R.id.search1);
