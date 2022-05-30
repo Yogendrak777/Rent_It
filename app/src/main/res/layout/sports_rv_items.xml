@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
     android:elevation="6dp"
-    android:id="@+id/card"
+    android:id="@+id/card6"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -16,7 +16,7 @@
         android:padding="6dp">
 
         <ImageView
-            android:id="@+id/objImgCar"
+            android:id="@+id/objImgSport"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
@@ -33,17 +33,17 @@
 
 
         <TextView
-            android:id="@+id/ObjCarModel"
+            android:id="@+id/ObjSporName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Car Model"
+            android:text="Sport Name"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/black"
             android:textSize="19sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/ObjCarPrise"
+            android:id="@+id/ObjSporPrise"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Rs."
@@ -52,16 +52,16 @@
             android:textSize="25sp"
             android:textStyle="bold" />
         <TextView
-            android:id="@+id/ObjCarFuel"
+            android:id="@+id/ObjSporBrand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fuel Type"
+            android:text="Brand"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/ObjCarArea"
+            android:id="@+id/ObjSporArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Area"
@@ -69,14 +69,6 @@
             android:textColor="@color/black"
             android:textSize="20sp" />
 
-
-        <Button
-            android:id="@+id/ShowCarDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="220dp"
-            android:layout_marginEnd="5dp"
-            android:text=" Show Details" />
 
 
     </LinearLayout>

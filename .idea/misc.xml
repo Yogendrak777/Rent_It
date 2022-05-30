@@ -12,11 +12,14 @@
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_right_24.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_baseline_bubble_chart_24.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_baseline_build_circle_24.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/ic_baseline_crisis_alert_24.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/ic_baseline_family.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_baseline_password_24.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/ic_baseline_pets_24.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/ic_baseline_settings.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_baseline_settings_phone_24.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1705" />
@@ -37,6 +40,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/activity_sign_up_page.xml" value="0.1539855072463768" />
         <entry key="app/src/main/res/layout/activity_speaker_rv_container.xml" value="0.2677083333333333" />
+        <entry key="app/src/main/res/layout/activity_sports_rv_container.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_welcome_page.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/bike_details_page.xml" value="0.26171529619805484" />
         <entry key="app/src/main/res/layout/bike_rv_item.xml" value="0.2833333333333333" />
@@ -52,6 +56,8 @@
         <entry key="app/src/main/res/layout/rv_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/speaker_rv_details_page.xml" value="0.26171529619805484" />
         <entry key="app/src/main/res/layout/speaker_rv_item.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/sports_details_pages.xml" value="0.26171529619805484" />
+        <entry key="app/src/main/res/layout/sports_rv_items.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/menu/navigation_menu.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/menu/search.xml" value="0.28229166666666666" />
       </map>

@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -43,7 +44,7 @@ public class carRvAdapter extends FirebaseRecyclerAdapter<carRvModel,carRvAdapte
                 .error(R.drawable.ic_baseline_account_circle_24)
                 .into(holder.imgOfCar);
 
-        holder.DetailsOfCar.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.imgOfCar.getContext())
@@ -110,6 +111,7 @@ public class carRvAdapter extends FirebaseRecyclerAdapter<carRvModel,carRvAdapte
         ImageView imgOfCar;
         TextView CarModel,CarPrise,CarArea,CarFuel;
         Button DetailsOfCar;
+        CardView cardView;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -119,6 +121,8 @@ public class carRvAdapter extends FirebaseRecyclerAdapter<carRvModel,carRvAdapte
             CarPrise = (TextView) itemView.findViewById(R.id.ObjCarPrise);
             CarArea = (TextView)itemView.findViewById(R.id.ObjCarArea);
             CarFuel = (TextView)itemView.findViewById(R.id.ObjCarFuel);
+            cardView = (CardView)itemView.findViewById(R.id.card);
+
 
             DetailsOfCar = (Button)itemView.findViewById(R.id.ShowCarDetails);
 
