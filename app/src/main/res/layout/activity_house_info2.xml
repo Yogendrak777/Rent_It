@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HouseInfo2"
+    android:orientation="vertical"
+    android:scrollbars="none">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add house"
+            android:textColor="#ff43"
+            android:textAllCaps="true"
+            android:textSize="28sp"
+            android:textStyle="italic"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="5dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:text="Parking: "
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+
+            <Spinner
+                android:id="@+id/ParkingSpinner"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="30dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="BHK: "
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
+
+            <Spinner
+                android:id="@+id/BhkSpinner"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="100dp"
+                android:layout_marginEnd="30dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Water Supply: "
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
+
+            <Spinner
+                android:id="@+id/waterSpinner"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="30dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Floor: "
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <Spinner
+            android:id="@+id/FloorSpinner"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="30dp"
+            />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="House Facing:"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
+
+            <Spinner
+                android:id="@+id/FacingSpinner"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</ScrollView>

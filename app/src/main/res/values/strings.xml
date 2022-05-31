@@ -11,4 +11,39 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string-array name="parking">
+        <item>N/A</item>
+        <item>Bike</item>
+        <item>Car</item>
+        <item>Car and Bike</item>
+    </string-array>
+
+    <string-array name="bhk">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="water">
+        <item>N/A</item>
+        <item>Borewell</item>
+        <item>Corporation</item>
+        <item>Corporation and Borewell</item>
+    </string-array>
+
+    <string-array name="Floor">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="Facing">
+        <item>North</item>
+        <item>South</item>
+        <item>East</item>
+        <item>west</item>
+    </string-array>
 </resources>

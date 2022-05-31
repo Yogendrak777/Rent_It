@@ -40,10 +40,12 @@
         <entry key="app/src/main/res/layout/activity_cloth_rv_continer.xml" value="0.2677083333333333" />
         <entry key="app/src/main/res/layout/activity_display_content_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_forgot_password_page.xml" value="0.2833333333333333" />
-        <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.24296416674310115" />
+        <entry key="app/src/main/res/layout/activity_house_info1.xml" value="0.2677083333333333" />
+        <entry key="app/src/main/res/layout/activity_house_info2.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.2780441227977887" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/activity_search_item_page.xml" value="0.2833333333333333" />
-        <entry key="app/src/main/res/layout/activity_sign_up_page.xml" value="0.1539855072463768" />
+        <entry key="app/src/main/res/layout/activity_sign_up_page.xml" value="0.2659392425979393" />
         <entry key="app/src/main/res/layout/activity_speaker_rv_container.xml" value="0.2677083333333333" />
         <entry key="app/src/main/res/layout/activity_sports_rv_container.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_welcome_page.xml" value="0.2640625" />
