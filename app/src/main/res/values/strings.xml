@@ -41,9 +41,34 @@
     </string-array>
 
     <string-array name="Facing">
+        <item>N/A</item>
         <item>North</item>
         <item>South</item>
         <item>East</item>
         <item>west</item>
     </string-array>
+
+    <string-array name="bathrooms">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="Family">
+        <item>Family</item>
+        <item>Bachelor</item>
+        <item>Family and Bachelor</item>
+    </string-array>
+
+    <string-array name="Food">
+        <item>Veg and Non-Veg</item>
+        <item>Veg</item>
+        <item>Non-Veg</item>
+    </string-array>
+
+    <string-array name="Pet">
+        <item>yes</item>
+        <item>No</item>
+    </string-array>
+
 </resources>

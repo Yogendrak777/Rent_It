@@ -31,7 +31,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,27 +40,27 @@
         android:textStyle="italic"
         android:text="Parking: "
         android:textSize="20sp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:textAppearance="?android:textAppearanceMedium"
         />
 
             <Spinner
                 android:id="@+id/ParkingSpinner"
                 android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:gravity="center"
                 android:layout_marginStart="70dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
-                />
+                android:gravity="center" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -67,7 +68,7 @@
                 android:textStyle="italic"
                 android:text="BHK: "
                 android:textSize="20sp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:textAppearance="?android:textAppearanceMedium"
                 />
 
@@ -75,7 +76,7 @@
                 android:id="@+id/BhkSpinner"
                 android:layout_width="match_parent"
                 android:layout_marginTop="10dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_marginStart="100dp"
@@ -87,7 +88,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,7 +97,7 @@
                 android:textStyle="italic"
                 android:text="Water Supply: "
                 android:textSize="20sp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:textAppearance="?android:textAppearanceMedium"
                 />
 
@@ -103,7 +105,7 @@
                 android:id="@+id/waterSpinner"
                 android:layout_width="match_parent"
                 android:layout_marginTop="10dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_marginStart="25dp"
@@ -115,7 +117,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -123,7 +126,7 @@
             android:textStyle="italic"
             android:text="Floor: "
             android:textSize="20sp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:textAppearance="?android:textAppearanceMedium"
             />
 
@@ -131,7 +134,7 @@
             android:id="@+id/FloorSpinner"
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_marginStart="100dp"
@@ -143,7 +146,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -151,7 +155,7 @@
                 android:textStyle="italic"
                 android:text="House Facing:"
                 android:textSize="20sp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:textAppearance="?android:textAppearanceMedium"
                 />
 
@@ -159,10 +163,126 @@
                 android:id="@+id/FacingSpinner"
                 android:layout_width="match_parent"
                 android:layout_marginTop="10dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Bathrooms:"
+                android:textSize="20sp"
+                android:layout_marginTop="25dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
+
+            <Spinner
+                android:id="@+id/BathroomsSpinner"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="55dp"
+                android:layout_marginEnd="30dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Preferred Tenants:"
+                android:textSize="20sp"
+                android:layout_marginTop="25dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
+
+            <Spinner
+                android:id="@+id/FamilySpinner"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="30dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Preferred FoodType:"
+                android:textSize="20sp"
+                android:layout_marginTop="25dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
+
+            <Spinner
+                android:id="@+id/FoodTypeSpinner"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="30dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Pets Allowed?:"
+                android:textSize="20sp"
+                android:layout_marginTop="25dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
+
+            <Spinner
+                android:id="@+id/PetsSpinner"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="40dp"
                 android:layout_marginEnd="30dp"
                 />
 
