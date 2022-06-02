@@ -34,9 +34,11 @@
         <entry key="app/src/main/res/drawable/signin_page.xml" value="0.165" />
         <entry key="app/src/main/res/drawable/signup_button.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/white_background.xml" value="0.1705" />
+        <entry key="app/src/main/res/layout/activity_account_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_bike_rv_container.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_camera_details_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_car_rv_container.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_cart_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_cloth_rv_continer.xml" value="0.2677083333333333" />
         <entry key="app/src/main/res/layout/activity_display_content_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_forgot_password_page.xml" value="0.2833333333333333" />

@@ -403,7 +403,7 @@ public class HouseInfo5 extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds : snapshot.getChildren()){
                     if(ds.child("userEmailDb").getValue().equals(user.getEmail())){
-                         OwnerNo = ds.child("housePhoneNo").getValue(String.class);
+                         OwnerNo = ds.child("userPhoneDb").getValue(String.class);
                     }
                 }
 
@@ -418,6 +418,9 @@ public class HouseInfo5 extends AppCompatActivity {
         Upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(HouseInfo5.this, "Data is Verifying", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HouseInfo5.this, "Data is Processing", Toast.LENGTH_SHORT).show();
+
                 Map<String,Object> map = new HashMap<>();
                 map.put("houseOwnerName",Name1.getText().toString().trim());
                 map.put("OwnerEmail",user.getEmail());
@@ -458,6 +461,7 @@ public class HouseInfo5 extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void unused) {
                                 Toast.makeText(HouseInfo5.this, "Data Upload Successfully", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(HouseInfo5.this,CartPage.class));
 
                             }
                         })

@@ -51,6 +51,5 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.orhanobut:dialogplus:1.11@aar'
 
-
     implementation 'com.airbnb.android:lottie:3.7.0'
 }
