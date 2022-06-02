@@ -7,10 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class HouseInfo1 extends AppCompatActivity {
 
-    EditText Name,Address,Advance,Rent,SqFt,Area;
+    EditText Name,Address,Advance,Rent,SqFt,Area,Desc;
 
     Button NextButton;
 
@@ -26,6 +27,7 @@ public class HouseInfo1 extends AppCompatActivity {
         SqFt = (EditText)findViewById(R.id.SqFt);
         Area = (EditText)findViewById(R.id.Area);
         NextButton = (Button)findViewById(R.id.NextButton);
+        Desc = (EditText)findViewById(R.id.houseDesc);
 
         NextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +40,8 @@ public class HouseInfo1 extends AppCompatActivity {
                 intent.putExtra("Rent",Rent.getText().toString().trim());
                 intent.putExtra("SqFt",SqFt.getText().toString().trim());
                 intent.putExtra("Area",Area.getText().toString().trim());
+                intent.putExtra("Desc",Desc.getText().toString().trim());
+
 
                 startActivity(intent);
 

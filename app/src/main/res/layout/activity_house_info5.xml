@@ -663,6 +663,27 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Enter Description "
+            android:textSize="20sp"
+            android:layout_marginTop="35dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <EditText
+            android:id="@+id/houseDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:hint="Eg: house is a single-unit residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems."
+            />
+
 
         <LinearLayout
         android:layout_width="match_parent"
@@ -673,7 +694,7 @@
 
 
         <Button
-            android:id="@+id/NextButton4"
+            android:id="@+id/Upload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"

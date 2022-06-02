@@ -48,7 +48,7 @@ public class loginPage extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if(user!= null){
-            startActivity(new Intent(loginPage.this,HouseInfo1.class));
+            startActivity(new Intent(loginPage.this,MainActivity.class));
             this.finish();
         }
     }

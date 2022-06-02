@@ -1,6 +1,9 @@
 package com.example.rentit;
 
 public class houseRvModel {
+    String OwnerEmail;
+    String HouseBillUrl;
+    String HouseDescription;
     String NearHospitalName;
     String NearMallsName;
     String NearSchoolName;
@@ -34,12 +37,17 @@ public class houseRvModel {
     public houseRvModel() {
     }
 
-    public houseRvModel(String nearHospitalName, String nearMallsName, String nearSchoolName, String hospitalDistance, String houseArea, String houseBathroom, String houseFacing, String houseFloor, String houseFoodPrefer, String houseOwnerName, String houseParking, String housePetPrefer, String housePhoneNo, String housePrefer, String houseUrl2, String houseUrl3, String houseUrl4, String houseWaterSupply, String mallDistance, String nearPetrolBunkDistance, String nearbusStopDistance, String schoolDistance, String houseAddress, String houseBHK, String housePrise, String houseUrl1, String type, String houseAdvance, String houseSqFt) {
+    public houseRvModel(String ownerEmail, String houseBillUrl, String houseDescription, String nearHospitalName, String nearMallsName, String nearSchoolName, String hospitalDistance, String houseArea, String houseSqFt, String houseAdvance, String houseBathroom, String houseFacing, String houseFloor, String houseFoodPrefer, String houseOwnerName, String houseParking, String housePetPrefer, String housePhoneNo, String housePrefer, String houseUrl2, String houseUrl3, String houseUrl4, String houseWaterSupply, String mallDistance, String nearPetrolBunkDistance, String nearbusStopDistance, String schoolDistance, String houseAddress, String houseBHK, String housePrise, String houseUrl1, String type) {
+        OwnerEmail = ownerEmail;
+        HouseBillUrl = houseBillUrl;
+        HouseDescription = houseDescription;
         NearHospitalName = nearHospitalName;
         NearMallsName = nearMallsName;
         NearSchoolName = nearSchoolName;
         this.hospitalDistance = hospitalDistance;
         this.houseArea = houseArea;
+        this.houseSqFt = houseSqFt;
+        this.houseAdvance = houseAdvance;
         this.houseBathroom = houseBathroom;
         this.houseFacing = houseFacing;
         this.houseFloor = houseFloor;
@@ -62,8 +70,30 @@ public class houseRvModel {
         this.housePrise = housePrise;
         this.houseUrl1 = houseUrl1;
         this.type = type;
-        this.houseAdvance = houseAdvance;
-        this.houseSqFt = houseSqFt;
+    }
+
+    public String getOwnerEmail() {
+        return OwnerEmail;
+    }
+
+    public void setOwnerEmail(String ownerEmail) {
+        OwnerEmail = ownerEmail;
+    }
+
+    public String getHouseBillUrl() {
+        return HouseBillUrl;
+    }
+
+    public void setHouseBillUrl(String houseBillUrl) {
+        HouseBillUrl = houseBillUrl;
+    }
+
+    public String getHouseDescription() {
+        return HouseDescription;
+    }
+
+    public void setHouseDescription(String houseDescription) {
+        HouseDescription = houseDescription;
     }
 
     public String getNearHospitalName() {
@@ -72,22 +102,6 @@ public class houseRvModel {
 
     public void setNearHospitalName(String nearHospitalName) {
         NearHospitalName = nearHospitalName;
-    }
-
-    public String getHouseSqFt() {
-        return houseSqFt;
-    }
-
-    public void setHouseSqFt(String houseSqFt) {
-        this.houseSqFt = houseSqFt;
-    }
-
-    public String getHouseAdvance() {
-        return houseAdvance;
-    }
-
-    public void setHouseAdvance(String houseAdvance) {
-        this.houseAdvance = houseAdvance;
     }
 
     public String getNearMallsName() {
@@ -120,6 +134,22 @@ public class houseRvModel {
 
     public void setHouseArea(String houseArea) {
         this.houseArea = houseArea;
+    }
+
+    public String getHouseSqFt() {
+        return houseSqFt;
+    }
+
+    public void setHouseSqFt(String houseSqFt) {
+        this.houseSqFt = houseSqFt;
+    }
+
+    public String getHouseAdvance() {
+        return houseAdvance;
+    }
+
+    public void setHouseAdvance(String houseAdvance) {
+        this.houseAdvance = houseAdvance;
     }
 
     public String getHouseBathroom() {

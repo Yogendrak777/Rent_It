@@ -1,5 +1,6 @@
 package com.example.rentit;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,21 +9,40 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 public class HouseInfo5 extends AppCompatActivity {
 
-    EditText Name1,Address1,Advance1,Rent1,SqFt1,Area1,MallName1,HospitalName1,SchoolName1;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference1;
+    FirebaseAuth firebaseAuth;
+
+    EditText Name1,Address1,Advance1,Rent1,SqFt1,Area1,MallName1,HospitalName1,SchoolName1,Desc1;
     ImageView img1,img2,img3,img4;
-    String parking1,BHK1,WATER1,FLOOR1,FACING1,BATHROOMS1,FAMILY1,FOOD1,PET1;
+    String parking1,BHK1,WATER1,FLOOR1,FACING1,BATHROOMS1,FAMILY1,FOOD1,PET1,OwnerNo;
     Spinner MallDis1,SchoolDis1,HospitalDis1,FuelDis1,BusDis1;
     String MallDistance,SchoolDistance,HospitalDistance,FuelDistance,BusDistance;
+    Button Upload;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +57,7 @@ public class HouseInfo5 extends AppCompatActivity {
         MallName1 = (EditText)findViewById(R.id.MallName);
         SchoolName1 = (EditText)findViewById(R.id.SchoolName);
         HospitalName1 = (EditText)findViewById(R.id.HospitalName);
+        Desc1 = (EditText)findViewById(R.id.houseDesc);
 
         Spinner park = (Spinner) findViewById(R.id.ParkingSpinner);
         Spinner bhk = (Spinner) findViewById(R.id.BhkSpinner);
@@ -59,7 +80,7 @@ public class HouseInfo5 extends AppCompatActivity {
         img3 = (ImageView)findViewById(R.id.objImg3);
         img4 = (ImageView)findViewById(R.id.objImg4);
 
-
+        Upload = (Button)findViewById(R.id.Upload) ;
 
         Intent intent = getIntent();
         String Name = intent.getStringExtra("Name");
@@ -77,6 +98,7 @@ public class HouseInfo5 extends AppCompatActivity {
         String FAMILY = intent.getStringExtra("FAMILY");
         String FOOD = intent.getStringExtra("FOOD");
         String PET = intent.getStringExtra("PET");
+        String Desc = intent.getStringExtra("Desc");
         String ImgUrl1 = intent.getStringExtra("ImgUrl1");
         String ImgUrl2 = intent.getStringExtra("ImgUrl2");
         String ImgUrl3 = intent.getStringExtra("ImgUrl3");
@@ -96,7 +118,8 @@ public class HouseInfo5 extends AppCompatActivity {
         Advance1.setText(Advance);
         Rent1.setText(Rent);
         SqFt1.setText(SqFt);
-        Area1.setText(Area);
+        Area1.setText(Area.toUpperCase());
+        Desc1.setText(Desc);
 
         SchoolName1.setText(SchoolName);
         MallName1.setText(MallName);
@@ -369,6 +392,87 @@ public class HouseInfo5 extends AppCompatActivity {
             }
         });
 
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference1 = firebaseDatabase.getReference("RentIt").child("RentBy");
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+
+        databaseReference1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds : snapshot.getChildren()){
+                    if(ds.child("userEmailDb").getValue().equals(user.getEmail())){
+                         OwnerNo = ds.child("housePhoneNo").getValue(String.class);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        Upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Map<String,Object> map = new HashMap<>();
+                map.put("houseOwnerName",Name1.getText().toString().trim());
+                map.put("OwnerEmail",user.getEmail());
+                map.put("HouseBillUrl",ImgUrlBill);
+                map.put("HouseDescription",Desc1.getText().toString().trim());
+                map.put("NearHospitalName",Name1.getText().toString().trim());
+                map.put("NearMallsName",MallName1.getText().toString().trim());
+                map.put("NearSchoolName",SchoolName1.getText().toString().trim());
+                map.put("hospitalDistance",HospitalDistance);
+                map.put("houseArea",Area1.getText().toString().trim());
+                map.put("houseSqFt",SqFt1.getText().toString().trim());
+                map.put("houseAdvance",Advance1.getText().toString().trim());
+                map.put("houseBathroom",BATHROOMS1);
+                map.put("houseFacing",FACING1);
+                map.put("houseFloor",FLOOR1);
+                map.put("houseFoodPrefer",FOOD1);
+                map.put("houseParking",parking1);
+                map.put("housePetPrefer",PET1);
+                map.put("housePhoneNo",OwnerNo);
+                map.put("housePrefer",FAMILY1);
+                map.put("houseUrl2",ImgUrl2);
+                map.put("houseUrl3",ImgUrl3);
+                map.put("houseUrl4",ImgUrl4);
+                map.put("houseWaterSupply",WATER1);
+                map.put("mallDistance",MallDistance);
+                map.put("nearPetrolBunkDistance",FuelDistance);
+                map.put("nearbusStopDistance",BusDistance);
+                map.put("schoolDistance",SchoolDistance);
+                map.put("houseAddress",Address1.getText().toString().trim());
+                map.put("houseBHK",BHK1);
+                map.put("housePrise",Rent1.getText().toString().trim());
+                map.put("houseUrl1",ImgUrl1);
+                map.put("type","HOUSE");
+
+                FirebaseDatabase.getInstance().getReference().child("RentIt").child("house").push()
+                        .setValue(map)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(HouseInfo5.this, "Data Upload Successfully", Toast.LENGTH_SHORT).show();
+
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(HouseInfo5.this, "Data Upload Failed", Toast.LENGTH_SHORT).show();
+
+                            }
+                        });
+
+            }
+        });
+
     }
+
 }
 

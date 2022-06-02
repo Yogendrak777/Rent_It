@@ -44,7 +44,7 @@
             android:textSize="20sp"
             android:layout_marginTop="5dp"
             android:textStyle="italic"
-            android:hint="Karthik"
+            android:hint="Eg: Karthik"
             />
 
         <TextView
@@ -65,7 +65,7 @@
             android:textSize="20sp"
             android:layout_marginTop="5dp"
             android:textStyle="italic"
-            android:hint="#44, 2nd cross, 3rd main road, jp nagar 7th phase, near Narayana college"
+            android:hint="Eg: #44, 2nd cross, 3rd main road, jp nagar 7th phase, near Narayana college"
             />
 
         <TextView
@@ -86,7 +86,7 @@
             android:textSize="20sp"
             android:layout_marginTop="5dp"
             android:textStyle="italic"
-            android:hint="50,000"
+            android:hint="Eg :50,000"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -106,7 +106,7 @@
             android:textSize="20sp"
             android:layout_marginTop="5dp"
             android:textStyle="italic"
-            android:hint="10,000"
+            android:hint="Eg: 10,000"
             />
 
         <TextView
@@ -128,7 +128,7 @@
             android:textAllCaps="true"
             android:layout_marginTop="5dp"
             android:textStyle="italic"
-            android:hint="JP NAGAR"
+            android:hint="Eg: JP NAGAR"
             />
 
         <TextView
@@ -149,7 +149,28 @@
             android:textSize="20sp"
             android:layout_marginTop="5dp"
             android:textStyle="italic"
-            android:hint="1200 SqFt"
+            android:hint="Eg :1200 SqFt"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Enter Description "
+            android:textSize="20sp"
+            android:layout_marginTop="35dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <EditText
+            android:id="@+id/houseDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:hint="Eg: house is a single-unit residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems."
             />
 
         <Button

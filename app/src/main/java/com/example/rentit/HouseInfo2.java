@@ -188,6 +188,7 @@ public class HouseInfo2 extends AppCompatActivity {
         String Rent = intent.getStringExtra("Rent");
         String SqFt = intent.getStringExtra("SqFt");
         String Area = intent.getStringExtra("Area");
+        String Desc = intent.getStringExtra("Desc");
 
 
         NextButton.setOnClickListener(new View.OnClickListener() {
@@ -209,6 +210,7 @@ public class HouseInfo2 extends AppCompatActivity {
                 intent1.putExtra("FAMILY",FAMILY);
                 intent1.putExtra("FOOD",FOOD);
                 intent1.putExtra("PET",PET);
+                intent1.putExtra("Desc",Desc);
 
                 startActivity(intent1);
 

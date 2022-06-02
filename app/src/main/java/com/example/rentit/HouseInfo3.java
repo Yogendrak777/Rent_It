@@ -43,6 +43,8 @@ public class HouseInfo3 extends AppCompatActivity {
         String FAMILY = intent.getStringExtra("FAMILY");
         String FOOD = intent.getStringExtra("FOOD");
         String PET = intent.getStringExtra("PET");
+        String Desc = intent.getStringExtra("Desc");
+
 
         NextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +70,7 @@ public class HouseInfo3 extends AppCompatActivity {
                 intent1.putExtra("ImgUrl3",String.valueOf(Img3));
                 intent1.putExtra("ImgUrl4",String.valueOf(Img4));
                 intent1.putExtra("ImgUrlBill",String.valueOf(ImgBill));
+                intent1.putExtra("Desc",Desc);
 
                 startActivity(intent1);
 

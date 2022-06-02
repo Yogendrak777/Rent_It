@@ -133,6 +133,7 @@ public class HouseInfo4 extends AppCompatActivity {
         String BATHROOM = intent.getStringExtra("BATHROOM");
         String FAMILY = intent.getStringExtra("FAMILY");
         String FOOD = intent.getStringExtra("FOOD");
+        String Desc = intent.getStringExtra("Desc");
         String PET = intent.getStringExtra("PET");
         String ImgUrl1 = intent.getStringExtra("ImgUrl1");
         String ImgUrl2 = intent.getStringExtra("ImgUrl2");
@@ -160,6 +161,7 @@ public class HouseInfo4 extends AppCompatActivity {
                 intent1.putExtra("FACING",FACING);
                 intent1.putExtra("FOOD",FOOD);
                 intent1.putExtra("PET",PET);
+                intent1.putExtra("Desc",Desc);
                 intent1.putExtra("ImgUrl1",ImgUrl1);
                 intent1.putExtra("ImgUrl2",ImgUrl2);
                 intent1.putExtra("ImgUrl3",ImgUrl3);
