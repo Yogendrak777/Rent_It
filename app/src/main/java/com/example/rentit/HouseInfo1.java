@@ -4,11 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class HouseInfo1 extends AppCompatActivity {
 
     EditText Name,Address,Advance,Rent,SqFt,Area;
+
+    Button NextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,16 +25,25 @@ public class HouseInfo1 extends AppCompatActivity {
         Rent = (EditText)findViewById(R.id.Rent);
         SqFt = (EditText)findViewById(R.id.SqFt);
         Area = (EditText)findViewById(R.id.Area);
+        NextButton = (Button)findViewById(R.id.NextButton);
 
-        Intent intent = new Intent(HouseInfo1.this, HouseInfo2.class);
-        intent.putExtra("Name",Name.getText().toString().trim());
-        intent.putExtra("Address",Address.getText().toString().trim());
-        intent.putExtra("Advance",Advance.getText().toString().trim());
-        intent.putExtra("Rent",Rent.getText().toString().trim());
-        intent.putExtra("SqFt",SqFt.getText().toString().trim());
-        intent.putExtra("Area",Area.getText().toString().trim());
+        NextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        startActivity(intent);
+                Intent intent = new Intent(HouseInfo1.this, HouseInfo2.class);
+                intent.putExtra("Name",Name.getText().toString().trim());
+                intent.putExtra("Address",Address.getText().toString().trim());
+                intent.putExtra("Advance",Advance.getText().toString().trim());
+                intent.putExtra("Rent",Rent.getText().toString().trim());
+                intent.putExtra("SqFt",SqFt.getText().toString().trim());
+                intent.putExtra("Area",Area.getText().toString().trim());
+
+                startActivity(intent);
+
+
+            }
+        });
 
 
     }

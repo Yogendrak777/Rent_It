@@ -71,4 +71,13 @@
         <item>No</item>
     </string-array>
 
+    <string-array name="Distance">
+        <item>N/A</item>
+        <item>100m-500m</item>
+        <item>500m-1km</item>
+        <item>1km-2km</item>
+        <item>2km-3km</item>
+        <item>3km-4km</item>
+    </string-array>
+
 </resources>

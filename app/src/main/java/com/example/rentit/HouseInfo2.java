@@ -2,16 +2,20 @@ package com.example.rentit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 public class HouseInfo2 extends AppCompatActivity {
 
     String parking,BHK,WATER,FLOOR,FACING,BATHROOMS,FAMILY,FOOD,PET;
+    Button NextButton,PrevButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,9 @@ public class HouseInfo2 extends AppCompatActivity {
         Spinner Family = (Spinner)findViewById(R.id.FamilySpinner);
         Spinner Food = (Spinner)findViewById(R.id.FoodTypeSpinner);
         Spinner Pet = (Spinner)findViewById(R.id.PetsSpinner);
+
+        NextButton = (Button)findViewById(R.id.NextButton1);
+        PrevButton = (Button)findViewById(R.id.PrevButton);
 
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.parking, android.R.layout.simple_spinner_item);
@@ -171,6 +178,47 @@ public class HouseInfo2 extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
+
+        Intent intent = getIntent();
+        String Name = intent.getStringExtra("Name");
+        String Address = intent.getStringExtra("Address");
+        String Advance = intent.getStringExtra("Advance");
+        String Rent = intent.getStringExtra("Rent");
+        String SqFt = intent.getStringExtra("SqFt");
+        String Area = intent.getStringExtra("Area");
+
+
+        NextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(HouseInfo2.this,HouseInfo3.class);
+                intent1.putExtra("Name",Name);
+                intent1.putExtra("Address",Address);
+                intent1.putExtra("Advance",Advance);
+                intent1.putExtra("Rent",Rent);
+                intent1.putExtra("SqFt",SqFt);
+                intent1.putExtra("Area",Area);
+                intent1.putExtra("parking",parking);
+                intent1.putExtra("BHK",BHK);
+                intent1.putExtra("WATER",WATER);
+                intent1.putExtra("FLOOR",FLOOR);
+                intent1.putExtra("FACING",FACING);
+                intent1.putExtra("BATHROOM",BATHROOMS);
+                intent1.putExtra("FAMILY",FAMILY);
+                intent1.putExtra("FOOD",FOOD);
+                intent1.putExtra("PET",PET);
+
+                startActivity(intent1);
+
+            }
+        });
+
+        PrevButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HouseInfo2.this,HouseInfo1.class));
             }
         });
     }

@@ -32,7 +32,7 @@
        android:textStyle="italic"
        android:text="Enter Owner Name: "
        android:textSize="20sp"
-       android:layout_marginTop="20dp"
+       android:layout_marginTop="25dp"
        android:textAppearance="?android:textAppearanceMedium"
        />
 
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:textAppearanceMedium"
             android:textSize="20sp"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="5dp"
             android:textStyle="italic"
             android:hint="Karthik"
             />
@@ -53,7 +53,7 @@
             android:textStyle="italic"
             android:text="Enter House Address: "
             android:textSize="20sp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
             android:textAppearance="?android:textAppearanceMedium"
             />
 
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:textAppearanceMedium"
             android:textSize="20sp"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="5dp"
             android:textStyle="italic"
             android:hint="#44, 2nd cross, 3rd main road, jp nagar 7th phase, near Narayana college"
             />
@@ -74,7 +74,7 @@
             android:textStyle="italic"
             android:text="Enter House Advance: "
             android:textSize="20sp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
             android:textAppearance="?android:textAppearanceMedium"
             />
 
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:textAppearanceMedium"
             android:textSize="20sp"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="5dp"
             android:textStyle="italic"
             android:hint="50,000"
             />
@@ -94,7 +94,7 @@
             android:textStyle="italic"
             android:text="Enter House Rent: "
             android:textSize="20sp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
             android:textAppearance="?android:textAppearanceMedium"
             />
 
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:textAppearanceMedium"
             android:textSize="20sp"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="5dp"
             android:textStyle="italic"
             android:hint="10,000"
             />
@@ -115,7 +115,7 @@
             android:textStyle="italic"
             android:text="Enter House Area: "
             android:textSize="20sp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
             android:textAppearance="?android:textAppearanceMedium"
             />
 
@@ -126,7 +126,7 @@
             android:textAppearance="?android:textAppearanceMedium"
             android:textSize="20sp"
             android:textAllCaps="true"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="5dp"
             android:textStyle="italic"
             android:hint="JP NAGAR"
             />
@@ -137,7 +137,7 @@
             android:textStyle="italic"
             android:text="Enter House SquareFeet: "
             android:textSize="20sp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
             android:textAppearance="?android:textAppearanceMedium"
             />
 
@@ -147,8 +147,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:textAppearanceMedium"
             android:textSize="20sp"
-            android:textAllCaps="true"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="5dp"
             android:textStyle="italic"
             android:hint="1200 SqFt"
             />
@@ -159,6 +158,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:text="Next"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="50dp"
             />
 
     </LinearLayout>
