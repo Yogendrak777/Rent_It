@@ -11,7 +11,7 @@
 
     <item android:id="@+id/menuChart"
         android:icon="@drawable/ic_baseline_wechat_24"
-        android:title="Chart"/>
+        android:title="Chat"/>
 
 
     <item android:id="@+id/menuService"

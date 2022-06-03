@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchItemPage"
-    android:background="#ede7f6"
+    android:background="@drawable/signin_page"
     >
 
     <ScrollView
@@ -29,8 +29,8 @@
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:text="Select Item"
-                android:textAllCaps="true"
-                android:textColor="@color/purple_700"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -38,6 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:background="@drawable/linear_layout_corners"
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
@@ -45,17 +46,19 @@
                     android:layout_width="165dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
-                    android:background="#ffcdd2"
+                    android:background="@color/white"
                     android:elevation="6dp"
                     android:id="@+id/cardHome"
                     app:cardCornerRadius="10dp"
                     app:cardUseCompatPadding="true">
 
                     <LinearLayout
-                        android:layout_width="115dp"
-                        android:layout_height="120dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:padding="16dp"
+                        android:background="@color/white"
                         android:orientation="vertical">
 
                         <ImageView
@@ -71,6 +74,7 @@
                             android:layout_gravity="center"
                             android:padding="5dp"
                             android:text="house"
+                            android:textColor="@color/black"
                             android:textAllCaps="true"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -83,17 +87,19 @@
                     android:layout_width="165dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="15dp"
-                    android:background="#ffcdd2"
+                    android:background="@color/white"
                     android:elevation="6dp"
                     android:id="@+id/cardCar"
                     app:cardCornerRadius="10dp"
                     app:cardUseCompatPadding="true">
 
                     <LinearLayout
-                        android:layout_width="115dp"
-                        android:layout_height="120dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:padding="16dp"
+                        android:background="@color/white"
                         android:orientation="vertical">
 
                         <ImageView
@@ -109,6 +115,7 @@
                             android:layout_gravity="center"
                             android:padding="5dp"
                             android:text="Car"
+                            android:textColor="@color/black"
                             android:textAllCaps="true"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -124,22 +131,24 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_marginTop="15dp"
+                android:background="@drawable/linear_layout_corners"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="165dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
-                    android:background="#ffcdd2"
                     android:elevation="6dp"
                     app:cardCornerRadius="10dp"
                     app:cardUseCompatPadding="true">
 
                     <LinearLayout
-                        android:layout_width="115dp"
-                        android:layout_height="120dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:padding="16dp"
+                        android:background="@color/white"
                         android:orientation="vertical">
 
                         <ImageView
@@ -155,6 +164,7 @@
                             android:layout_gravity="center"
                             android:padding="5dp"
                             android:text="Bike"
+                            android:textColor="@color/black"
                             android:textAllCaps="true"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -167,16 +177,17 @@
                     android:layout_width="165dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="15dp"
-                    android:background="#ffcdd2"
                     android:elevation="6dp"
                     app:cardCornerRadius="10dp"
                     app:cardUseCompatPadding="true">
 
                     <LinearLayout
-                        android:layout_width="115dp"
-                        android:layout_height="120dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:padding="16dp"
+                        android:background="@color/white"
                         android:orientation="vertical">
 
                         <ImageView
@@ -192,6 +203,7 @@
                             android:layout_gravity="center"
                             android:padding="5dp"
                             android:text="Camera"
+                            android:textColor="@color/black"
                             android:textAllCaps="true"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -207,22 +219,25 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_marginTop="15dp"
+                android:background="@drawable/linear_layout_corners"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="165dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
-                    android:background="#ffcdd2"
+                    android:background="@color/white"
                     android:elevation="6dp"
                     app:cardCornerRadius="10dp"
                     app:cardUseCompatPadding="true">
 
                     <LinearLayout
-                        android:layout_width="115dp"
-                        android:layout_height="120dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:padding="16dp"
+                        android:background="@color/white"
                         android:orientation="vertical">
 
                         <ImageView
@@ -238,6 +253,7 @@
                             android:layout_gravity="center"
                             android:padding="5dp"
                             android:text="speaker"
+                            android:textColor="@color/black"
                             android:textAllCaps="true"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -250,16 +266,18 @@
                     android:layout_width="165dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="15dp"
-                    android:background="#ffcdd2"
+                    android:background="@color/white"
                     android:elevation="6dp"
+                    android:padding="16dp"
                     app:cardCornerRadius="10dp"
                     app:cardUseCompatPadding="true">
 
                     <LinearLayout
-                        android:layout_width="115dp"
-                        android:layout_height="120dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:background="@color/white"
                         android:orientation="vertical">
 
                         <ImageView
@@ -275,6 +293,7 @@
                             android:layout_gravity="center"
                             android:padding="5dp"
                             android:text="sports"
+                            android:textColor="@color/black"
                             android:textAllCaps="true"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -290,22 +309,25 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_marginTop="15dp"
+                android:background="@drawable/linear_layout_corners"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="165dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
-                    android:background="#ffcdd2"
+                    android:background="@color/white"
                     android:elevation="6dp"
                     app:cardCornerRadius="10dp"
                     app:cardUseCompatPadding="true">
 
                     <LinearLayout
-                        android:layout_width="115dp"
-                        android:layout_height="120dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:padding="16dp"
+                        android:background="@color/white"
                         android:orientation="vertical">
 
                         <ImageView
@@ -321,6 +343,7 @@
                             android:layout_gravity="center"
                             android:padding="5dp"
                             android:text="house"
+                            android:textColor="@color/black"
                             android:textAllCaps="true"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -333,16 +356,18 @@
                     android:layout_width="165dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="15dp"
-                    android:background="#ffcdd2"
+                    android:background="@color/white"
                     android:elevation="6dp"
                     app:cardCornerRadius="10dp"
                     app:cardUseCompatPadding="true">
 
                     <LinearLayout
-                        android:layout_width="115dp"
-                        android:layout_height="120dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:padding="16dp"
+                        android:background="@color/white"
                         android:orientation="vertical">
 
                         <ImageView
@@ -358,6 +383,7 @@
                             android:layout_gravity="center"
                             android:padding="5dp"
                             android:text="Car"
+                            android:textColor="@color/black"
                             android:textAllCaps="true"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -373,10 +399,13 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/buttomNavigationBar"
-        android:layout_width="412dp"
-        android:layout_height="68dp"
+        android:layout_width="400dp"
+        android:layout_height="70dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/nav_corners"
         android:backgroundTint="@color/white"
         app:itemIconSize="40dp"
+        app:itemTextColor="@color/white"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

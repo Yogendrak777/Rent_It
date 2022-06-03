@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity{
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.menuSearch:
+                        //MenuItem temp = findViewById(R.id.menuSearch);
                         startActivity(new Intent(MainActivity.this,SearchItemPage.class));
                         overridePendingTransition(0,0);
                         return true;

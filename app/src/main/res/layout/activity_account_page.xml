@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AccountPage"
-    android:background="#f3e5f5"
+    android:background="@drawable/signin_page"
     >
 
     <ScrollView
@@ -21,7 +21,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#f3e5f5"
             android:orientation="vertical"
             android:padding="6dp">
 
@@ -29,27 +28,27 @@
                 android:id="@+id/ObjName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="serif"
                 android:gravity="center"
                 android:text="Account"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="@color/teal_700"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#f3e5f5"
                 android:orientation="horizontal"
-                android:padding="6dp">
+                android:padding="6dp">-->
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
                     android:layout_marginTop="15dp"
                     android:elevation="6dp"
-                    app:cardCornerRadius="10dp"
+                    android:background="@color/white"
                     app:cardUseCompatPadding="true">
 
                     <de.hdodenhof.circleimageview.CircleImageView
@@ -57,6 +56,8 @@
                         android:layout_width="142dp"
                         android:layout_height="165dp"
                         android:layout_marginTop="5dp"
+                        android:background="@color/white"
+                        android:layout_marginLeft="16dp"
                         android:src="@mipmap/ic_launcher"
                         app:civ_border_color="#FF000000"
                         app:civ_border_width="2dp" />
@@ -66,6 +67,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="160dp"
                         android:orientation="vertical"
+                        android:background="@color/white"
                         android:padding="6dp">
 
                         <TextView
@@ -73,10 +75,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
-                            android:fontFamily="serif"
                             android:text="Name"
+                            android:background="@color/white"
                             android:textAppearance="?android:textAppearanceMedium"
-                            android:textColor="@color/purple_700"
+                            android:textColor="@color/black"
                             android:textSize="25sp"
                             android:textStyle="bold" />
 
@@ -85,28 +87,28 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
-                            android:fontFamily="serif"
                             android:text="Email"
+                            android:background="@color/white"
                             android:textAppearance="?android:textAppearanceMedium"
                             android:textColor="@color/black"
                             android:textSize="20sp"
-                            android:textStyle="italic" />
+                            android:textStyle="bold"/>
 
                         <TextView
                             android:id="@+id/PhoneNumber"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
-                            android:fontFamily="serif"
-                            android:text="number"
+                            android:text="Number"
+                            android:background="@color/white"
                             android:textAppearance="?android:textAppearanceMedium"
                             android:textColor="@color/black"
                             android:textSize="20sp"
-                            android:textStyle="italic" />
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/myservice"
@@ -114,6 +116,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
                 android:elevation="6dp"
+                android:background="@color/white"
                 app:cardCornerRadius="10dp"
                 app:cardUseCompatPadding="true">
 
@@ -121,9 +124,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="serif"
                     android:padding="5dp"
                     android:text=" My Services"
+                    android:background="@color/white"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:textColor="@color/black"
                     android:textSize="20sp"
@@ -136,6 +139,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
                 android:elevation="6dp"
+                android:background="@color/white"
                 app:cardCornerRadius="10dp"
                 app:cardUseCompatPadding="true">
 
@@ -143,7 +147,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="serif"
                     android:padding="5dp"
                     android:text=" My Cart"
                     android:textAppearance="?android:textAppearanceMedium"
@@ -158,6 +161,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
                 android:elevation="6dp"
+                android:background="@color/white"
                 app:cardCornerRadius="10dp"
                 app:cardUseCompatPadding="true">
 
@@ -165,7 +169,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="serif"
                     android:padding="5dp"
                     android:text=" Add Rent item"
                     android:textAppearance="?android:textAppearanceMedium"
@@ -180,6 +183,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
                 android:elevation="6dp"
+                android:background="@color/white"
                 app:cardCornerRadius="10dp"
                 app:cardUseCompatPadding="true">
 
@@ -187,8 +191,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="serif"
                     android:padding="5dp"
+                    android:background="@color/white"
                     android:text=" Chart With Us"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:textColor="@color/black"
@@ -202,6 +206,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
                 android:elevation="6dp"
+                android:background="@color/white"
                 app:cardCornerRadius="10dp"
                 app:cardUseCompatPadding="true">
 
@@ -209,8 +214,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="serif"
                     android:padding="5dp"
+                    android:background="@color/white"
                     android:text=" About US"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:textColor="@color/black"
@@ -224,6 +229,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
                 android:elevation="6dp"
+                android:background="@color/white"
                 app:cardCornerRadius="10dp"
                 app:cardUseCompatPadding="true">
 
@@ -231,11 +237,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="serif"
                     android:padding="5dp"
-                    android:text=" log out"
+                    android:text=" Log out"
+                    android:background="@color/white"
                     android:textAppearance="?android:textAppearanceMedium"
-                    android:textColor="#f34242"
+                    android:textColor="#F1515E"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -247,10 +253,13 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/buttomNavigationBar"
-        android:layout_width="match_parent"
-        android:layout_height="67dp"
+        android:layout_width="400dp"
+        android:layout_height="70dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/nav_corners"
         android:backgroundTint="@color/white"
         app:itemIconSize="40dp"
+        app:itemTextColor="@color/white"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
