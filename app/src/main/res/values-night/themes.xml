@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.RentIt" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#CAF0F8</item>
+        <item name="colorPrimary">#0061FF</item>
         <item name="colorPrimaryVariant">#0061FF</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
