@@ -27,14 +27,18 @@
         <entry key="app/src/main/res/drawable/ic_baseline_speaker_group_24.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/ic_baseline_wechat_24.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/linear_layout_corners.xml" value="0.1945" />
+        <entry key="app/src/main/res/drawable/nav_corners.xml" value="0.1945" />
         <entry key="app/src/main/res/drawable/next_button.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/progress_back.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/rounded.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/search_icons_bg.xml" value="0.1945" />
         <entry key="app/src/main/res/drawable/searchbar_background.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/signin_page.xml" value="0.165" />
         <entry key="app/src/main/res/drawable/signup_button.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/white_background.xml" value="0.1705" />
-        <entry key="app/src/main/res/layout/activity_account_page.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/font/poppins_extrabold.xml" value="0.32395833333333335" />
+        <entry key="app/src/main/res/layout/activity_account_page.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_bike_rv_container.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_camera_details_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_car_rv_container.xml" value="0.2833333333333333" />
@@ -49,7 +53,6 @@
         <entry key="app/src/main/res/layout/activity_house_info5.xml" value="0.2607929515418502" />
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.2780441227977887" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2546875" />
-        <entry key="app/src/main/res/layout/activity_pay_ment_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_search_item_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_sign_up_page.xml" value="0.2659392425979393" />
         <entry key="app/src/main/res/layout/activity_speaker_rv_container.xml" value="0.2677083333333333" />
