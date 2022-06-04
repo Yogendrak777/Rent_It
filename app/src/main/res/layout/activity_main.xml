@@ -89,12 +89,12 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/buttomNavigationBar"
-        android:layout_width="400dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_margin="16dp"
         android:background="@drawable/nav_corners"
         android:backgroundTint="@color/white"
-        app:itemIconSize="40dp"
+        app:itemIconSize="30dp"
         app:itemIconTint="@drawable/nav_item_selector"
         app:itemTextColor="@color/black"
         app:labelVisibilityMode="unlabeled"

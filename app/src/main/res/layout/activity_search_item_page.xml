@@ -43,7 +43,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="165dp"
+                    android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
                     android:background="@color/white"
@@ -76,7 +76,7 @@
                             android:text="house"
                             android:textColor="@color/black"
                             android:textAllCaps="true"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -84,7 +84,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="165dp"
+                    android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="15dp"
                     android:background="@color/white"
@@ -117,7 +117,7 @@
                             android:text="Car"
                             android:textColor="@color/black"
                             android:textAllCaps="true"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -135,7 +135,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="165dp"
+                    android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
                     android:elevation="6dp"
@@ -166,7 +166,7 @@
                             android:text="Bike"
                             android:textColor="@color/black"
                             android:textAllCaps="true"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -174,7 +174,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="165dp"
+                    android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="15dp"
                     android:elevation="6dp"
@@ -205,7 +205,7 @@
                             android:text="Camera"
                             android:textColor="@color/black"
                             android:textAllCaps="true"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -223,7 +223,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="165dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
                     android:background="@color/white"
@@ -255,7 +255,7 @@
                             android:text="speaker"
                             android:textColor="@color/black"
                             android:textAllCaps="true"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -263,7 +263,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="165dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="15dp"
                     android:background="@color/white"
@@ -291,7 +291,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:padding="5dp"
+                            android:padding="15dp"
                             android:text="sports"
                             android:textColor="@color/black"
                             android:textAllCaps="true"
@@ -399,12 +399,12 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/buttomNavigationBar"
-        android:layout_width="400dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_margin="16dp"
         android:background="@drawable/nav_corners"
         android:backgroundTint="@color/white"
-        app:itemIconSize="40dp"
+        app:itemIconSize="30dp"
         app:itemIconTint="@drawable/nav_item_selector"
         app:itemTextColor="@color/black"
         app:labelVisibilityMode="unlabeled"
