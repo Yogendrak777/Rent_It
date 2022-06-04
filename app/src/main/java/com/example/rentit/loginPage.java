@@ -25,7 +25,7 @@ public class loginPage extends AppCompatActivity {
 
     TextInputEditText Uemail,Upassward;
     TextView forgotPassword,button;
-    ProgressBar progressBar;
+    //ProgressBar progressBar;
     FirebaseAuth firebaseAuth;
 
 
@@ -37,7 +37,7 @@ public class loginPage extends AppCompatActivity {
         Uemail = findViewById(R.id.email);
         Upassward = findViewById(R.id.password);
         forgotPassword = findViewById(R.id.ForgetPassword);
-        progressBar = findViewById(R.id.progress);
+        //progressBar = findViewById(R.id.progress);
         firebaseAuth = FirebaseAuth.getInstance();
         button = findViewById(R.id.button);
 
@@ -54,17 +54,17 @@ public class loginPage extends AppCompatActivity {
     }
 
     public void signup(View view) {
-        progressBar.setVisibility(View.VISIBLE);
+        //progressBar.setVisibility(View.VISIBLE);
         startActivity(new Intent(loginPage.this,signUpPage.class));
     }
 
     public void ForgotPassword(View view) {
-        progressBar.setVisibility(View.VISIBLE);
+      //  progressBar.setVisibility(View.VISIBLE);
         startActivity(new Intent(loginPage.this,ForgotPasswordPage.class));
     }
 
     public void signIn(View view) {
-        progressBar.setVisibility(View.VISIBLE);
+       // progressBar.setVisibility(View.VISIBLE);
         String UserEmail = Uemail.getText().toString().trim();
         String UserPassword = Upassward.getText().toString().trim();
 
@@ -76,14 +76,14 @@ public class loginPage extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                        progressBar.setVisibility(View.GONE);
+                       // progressBar.setVisibility(View.GONE);
                         Toast.makeText(loginPage.this,"Successfully",Toast.LENGTH_LONG).show();
 
                         startActivity(new Intent(loginPage.this,MainActivity.class));
                         finish();
 
                     } else {
-                        progressBar.setVisibility(View.GONE);
+                       // progressBar.setVisibility(View.GONE);
                         Toast.makeText(loginPage.this,"SignIn Failed..",Toast.LENGTH_LONG).show();
 
                     }

@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AccountPage extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
-    CardView myCart,AddItem;
+    CardView myCart,AddItem,MyPay;
     TextView NameT,EmailT,PhoneNoT;
 
     FirebaseDatabase firebaseDatabase;
@@ -36,6 +36,7 @@ public class AccountPage extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.buttomNavigationBar);
         myCart = (CardView)findViewById(R.id.MyCart);
         AddItem = (CardView)findViewById(R.id.RentItem);
+        MyPay = (CardView)findViewById(R.id.Mypay);
         NameT = (TextView)findViewById(R.id.Name);
         EmailT = (TextView)findViewById(R.id.Email);
         PhoneNoT = (TextView)findViewById(R.id.PhoneNumber);
@@ -66,8 +67,12 @@ public class AccountPage extends AppCompatActivity {
             }
         });
 
-
-
+        MyPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AccountPage.this,PayMentPage.class));
+            }
+        });
 
 
         myCart.setOnClickListener(new View.OnClickListener() {

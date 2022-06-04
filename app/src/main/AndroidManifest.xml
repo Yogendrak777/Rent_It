@@ -17,8 +17,25 @@
         android:theme="@style/Theme.RentIt"
         tools:targetApi="31">
         <activity
-            android:name=".AccountPage"
+            android:name=".PayMentPage"
             android:exported="false" />
+        <activity
+            android:name=".AccountPage"
+            android:exported="false">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.VIEW" /> -->
+
+
+            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+            <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
+
+
+            <!-- <data -->
+            <!-- android:scheme="http" -->
+            <!-- android:host="schemas.android.com" /> -->
+            <!-- </intent-filter> -->
+        </activity>
         <activity
             android:name=".CartPage"
             android:exported="false" />
@@ -73,10 +90,22 @@
         <activity
             android:name=".welcomePage"
             android:exported="true">
+            <tools:validation testUrl="http://schemas.android.com" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="schemas.android.com"
+                    android:scheme="http" />
             </intent-filter>
         </activity>
         <activity
