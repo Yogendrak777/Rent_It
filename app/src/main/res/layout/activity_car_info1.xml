@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HouseInfo1"
+    tools:context=".carInfo1"
     android:scrollbars="none"
     android:orientation="vertical">
 
@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add house"
+            android:text="Add Car"
             android:textColor="#ff43"
             android:textAllCaps="true"
             android:textSize="28sp"
@@ -26,15 +26,15 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_margin="5dp"/>
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:textStyle="italic"
-       android:text="Enter Owner Name: "
-       android:textSize="20sp"
-       android:layout_marginTop="25dp"
-       android:textAppearance="?android:textAppearanceMedium"
-       />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Enter Owner Name: "
+            android:textSize="20sp"
+            android:layout_marginTop="25dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
 
         <EditText
             android:id="@+id/Name"
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="italic"
-            android:text="Enter House Address: "
+            android:text="Enter Owner Address: "
             android:textSize="20sp"
             android:layout_marginTop="35dp"
             android:textAppearance="?android:textAppearanceMedium"
@@ -67,12 +67,32 @@
             android:textStyle="italic"
             android:hint="Eg: #44, 2nd cross, 3rd main road, jp nagar 7th phase, near Narayana college"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Enter Car Model/Brand: "
+            android:textSize="20sp"
+            android:layout_marginTop="35dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <EditText
+            android:id="@+id/modelName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:hint="Eg :50,000"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="italic"
-            android:text="Enter House Advance: "
+            android:text="Enter Car Advance: "
             android:textSize="20sp"
             android:layout_marginTop="35dp"
             android:textAppearance="?android:textAppearanceMedium"
@@ -92,7 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="italic"
-            android:text="Enter House Rent: "
+            android:text="Enter Car Rent: "
             android:textSize="20sp"
             android:layout_marginTop="35dp"
             android:textAppearance="?android:textAppearanceMedium"
@@ -113,7 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="italic"
-            android:text="Enter House Area: "
+            android:text="Enter Owner Area: "
             android:textSize="20sp"
             android:layout_marginTop="35dp"
             android:textAppearance="?android:textAppearanceMedium"
@@ -135,35 +155,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="italic"
-            android:text="Enter House SquareFeet: "
+            android:text="Enter short Description on Car "
             android:textSize="20sp"
             android:layout_marginTop="35dp"
             android:textAppearance="?android:textAppearanceMedium"
             />
 
         <EditText
-            android:id="@+id/SqFt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="20sp"
-            android:layout_marginTop="5dp"
-            android:textStyle="italic"
-            android:hint="Eg :1200 SqFt"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:text="Enter Description "
-            android:textSize="20sp"
-            android:layout_marginTop="35dp"
-            android:textAppearance="?android:textAppearanceMedium"
-            />
-
-        <EditText
-            android:id="@+id/houseDesc"
+            android:id="@+id/CarDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:textAppearanceMedium"
@@ -184,5 +183,8 @@
             />
 
     </LinearLayout>
+
+
+
 
 </ScrollView>

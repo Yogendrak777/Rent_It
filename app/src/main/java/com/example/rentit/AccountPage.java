@@ -85,7 +85,7 @@ public class AccountPage extends AppCompatActivity {
         AddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AccountPage.this,HouseInfo1.class));
+                startActivity(new Intent(AccountPage.this,carInfo1.class));
             }
         });
 

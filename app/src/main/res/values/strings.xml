@@ -80,4 +80,60 @@
         <item>3km-4km</item>
     </string-array>
 
+    <string-array name="Transmission">
+    <item>Manual</item>
+    <item>Automatic</item>
+    </string-array>
+
+    <string-array name="Fuel">
+        <item>Petrol</item>
+        <item>Diesel</item>
+    </string-array>
+
+    <string-array name="Millage">
+        <item>5km-7km</item>
+        <item>8km-11km</item>
+        <item>12km-15km</item>
+        <item>16km-18km</item>
+        <item>19km-22km</item>
+        <item>23km-27km</item>
+        <item>27km-30km</item>
+    </string-array>
+
+    <string-array name="AirBags">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="Seats">
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+    </string-array>
+
+    <string-array name="CarAge">
+        <item>3–5 years</item>
+        <item>5–8 years</item>
+        <item>9–13 years</item>
+        <item>14–18years</item>
+        <item>18–23years</item>
+    </string-array>
+
+    <string-array name="GearBox">
+        <item>4 speed</item>
+        <item>5 speed</item>
+        <item>6 speed</item>
+    </string-array>
+
+    <string-array name="FastTag">
+        <item>yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="BodyType">
+        <item>SUV</item>
+        <item>Normal</item>
+    </string-array>
 </resources>

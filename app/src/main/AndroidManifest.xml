@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RentIt"
         tools:targetApi="31">
+        <activity
+            android:name=".CarInfo2"
+            android:exported="false" />
+        <activity
+            android:name=".carInfo1"
+            android:exported="false" />
         <activity
             android:name=".PayMentPage"
             android:exported="false" />
