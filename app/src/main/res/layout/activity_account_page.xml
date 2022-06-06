@@ -24,16 +24,17 @@
             android:orientation="vertical"
             android:padding="6dp">
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/ObjName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
                 android:gravity="center"
                 android:text="Account"
                 android:layout_marginBottom="5dp"
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                android:textStyle="bold" />
+                android:textStyle="bold" />-->
 
             <!--<LinearLayout
                 android:layout_width="match_parent"
@@ -46,10 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="10dp"
-                    android:layout_marginTop="15dp"
-                    android:elevation="6dp"
                     android:background="@color/white"
-                    android:layout_margin="16dp"
                     >
 
                     <de.hdodenhof.circleimageview.CircleImageView
@@ -57,6 +55,7 @@
                         android:layout_width="170dp"
                         android:layout_height="180dp"
                         android:padding="16dp"
+                        android:layout_marginTop="30dp"
                         android:background="@color/white"
                         android:src="@mipmap/ic_launcher"
                         app:civ_border_color="#FF000000"
@@ -74,7 +73,7 @@
                             android:id="@+id/Name"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="30dp"
                             android:background="@color/white"
                             android:text="Name"
                             android:textAppearance="?android:textAppearanceMedium"
@@ -166,13 +165,13 @@
                 android:elevation="6dp"
                 android:background="@color/white"
                 app:cardCornerRadius="10dp"
-                app:cardUseCompatPadding="true">
+                android:layout_margin="8dp">
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:padding="5dp"
+                    android:padding="16dp"
                     android:text=" PayRent"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:textColor="@color/black"
