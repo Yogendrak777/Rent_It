@@ -42,6 +42,8 @@
         <entry key="app/src/main/res/layout/activity_account_page.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_bike_rv_container.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_camera_details_page.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_car_info1.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/activity_car_info2.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_car_rv_container.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_cart_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_cloth_rv_continer.xml" value="0.2677083333333333" />
@@ -55,7 +57,7 @@
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.2780441227977887" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.45" />
         <entry key="app/src/main/res/layout/activity_pay_ment_page.xml" value="0.2128623188405797" />
-        <entry key="app/src/main/res/layout/activity_search_item_page.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_search_item_page.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sign_up_page.xml" value="0.2659392425979393" />
         <entry key="app/src/main/res/layout/activity_speaker_rv_container.xml" value="0.2677083333333333" />
         <entry key="app/src/main/res/layout/activity_sports_rv_container.xml" value="0.2833333333333333" />
