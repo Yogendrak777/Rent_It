@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -26,6 +28,13 @@ public class welcomePage extends AppCompatActivity {
         //appNamelogo.animate().translationY(-1500).setDuration(2000).setStartDelay(0);
 
         videoView = findViewById(R.id.videoView);
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) videoView.getLayoutParams();
+        params.width = metrics.widthPixels;
+        params.height = metrics.heightPixels;
+        params.leftMargin = 0;
+        videoView.setLayoutParams(params);
         videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.logo);
         videoView.start();
         new Handler().postDelayed(new Runnable() {
@@ -34,6 +43,6 @@ public class welcomePage extends AppCompatActivity {
                 startActivity(new Intent(welcomePage.this,loginPage.class));
                 finish();
             }
-        },2000);
+        },1500);
     }
 }
