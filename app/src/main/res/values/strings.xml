@@ -81,8 +81,8 @@
     </string-array>
 
     <string-array name="Transmission">
-    <item>Manual</item>
-    <item>Automatic</item>
+        <item>Manual</item>
+        <item>Automatic</item>
     </string-array>
 
     <string-array name="Fuel">

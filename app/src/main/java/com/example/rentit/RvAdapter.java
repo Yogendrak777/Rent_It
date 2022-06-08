@@ -1,5 +1,7 @@
 package com.example.rentit;
 
+
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,8 @@ import com.squareup.picasso.Picasso;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.myViewHolder> {
+
+    CardView chart;
 
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
@@ -45,6 +49,7 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 .error(R.drawable.ic_baseline_account_circle_24)
                 .into(holder.img);
 
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +73,7 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 TextView Dpet = view.findViewById(R.id.Dpet);
                 TextView Dfamily = view.findViewById(R.id.DFamily);
                 TextView Dwater = view.findViewById(R.id.Dwater);
+                chart = view.findViewById(R.id.chart);
 
                 ImageView img1 = view.findViewById(R.id.objImg1);
                 ImageView img2 = view.findViewById(R.id.objImg2);
@@ -82,6 +88,7 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 TextView DSchooldis = view.findViewById(R.id.DSchoolDistance);
                 TextView DbusStand = view.findViewById(R.id.DbusStand);
                 TextView Dfuel = view.findViewById(R.id.Dpetrol);
+
 
 
                 Daddress.setText( model.getHouseBHK()+","+model.getHouseAddress()+","+model.getHouseArea());
@@ -114,12 +121,26 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 Picasso.get().load(model.getHouseUrl3()).into(img3);
                 Picasso.get().load(model.getHouseUrl4()).into(img4);
 
+                chart.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+//                        Intent intent = new Intent(img1.getContext(),ChartBwUsers.class);
+//                        intent.putExtra("Name",model.getHouseOwnerName());
+//                        intent.putExtra("image",model.getHouseUrl1());
+//                        intent.putExtra("email",model.getOwnerEmail());
+//                        img1.getContext().startActivity(intent);
+                    }
+                });
+
 
                 dialogPlus.show();
             }
         });
 
+
     }
+
+
 
     @NonNull
     @Override
@@ -145,6 +166,7 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
             Area = (TextView)itemView.findViewById(R.id.ObjArea);
 
            cardView = (CardView)itemView.findViewById(R.id.card1);
+
 
 
 
