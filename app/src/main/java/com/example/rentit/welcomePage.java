@@ -26,7 +26,6 @@ public class welcomePage extends AppCompatActivity {
         //lottieAnimationViewStartUp = findViewById(R.id.lottie);
         //lottieAnimationViewStartUp.animate().translationX(450).setDuration(3000).setStartDelay(0);
         //appNamelogo.animate().translationY(-1500).setDuration(2000).setStartDelay(0);
-        //commit
 
         videoView = findViewById(R.id.videoView);
         DisplayMetrics metrics = new DisplayMetrics();
