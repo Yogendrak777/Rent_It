@@ -406,6 +406,51 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffcdd2"
+            app:cardCornerRadius="10dp"
+            android:id="@+id/chart"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/teal_700">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_baseline_wechat_24" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chart"
+                android:textColor="@color/white"
+                android:textSize="35sp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"/>
+
+        </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffcdd2"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+
         <TextView
             android:layout_width="143dp"
             android:layout_height="wrap_content"
@@ -414,10 +459,15 @@
             android:textSize="23sp"
             />
 
+        </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="3dp"
             android:background="#ffcdd2">
 
 
@@ -429,7 +479,7 @@
 
             <LinearLayout
                 android:id="@+id/three"
-                android:layout_width="wrap_content"
+                android:layout_width="194dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="15dp">
@@ -437,79 +487,65 @@
                 <TextView
                     android:layout_width="168dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:text="Nearest Mall"
-                    android:textSize="23sp"
-                     />
+                    android:textSize="19sp" />
 
                 <TextView
                     android:id="@+id/DMalls"
-                    android:layout_margin="5dp"
                     android:layout_width="136dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/rounded"
-                    android:gravity="center"
+                    android:layout_margin="5dp"
                     android:text=" "
                     android:textSize="23sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="130dp"
+                    android:layout_width="158dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:text="Nearest Hospital"
-                    android:textSize="23sp"
-                     />
+                    android:textSize="19sp"
+                    android:layout_marginTop="20dp"/>
 
                 <TextView
                     android:id="@+id/DHospital"
-                    android:layout_margin="5dp"
                     android:layout_width="136dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/rounded"
-                    android:gravity="center"
+                    android:layout_margin="5dp"
                     android:text=" "
                     android:textSize="23sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="104dp"
+                    android:layout_width="164dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:text="Nearest School"
-                    android:textSize="23sp"
-                     />
+                    android:textSize="19sp"
+                    android:layout_marginTop="20dp"/>
 
                 <TextView
                     android:id="@+id/Dschool"
                     android:layout_width="136dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:background="@drawable/rounded"
-                    android:gravity="center"
                     android:text=" "
                     android:textSize="23sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="148dp"
+                    android:layout_width="161dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Fuel Pumps Distance"
                     android:layout_marginTop="20dp"
-                    android:textSize="23sp"
-                     />
+                    android:text="Fuel Pumps Distance"
+                    android:textSize="19sp" />
 
                 <TextView
                     android:id="@+id/Dpetrol"
                     android:layout_width="136dp"
-                    android:layout_margin="5dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/rounded"
-                    android:gravity="center"
+                    android:layout_margin="5dp"
                     android:text=" "
                     android:textSize="23sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -524,17 +560,14 @@
                 <TextView
                     android:layout_width="97dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:text="Distance"
-                    android:textSize="23sp" />
+                    android:textSize="19sp" />
 
                 <TextView
                     android:id="@+id/DMallDistance"
                     android:layout_width="136dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:background="@drawable/rounded"
-                    android:gravity="center"
                     android:text=" "
                     android:textSize="23sp"
                     android:textStyle="bold" />
@@ -543,17 +576,14 @@
                     android:layout_width="108dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
-                    android:gravity="center"
                     android:text="Distance"
-                    android:textSize="23sp" />
+                    android:textSize="19sp" />
 
                 <TextView
                     android:id="@+id/DHostipalDistance"
                     android:layout_width="136dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:background="@drawable/rounded"
-                    android:gravity="center"
                     android:text=" "
                     android:textSize="23sp"
                     android:textStyle="bold" />
@@ -562,36 +592,30 @@
                     android:layout_width="104dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
-                    android:gravity="center"
                     android:text="Distance"
-                    android:textSize="23sp" />
+                    android:textSize="19sp" />
 
                 <TextView
                     android:id="@+id/DSchoolDistance"
                     android:layout_width="136dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:background="@drawable/rounded"
-                    android:gravity="center"
                     android:text=" "
                     android:textSize="23sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="114dp"
+                    android:layout_width="145dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
-                    android:gravity="center"
                     android:text="Bus Stand Distance"
-                    android:textSize="23sp" />
+                    android:textSize="19sp" />
 
                 <TextView
                     android:id="@+id/DbusStand"
                     android:layout_width="136dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:background="@drawable/rounded"
-                    android:gravity="center"
                     android:text=" "
                     android:textSize="23sp"
                     android:textStyle="bold" />
