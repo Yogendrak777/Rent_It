@@ -15,6 +15,8 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -36,11 +39,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.UUID;
 
 public class AccountPage extends AppCompatActivity {
@@ -48,6 +56,7 @@ public class AccountPage extends AppCompatActivity {
     CardView myCart,AddItem,MyPay;
     TextView NameT;
     //EmailT,PhoneNoT;
+    String PhoneNoT;
     ImageView profileImg;
 
     FirebaseDatabase firebaseDatabase;
@@ -59,6 +68,7 @@ public class AccountPage extends AppCompatActivity {
     private TextView uploadProfileImgBtn, saveImgBtn;
     private Uri imgURI;
     private int imageUpdated = 0;
+    final String randomKey = UUID.randomUUID().toString();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +99,33 @@ public class AccountPage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds : snapshot.getChildren()){
                     if(ds.child("userEmailDb").getValue().equals(user.getEmail())){
-                        //PhoneNoT.setText(ds.child("userPhoneDb").getValue(String.class));
-                        //EmailT.setText(ds.child("userEmailDb").getValue(String.class));
+
+                        PhoneNoT = ds.child("userPhoneDb").getValue(String.class);
+                        String img = ds.child("UserIMage").getValue(String.class);
                         NameT.setText(ds.child("userNameDb").getValue(String.class));
+
+                       StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+img);
+                        try {
+                            File file = File.createTempFile("randomKey","");
+                            storageReference1.getFile(file)
+                                    .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                        @Override
+                                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                            Toast.makeText(AccountPage.this, "please wait", Toast.LENGTH_SHORT).show();
+                                            Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+                                            profileImg.setImageBitmap(bitmap);
+
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(AccountPage.this, "Image can't Retrieve", Toast.LENGTH_SHORT).show();
+
+                                        }
+                                    });
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
 
@@ -169,6 +203,26 @@ public class AccountPage extends AppCompatActivity {
                     Toast.makeText(view.getContext(), "Change the Photo to Update", Toast.LENGTH_SHORT).show();
                 } else {
                     upload_profile_img();
+                    HashMap<String,Object> map1 = new HashMap<>();
+                    map1.put("UserIMage",randomKey);
+
+                    FirebaseDatabase.getInstance().getReference().child("RentIt").child("RentBy")
+                            .child(PhoneNoT).updateChildren(map1)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(AccountPage.this, "Successfully updated", Toast.LENGTH_SHORT).show();
+
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(AccountPage.this, "Failed updated", Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+
                 }
             }
         });
@@ -178,8 +232,8 @@ public class AccountPage extends AppCompatActivity {
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setTitle("Uploading Image...");
         pd.show();
-        final String randomKey = UUID.randomUUID().toString();
-        StorageReference storageReference = this.storageReference.child("images/" + randomKey);
+       // final String randomKey = UUID.randomUUID().toString();
+        StorageReference storageReference = this.storageReference.child("images/"+randomKey);
         storageReference.putFile(imgURI)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -223,24 +277,24 @@ public class AccountPage extends AppCompatActivity {
         imageUpdated = 1;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    private void requestStoragePermission() {
-        requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
-    }
+//    @RequiresApi(api = Build.VERSION_CODES.M)
+//    private void requestStoragePermission() {
+//        requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
+//    }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    private void requestCameraPermission() {
-        requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
-    }
-
-    private boolean checkStoragePermission() {
-        boolean res1 = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
-        return res1;
-    }
-
-    private boolean checkCameraPermission() {
-        boolean res1 = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED;
-        boolean res2 = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
-        return  res1 && res2;
-    }
+    //@RequiresApi(api = Build.VERSION_CODES.M)
+//    private void requestCameraPermission() {
+//        requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
+//    }
+//
+//    private boolean checkStoragePermission() {
+//        boolean res1 = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+//        return res1;
+//    }
+//
+//    private boolean checkCameraPermission() {
+//        boolean res1 = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED;
+//        boolean res2 = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+//        return  res1 && res2;
+//    }
 }
