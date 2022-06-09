@@ -13,15 +13,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class signUpPage extends AppCompatActivity {
 
@@ -30,7 +35,6 @@ public class signUpPage extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    String UniqId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,24 +60,39 @@ public class signUpPage extends AppCompatActivity {
         String UserPhone = Uphone.getText().toString().trim();
         String UserPassword = Upassword.getText().toString().trim();
         String UserConPassword = Uconfirmpassword.getText().toString().trim();
-        UniqId = UserPhone;
+
+
 
         if(!UserPassword.equals(UserConPassword)){
             Toast.makeText(signUpPage.this,"please check both passwords",Toast.LENGTH_LONG).show();
-        }else if(TextUtils.isEmpty(UserEmail)||TextUtils.isEmpty(UserPassword)||TextUtils.isEmpty(UserName)||TextUtils.isEmpty(UserPhone)){
-            Toast.makeText(signUpPage.this,"please add all credentials..",Toast.LENGTH_LONG).show();
+        }else if(TextUtils.isEmpty(UserEmail)||TextUtils.isEmpty(UserPassword)||TextUtils.isEmpty(UserName)||TextUtils.isEmpty(UserPhone)) {
+            Toast.makeText(signUpPage.this, "please add all credentials..", Toast.LENGTH_LONG).show();
+        } else if (UserPassword.length() < 6 ){
+                Toast.makeText(signUpPage.this, "password must be at least 6 characters", Toast.LENGTH_SHORT).show();
         }else{
-            personInfoRvModel personInfoRvModel = new personInfoRvModel(UserName,UserEmail,UserPhone,UniqId);
+
+           // personInfoRvModel personInfoRvModel = new personInfoRvModel(UserName,UserEmail,UserPhone);
             firebaseAuth.createUserWithEmailAndPassword(UserEmail,UserPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         progressBar.setVisibility(View.GONE);
+
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        String userId = user.getUid();
+
+                        HashMap<String,Object> map = new HashMap<>();
+                        map.put("userEmailDb",UserEmail);
+                        map.put("userNameDb",UserName);
+                        map.put("userPhoneDb",UserPhone);
+                        map.put("UserId",userId);
+                        map.put("UserPass",UserPassword);
+
                         databaseReference.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                databaseReference.child(UniqId).setValue(personInfoRvModel);
-                                Toast.makeText(signUpPage.this," Added Successfully ",Toast.LENGTH_LONG).show();
+                                databaseReference.child(userId).setValue(map);
+                                Toast.makeText(signUpPage.this," Added Successfully ",Toast.LENGTH_SHORT).show();
 
                             }
 

@@ -53,10 +53,10 @@ import java.util.UUID;
 
 public class AccountPage extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
-    CardView myCart,AddItem,MyPay;
+    CardView myCart,AddItem,MyPay,logOut;
     TextView NameT;
     //EmailT,PhoneNoT;
-    String PhoneNoT;
+    //String PhoneNoT;
     ImageView profileImg;
 
     FirebaseDatabase firebaseDatabase;
@@ -80,6 +80,7 @@ public class AccountPage extends AppCompatActivity {
         AddItem = (CardView)findViewById(R.id.RentItem);
         MyPay = (CardView)findViewById(R.id.Mypay);
         NameT = (TextView)findViewById(R.id.Name);
+        logOut = (CardView)findViewById(R.id.logOut);
         //EmailT = (TextView)findViewById(R.id.Email);
         //PhoneNoT = (TextView)findViewById(R.id.PhoneNumber);
         profileImg = findViewById(R.id.profile_img_view);
@@ -94,13 +95,22 @@ public class AccountPage extends AppCompatActivity {
         databaseReference1 = firebaseDatabase.getReference("RentIt").child("RentBy");
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firebaseAuth.signOut();
+                startActivity(new Intent(AccountPage.this,welcomePage.class));
+                finish();
+            }
+        });
+
         databaseReference1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds : snapshot.getChildren()){
                     if(ds.child("userEmailDb").getValue().equals(user.getEmail())){
 
-                        PhoneNoT = ds.child("userPhoneDb").getValue(String.class);
+                       // PhoneNoT = ds.child("userPhoneDb").getValue(String.class);
                         String img = ds.child("UserIMage").getValue(String.class);
                         NameT.setText(ds.child("userNameDb").getValue(String.class));
 
@@ -155,7 +165,7 @@ public class AccountPage extends AppCompatActivity {
         AddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AccountPage.this,carInfo1.class));
+                startActivity(new Intent(AccountPage.this,HouseInfo1.class));
             }
         });
 
@@ -207,7 +217,7 @@ public class AccountPage extends AppCompatActivity {
                     map1.put("UserIMage",randomKey);
 
                     FirebaseDatabase.getInstance().getReference().child("RentIt").child("RentBy")
-                            .child(PhoneNoT).updateChildren(map1)
+                            .child(user.getUid()).updateChildren(map1)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
@@ -276,6 +286,8 @@ public class AccountPage extends AppCompatActivity {
         imgUploadResultLaunch.launch(img);
         imageUpdated = 1;
     }
+
+
 
 //    @RequiresApi(api = Build.VERSION_CODES.M)
 //    private void requestStoragePermission() {

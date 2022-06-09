@@ -18,6 +18,12 @@
         android:theme="@style/Theme.RentIt"
         tools:targetApi="31">
         <activity
+            android:name=".UesrChartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChartActivity"
+            android:exported="false" />
+        <activity
             android:name=".CarInfo2"
             android:exported="false" />
         <activity
@@ -28,21 +34,7 @@
             android:exported="false" />
         <activity
             android:name=".AccountPage"
-            android:exported="false">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.VIEW" /> -->
-
-
-            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
-            <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
-
-
-            <!-- <data -->
-            <!-- android:scheme="http" -->
-            <!-- android:host="schemas.android.com" /> -->
-            <!-- </intent-filter> -->
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".CartPage"
             android:exported="false" />
@@ -87,6 +79,9 @@
             android:exported="false" />
         <activity
             android:name=".ForgotPasswordPage"
+            android:exported="false" />
+        <activity
+            android:name=".ChartMainPage"
             android:exported="false" />
         <activity
             android:name=".signUpPage"

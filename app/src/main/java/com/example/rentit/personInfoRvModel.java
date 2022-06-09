@@ -3,41 +3,32 @@ package com.example.rentit;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class personInfoRvModel implements Parcelable {
+public class personInfoRvModel {
     String UserNameDb;
     String UserEmailDb;
     String UserPhoneDb;
-    String UserIdDb;
+    String UserId;
 
 
     public personInfoRvModel(){}
 
 
-    public personInfoRvModel(String userNameDb, String userEmailDb, String userPhoneDb, String userIdDb) {
+    public personInfoRvModel(String userNameDb, String userEmailDb, String userPhoneDb,String userId) {
         UserNameDb = userNameDb;
         UserEmailDb = userEmailDb;
         UserPhoneDb = userPhoneDb;
-        UserIdDb = userIdDb;
+        UserId = userId;
+
     }
 
-    protected personInfoRvModel(Parcel in) {
-        UserNameDb = in.readString();
-        UserEmailDb = in.readString();
-        UserPhoneDb = in.readString();
-        UserIdDb = in.readString();
+
+    public String getUserId() {
+        return UserId;
     }
 
-    public static final Creator<personInfoRvModel> CREATOR = new Creator<personInfoRvModel>() {
-        @Override
-        public personInfoRvModel createFromParcel(Parcel in) {
-            return new personInfoRvModel(in);
-        }
-
-        @Override
-        public personInfoRvModel[] newArray(int size) {
-            return new personInfoRvModel[size];
-        }
-    };
+    public void setUserId(String userId) {
+        UserId = userId;
+    }
 
     public String getUserNameDb() {
         return UserNameDb;
@@ -63,24 +54,7 @@ public class personInfoRvModel implements Parcelable {
         UserPhoneDb = userPhoneDb;
     }
 
-    public String getUserIdDb() {
-        return UserIdDb;
-    }
 
-    public void setUserIdDb(String userIdDb) {
-        UserIdDb = userIdDb;
-    }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(UserNameDb);
-        parcel.writeString(UserEmailDb);
-        parcel.writeString(UserPhoneDb);
-        parcel.writeString(UserIdDb);
     }
-}

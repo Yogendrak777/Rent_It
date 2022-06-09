@@ -33,11 +33,12 @@ public class houseRvModel {
     String housePrise;
     String houseUrl1;
     String type;
+    String ownerUId;
 
     public houseRvModel() {
     }
 
-    public houseRvModel(String ownerEmail, String houseBillUrl, String houseDescription, String nearHospitalName, String nearMallsName, String nearSchoolName, String hospitalDistance, String houseArea, String houseSqFt, String houseAdvance, String houseBathroom, String houseFacing, String houseFloor, String houseFoodPrefer, String houseOwnerName, String houseParking, String housePetPrefer, String housePhoneNo, String housePrefer, String houseUrl2, String houseUrl3, String houseUrl4, String houseWaterSupply, String mallDistance, String nearPetrolBunkDistance, String nearbusStopDistance, String schoolDistance, String houseAddress, String houseBHK, String housePrise, String houseUrl1, String type) {
+    public houseRvModel(String ownerEmail, String houseBillUrl, String houseDescription, String nearHospitalName, String nearMallsName, String nearSchoolName, String hospitalDistance, String houseArea, String houseSqFt, String houseAdvance, String houseBathroom, String houseFacing, String houseFloor, String houseFoodPrefer, String houseOwnerName, String houseParking, String housePetPrefer, String housePhoneNo, String housePrefer, String houseUrl2, String houseUrl3, String houseUrl4, String houseWaterSupply, String mallDistance, String nearPetrolBunkDistance, String nearbusStopDistance, String schoolDistance, String houseAddress, String houseBHK, String housePrise, String houseUrl1, String type,String ownerUId) {
         OwnerEmail = ownerEmail;
         HouseBillUrl = houseBillUrl;
         HouseDescription = houseDescription;
@@ -70,6 +71,15 @@ public class houseRvModel {
         this.housePrise = housePrise;
         this.houseUrl1 = houseUrl1;
         this.type = type;
+        this.ownerUId = ownerUId;
+    }
+
+    public String getOwnerUId() {
+        return ownerUId;
+    }
+
+    public void setOwnerUId(String ownerUId) {
+        this.ownerUId = ownerUId;
     }
 
     public String getOwnerEmail() {

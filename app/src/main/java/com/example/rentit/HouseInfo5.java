@@ -439,6 +439,7 @@ public class HouseInfo5 extends AppCompatActivity {
                 map.put("houseFoodPrefer",FOOD1);
                 map.put("houseParking",parking1);
                 map.put("housePetPrefer",PET1);
+                map.put("ownerUId",user.getUid());
                 map.put("housePhoneNo",OwnerNo);
                 map.put("housePrefer",FAMILY1);
                 map.put("houseUrl2",ImgUrl2);
@@ -462,6 +463,7 @@ public class HouseInfo5 extends AppCompatActivity {
                             public void onSuccess(Void unused) {
                                 Toast.makeText(HouseInfo5.this, "Data Upload Successfully", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(HouseInfo5.this,CartPage.class));
+                                finish();
 
                             }
                         })

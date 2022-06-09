@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 import com.squareup.picasso.Picasso;
@@ -124,11 +126,9 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 chart.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-//                        Intent intent = new Intent(img1.getContext(),ChartBwUsers.class);
-//                        intent.putExtra("Name",model.getHouseOwnerName());
-//                        intent.putExtra("image",model.getHouseUrl1());
-//                        intent.putExtra("email",model.getOwnerEmail());
-//                        img1.getContext().startActivity(intent);
+                        Intent intent = new Intent(img1.getContext(),ChartActivity.class);
+                        intent.putExtra("UserId",model.getOwnerUId());
+                        img1.getContext().startActivity(intent);
                     }
                 });
 

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -76,3 +77,13 @@ public class SportsRvContainer extends AppCompatActivity {
         recyclerView.setAdapter(sportsRvAdapter);
     }
 }
+
+//    DisplayMetrics metrics = new DisplayMetrics();
+//    getWindowManager().getDefaultDisplay().getMetrics(metrics);
+//        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) videoView.getLayoutParams();
+//        params.width = metrics.widthPixels;
+//        params.height = metrics.heightPixels;
+//        params.leftMargin = 0;
+//        videoView.setLayoutParams(params);
+//        videoView.setVideoPath("android.resource://"+getPackageName()+"/"+R.raw.logo);
+//        videoView.start();

@@ -53,9 +53,9 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/profile_img_view"
                         android:layout_width="170dp"
-                        android:layout_height="180dp"
-                        android:padding="16dp"
-                        android:layout_marginTop="30dp"
+                        android:layout_height="200dp"
+                        android:padding="8dp"
+                        android:layout_marginTop="25dp"
                         android:background="@color/white"
                         android:src="@mipmap/ic_launcher"
                         app:civ_border_color="#FF000000"
@@ -107,32 +107,31 @@
 
                         <TextView
                             android:id="@+id/upload_profile_img_btn"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:text=""
-                            android:layout_marginTop="70dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_marginLeft="5dp"
+                            android:layout_marginTop="70dp"
                             android:layout_marginRight="5dp"
-                            android:textColor="@color/white"
                             android:background="@drawable/ic_baseline_add_a_photo_24"
                             android:padding="6dp"
+                            android:text=""
                             android:textAlignment="center"
-                            android:textStyle="bold"
-                            android:textSize="16sp"/>
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/img_save_btn"
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="150dp"
+                            android:background="@drawable/next_button"
                             android:padding="3dp"
                             android:text="Save"
-                            android:textColor="@color/white"
-                            android:background="@drawable/next_button"
                             android:textAlignment="center"
+                            android:textColor="@color/white"
                             android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="150dp"
-                            />
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -323,14 +322,13 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/buttomNavigationBar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="16dp"
-        android:background="@drawable/nav_corners"
+        android:layout_height="60dp"
+        android:background="@color/white"
         android:backgroundTint="@color/white"
         app:itemIconSize="30dp"
         app:itemIconTint="@drawable/nav_item_selector"
         app:itemTextColor="@color/black"
-        app:labelVisibilityMode="unlabeled"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

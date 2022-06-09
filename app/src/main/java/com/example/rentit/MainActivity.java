@@ -81,6 +81,10 @@ public class MainActivity extends AppCompatActivity{
                         startActivity(new Intent(MainActivity.this,AccountPage.class));
                         overridePendingTransition(0,0);
                         return true;
+                    case R.id.menuChart:
+                        startActivity(new Intent(MainActivity.this,ChartMainPage.class));
+                        overridePendingTransition(0,0);
+                        return true;
                 }
                 return false;
             }

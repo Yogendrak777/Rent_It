@@ -26,8 +26,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/signin_page"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/logo_bg"
                 android:fontFamily="@font/poppins_bold"
                 android:paddingLeft="16dp"
                 android:paddingTop="5dp"
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/linear_layout_corners"
+                android:background="@drawable/search_card_view_bg"
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
@@ -151,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/linear_layout_corners"
+                android:background="@drawable/search_card_view_bg"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
@@ -249,7 +249,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/linear_layout_corners"
+                android:background="@drawable/search_card_view_bg"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
@@ -351,7 +351,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="60dp"
-                android:background="@drawable/linear_layout_corners"
+                android:background="@drawable/search_card_view_bg"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
@@ -452,15 +452,14 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/buttomNavigationBar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="16dp"
-        android:background="@drawable/nav_corners"
+        android:layout_height="60dp"
+        android:background="@color/white"
         android:backgroundTint="@color/white"
         app:itemIconSize="30dp"
         app:itemIconTint="@drawable/nav_item_selector"
         app:itemTextColor="@color/black"
         android:textAlignment="center"
-        app:labelVisibilityMode="unlabeled"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
