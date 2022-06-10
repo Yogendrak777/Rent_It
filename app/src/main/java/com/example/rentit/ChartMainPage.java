@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ChartMainPage extends AppCompatActivity {
@@ -86,7 +87,7 @@ public class ChartMainPage extends AppCompatActivity {
                         if(personInfoRvModel1.getUserId().equals(id)){
                             if(mpersonInfoRvModels.size() != 0){
                                 for(personInfoRvModel personInfoRvModel11 :mpersonInfoRvModels){
-                                    if(!personInfoRvModel11.getUserId().equals(personInfoRvModel11.getUserId())){
+                                    if(!personInfoRvModel1.getUserId().equals(personInfoRvModel11.getUserId())){
                                         mpersonInfoRvModels.add(personInfoRvModel1);
                                     }
                                 }
@@ -96,7 +97,7 @@ public class ChartMainPage extends AppCompatActivity {
                         }
                     }
                 }
-                userAdapter = new UserAdapter(getApplicationContext(),mpersonInfoRvModels);
+                userAdapter = new UserAdapter(getApplicationContext(),mpersonInfoRvModels,true);
                 recyclerView.setAdapter(userAdapter);
             }
 
@@ -105,5 +106,23 @@ public class ChartMainPage extends AppCompatActivity {
 
             }
         });
+    }
+    private void status(String stasus){
+        databaseReference = FirebaseDatabase.getInstance().getReference("RentIt").child("RentBy").child(firebaseUser.getUid());
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("Status",stasus);
+        databaseReference.updateChildren(map);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        status("online");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        status("offline");
     }
 }

@@ -47,6 +47,7 @@ public class signUpPage extends AppCompatActivity {
         Upassword = findViewById(R.id.password);
         Uconfirmpassword = findViewById(R.id.conformPassword);
         progressBar = findViewById(R.id.progress);
+
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("RentIt").child("RentBy");
@@ -87,6 +88,8 @@ public class signUpPage extends AppCompatActivity {
                         map.put("userPhoneDb",UserPhone);
                         map.put("UserId",userId);
                         map.put("UserPass",UserPassword);
+                        map.put("Status","offline");
+                        map.put("UserIMage",null);
 
                         databaseReference.addValueEventListener(new ValueEventListener() {
                             @Override

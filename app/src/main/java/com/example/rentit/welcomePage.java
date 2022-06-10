@@ -35,7 +35,7 @@ public class welcomePage extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(welcomePage.this,loginPage.class));
+                startActivity(new Intent(welcomePage.this,loginPage.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 finish();
             }
         },1000);

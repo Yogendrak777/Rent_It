@@ -128,4 +128,22 @@ public class ChartActivity extends AppCompatActivity {
             }
         });
     }
+    private void status(String stasus){
+        databaseReference = FirebaseDatabase.getInstance().getReference("RentIt").child("RentBy").child(firebaseUser.getUid());
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("Status",stasus);
+        databaseReference.updateChildren(map);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        status("online");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        status("offline");
+    }
 }

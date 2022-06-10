@@ -95,14 +95,6 @@ public class AccountPage extends AppCompatActivity {
         databaseReference1 = firebaseDatabase.getReference("RentIt").child("RentBy");
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                firebaseAuth.signOut();
-                startActivity(new Intent(AccountPage.this,welcomePage.class));
-                finish();
-            }
-        });
 
         databaseReference1.addValueEventListener(new ValueEventListener() {
             @Override
@@ -144,6 +136,15 @@ public class AccountPage extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firebaseAuth.signOut();
+                startActivity(new Intent(AccountPage.this,welcomePage.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                finish();
             }
         });
 

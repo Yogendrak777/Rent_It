@@ -23,6 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity{
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity{
     ProgressBar progressBar;
     BottomNavigationView bottomNavigationView;
     TextView userName;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,8 @@ public class MainActivity extends AppCompatActivity{
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("RentIt").child("RentBy");
-        FirebaseUser user = firebaseAuth.getCurrentUser();
+        //FirebaseUser user = firebaseAuth.getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -90,9 +94,6 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-
     }
-
-
 
 }

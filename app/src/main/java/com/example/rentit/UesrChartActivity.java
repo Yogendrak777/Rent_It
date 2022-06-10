@@ -55,7 +55,7 @@ public class UesrChartActivity extends AppCompatActivity {
                     }
 
                 }
-                userAdapter = new UserAdapter(UesrChartActivity.this,personInfoRvModelList);
+                userAdapter = new UserAdapter(UesrChartActivity.this,personInfoRvModelList,false);
                 recyclerView.setAdapter(userAdapter);
             }
 
