@@ -66,7 +66,7 @@ public class RvAdapter1 extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter1.
         holder.Prise.setText("\u20B9"+" "+model.getHousePrise() +" /month");
         holder.Area.setText(model.getHouseArea());
 
-        StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+model.getHouseUrl2());
+        StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+model.getHouseUrl1());
         try {
             File file = File.createTempFile("randomKey","");
             storageReference1.getFile(file)
@@ -94,7 +94,7 @@ public class RvAdapter1 extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter1.
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
                         .setContentHolder(new ViewHolder(R.layout.activity_house_info5))
-                        .setExpanded(true, 2400)
+                        .setExpanded(true, 2200)
                         .create();
                 View view = dialogPlus.getHolderView();
                 FirebaseDatabase firebaseDatabase;
