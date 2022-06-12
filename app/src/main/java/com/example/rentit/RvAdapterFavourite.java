@@ -1,9 +1,7 @@
 package com.example.rentit;
 
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,17 +19,13 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 import com.squareup.picasso.Picasso;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.myViewHolder> {
+public class RvAdapterFavourite extends FirebaseRecyclerAdapter<houseRvModel,RvAdapterFavourite.myViewHolder> {
 
     CardView chart;
     FirebaseDatabase firebaseDatabase;
@@ -40,20 +34,18 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
     public static String currentUser;
 
 
-    int i = 0;
-
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
      * {@link FirebaseRecyclerOptions} for configuration options.
      *
      * @param options
      */
-    public RvAdapter(@NonNull FirebaseRecyclerOptions<houseRvModel> options) {
+    public RvAdapterFavourite(@NonNull FirebaseRecyclerOptions<houseRvModel> options) {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull houseRvModel model) {
+    protected void onBindViewHolder(@NonNull RvAdapterFavourite.myViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull houseRvModel model) {
         holder.Address.setText(model.getHouseBHK() + ", " + model.getHouseAddress());
         holder.Prise.setText("\u20B9" + " " + model.getHousePrise() + " /month");
         holder.Area.setText(model.getHouseArea());
@@ -65,12 +57,25 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 .error(R.drawable.ic_baseline_account_circle_24)
                 .into(holder.img);
 
+        holder.Del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseDatabase.getInstance().getReference().child("RentIt").child("Favourite")
+                        .child(getRef(position).getKey()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(holder.Address.getContext(), "Item Removed", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }
+        });
+
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
-                        .setContentHolder(new ViewHolder(R.layout.details_page))
+                        .setContentHolder(new ViewHolder(R.layout.favourite_adapter_item))
                         .setExpanded(true, 2700)
                         .create();
 
@@ -90,9 +95,10 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 TextView Dfamily = view.findViewById(R.id.DFamily);
                 TextView Dwater = view.findViewById(R.id.Dwater);
                 chart = view.findViewById(R.id.chart);
-                ImageButton favOn;
 
-                favOn = view.findViewById(R.id.favOn);
+                ImageButton Del;
+
+                Del = view.findViewById(R.id.delete);
 
 
                 ImageView img1 = view.findViewById(R.id.objImg1);
@@ -140,6 +146,7 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 Picasso.get().load(model.getHouseUrl3()).into(img3);
                 Picasso.get().load(model.getHouseUrl4()).into(img4);
 
+
                 chart.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -147,82 +154,6 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                         intent.putExtra("UserId", model.getOwnerUId());
                         img1.getContext().startActivity(intent);
                     }
-                });
-
-                favOn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        i++;
-//                        firebaseAuth = FirebaseAuth.getInstance();
-//                                    firebaseDatabase = FirebaseDatabase.getInstance();
-//                                    databaseReference = firebaseDatabase.getReference("RentIt").child("Favourite");
-//                        databaseReference.removeValue();
-
-                        Handler handler = new Handler();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                if(i==2) {
-                                    firebaseAuth = FirebaseAuth.getInstance();
-                                    firebaseDatabase = FirebaseDatabase.getInstance();
-                                    databaseReference = firebaseDatabase.getReference("RentIt").child("RentBy");
-                                    FirebaseUser user = firebaseAuth.getCurrentUser();
-                                    currentUser = user.getEmail();
-
-
-                                    Map<String, Object> map = new HashMap<>();
-                                    map.put("currentUsers", currentUser);;
-                                    map.put("houseArea",model.getHouseArea());
-                                    map.put("houseSqFt",model.getHouseSqFt());
-                                    map.put("houseBHK",model.getHouseBHK());
-                                    map.put("housePrise",model.getHousePrise());
-                                    map.put("houseUrl1",model.getHouseUrl1());
-                                    map.put("houseOwnerName",model.getHouseOwnerName());
-                                    map.put("OwnerEmail",model.getOwnerEmail());
-                                    map.put("HouseBillUrl",model.getHouseBillUrl());
-                                    map.put("HouseDescription",model.getHouseDescription());
-                                    map.put("NearHospitalName",model.getNearHospitalName());
-                                    map.put("NearMallsName",model.getNearMallsName());
-                                    map.put("NearSchoolName",model.getNearSchoolName());
-                                    map.put("hospitalDistance",model.getHospitalDistance());
-                                    map.put("houseAdvance",model.getHouseAdvance());
-                                    map.put("houseBathroom",model.getHouseBathroom());
-                                    map.put("houseFacing",model.getHouseFacing());
-                                    map.put("houseFloor",model.getHouseFloor());
-                                    map.put("houseFoodPrefer",model.getHouseFoodPrefer());
-                                    map.put("houseParking",model.getHouseParking());
-                                    map.put("housePetPrefer",model.getHousePetPrefer());
-                                    map.put("ownerUId",model.getOwnerUId());
-                                    map.put("housePhoneNo",model.getHousePhoneNo());
-                                    map.put("housePrefer",model.getHousePrefer());
-                                    map.put("houseUrl2",model.getHouseUrl2());
-                                    map.put("houseUrl3",model.getHouseUrl3());
-                                    map.put("houseUrl4",model.getHouseUrl4());
-                                    map.put("houseWaterSupply",model.getHouseWaterSupply());
-                                    map.put("mallDistance",model.getMallDistance());
-                                    map.put("nearPetrolBunkDistance",model.getNearPetrolBunkDistance());
-                                    map.put("nearbusStopDistance",model.getNearbusStopDistance());
-                                    map.put("schoolDistance",model.getSchoolDistance());
-                                    map.put("houseAddress",model.getHouseAddress());
-                                    map.put("type","HOUSE");
-
-
-                                    assert currentUser != null;
-                                    FirebaseDatabase.getInstance().getReference().child("RentIt").child("Favourite")
-                                            .push().setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void unused) {
-                                                    Toast.makeText(Daddress.getContext(), "Item Added to Favourite list", Toast.LENGTH_SHORT).show();
-                                                }
-                                            });
-
-                               }
-                                    i = 0;
-                                }
-                        },1000);
-
-                        }
-
                 });
 
                 dialogPlus.show();
@@ -236,8 +167,8 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
 
     @NonNull
     @Override
-    public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.house_rv_item,parent,false);
+    public RvAdapterFavourite.myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.favourite_item,parent,false);
         return new myViewHolder(view);
     }
 
@@ -247,20 +178,23 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
         ImageView img;
         TextView Address,Prise,Area;
         CardView cardView;
+        ImageButton Del;
+
 
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
 
-           // img = (CircleImageView)itemView.findViewById(R.id.objImg);
+            // img = (CircleImageView)itemView.findViewById(R.id.objImg);
             img = (ImageView)itemView.findViewById(R.id.objImg);
             Address = (TextView) itemView.findViewById(R.id.ObjName);
             Prise = (TextView) itemView.findViewById(R.id.ObjPrise);
             Area = (TextView)itemView.findViewById(R.id.ObjArea);
 
+            Del = itemView.findViewById(R.id.delete);
 
 
-           cardView = (CardView)itemView.findViewById(R.id.card1);
+            cardView = (CardView)itemView.findViewById(R.id.card1);
 
 
 

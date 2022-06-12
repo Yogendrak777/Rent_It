@@ -1,20 +1,8 @@
 package com.example.rentit;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
-
-import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -27,8 +15,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.google.android.gms.auth.api.signin.internal.Storage;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -44,7 +39,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
@@ -53,7 +47,7 @@ import java.util.UUID;
 
 public class AccountPage extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
-    CardView myCart,AddItem,MyPay,logOut;
+    CardView myCart,AddItem,Fav,logOut,ChartUs;
     TextView NameT;
     //EmailT,PhoneNoT;
     //String PhoneNoT;
@@ -78,7 +72,7 @@ public class AccountPage extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.buttomNavigationBar);
         myCart = (CardView)findViewById(R.id.MyCart);
         AddItem = (CardView)findViewById(R.id.RentItem);
-        MyPay = (CardView)findViewById(R.id.Mypay);
+        Fav = (CardView)findViewById(R.id.Fav);
         NameT = (TextView)findViewById(R.id.Name);
         logOut = (CardView)findViewById(R.id.logOut);
         //EmailT = (TextView)findViewById(R.id.Email);
@@ -89,6 +83,7 @@ public class AccountPage extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.menuAccount);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
+       ChartUs = findViewById(R.id.chartUs);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -148,10 +143,19 @@ public class AccountPage extends AppCompatActivity {
             }
         });
 
-        MyPay.setOnClickListener(new View.OnClickListener() {
+        Fav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AccountPage.this,PayMentPage.class));
+                startActivity(new Intent(AccountPage.this,Favourite.class));
+            }
+        });
+
+        ChartUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AccountPage.this, ChartActivity.class);
+                intent.putExtra("UserId", "hSPtoSo5B2esv6lMQXFWZgqokUX2");
+                startActivity(intent);
             }
         });
 

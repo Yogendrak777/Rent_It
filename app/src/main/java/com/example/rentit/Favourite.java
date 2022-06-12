@@ -13,10 +13,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class CartPage extends AppCompatActivity {
+public class Favourite extends AppCompatActivity {
 
     RecyclerView recyclerView1, recyclerView2;
-    RvAdapter1 rvAdapter1;
+    RvAdapterFavourite rvAdapter1;
     carRvAdapter CarRvAdapter;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -28,8 +28,7 @@ public class CartPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cart_page);
-
+        setContentView(R.layout.activity_favourite);
 
         Toast.makeText(this, "Please wait...", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "data is Loading...", Toast.LENGTH_SHORT).show();
@@ -42,20 +41,19 @@ public class CartPage extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("RentIt").child("RentBy");
         FirebaseUser user = firebaseAuth.getCurrentUser();
+        assert user != null;
         email = user.getEmail();
-
 
 
 
 
         FirebaseRecyclerOptions<houseRvModel> options =
                 new FirebaseRecyclerOptions.Builder<houseRvModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("house"), houseRvModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Favourite"), houseRvModel.class)
                         .build();
 
 
-
-        rvAdapter1 = new RvAdapter1(options);
+        rvAdapter1 = new RvAdapterFavourite(options);
         recyclerView1.setAdapter(rvAdapter1);
 
         FirebaseRecyclerOptions<carRvModel> options1 =
@@ -87,10 +85,10 @@ public class CartPage extends AppCompatActivity {
     public void txtSearch(String str) {
         FirebaseRecyclerOptions<houseRvModel> options =
                 new FirebaseRecyclerOptions.Builder<houseRvModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("house").orderByChild("OwnerEmail").startAt(str).endAt(str + "~"), houseRvModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Favourite").orderByChild("currentUsers").startAt(str).endAt(str + "~"), houseRvModel.class)
                         .build();
 
-        rvAdapter1 = new RvAdapter1(options);
+        rvAdapter1 = new RvAdapterFavourite(options);
         rvAdapter1.startListening();
 
         recyclerView1.setAdapter(rvAdapter1);

@@ -15,9 +15,12 @@
         <entry key="app/src/main/res/drawable/ic_baseline_bubble_chart_24.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_baseline_build_circle_24.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_baseline_crisis_alert_24.xml" value="0.174" />
+        <entry key="app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.1835" />
         <entry key="app/src/main/res/drawable/ic_baseline_electric_bike_24.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_baseline_family.xml" value="0.174" />
+        <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_baseline_favorite_off.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_baseline_password_24.xml" value="0.1705" />
@@ -52,6 +55,7 @@
         <entry key="app/src/main/res/layout/activity_chart_main_page.xml" value="0.2677083333333333" />
         <entry key="app/src/main/res/layout/activity_cloth_rv_continer.xml" value="0.2677083333333333" />
         <entry key="app/src/main/res/layout/activity_display_content_page.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_favourite.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_forgot_password_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_hart_main_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_house_info1.xml" value="0.2677083333333333" />
@@ -61,6 +65,7 @@
         <entry key="app/src/main/res/layout/activity_house_info5.xml" value="0.2607929515418502" />
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.2780441227977887" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2546875" />
+        <entry key="app/src/main/res/layout/activity_pay_ment_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_search_item_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_sign_up_page.xml" value="0.2659392425979393" />
         <entry key="app/src/main/res/layout/activity_speaker_rv_container.xml" value="0.2677083333333333" />
@@ -78,6 +83,8 @@
         <entry key="app/src/main/res/layout/cloth_detail_page.xml" value="0.26171529619805484" />
         <entry key="app/src/main/res/layout/cloth_rv_item.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/details_page.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/favourite_adapter_item.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/favourite_item.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/house_rv_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/rv_item.xml" value="0.25" />

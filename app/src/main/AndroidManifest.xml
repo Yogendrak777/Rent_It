@@ -18,6 +18,9 @@
         android:theme="@style/Theme.RentIt"
         tools:targetApi="31">
         <activity
+            android:name=".Favourite"
+            android:exported="false" />
+        <activity
             android:name=".UesrChartActivity"
             android:exported="false" />
         <activity

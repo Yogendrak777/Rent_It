@@ -34,11 +34,13 @@ public class houseRvModel {
     String houseUrl1;
     String type;
     String ownerUId;
+    String HouseFav;
+    String currentUsers;
 
     public houseRvModel() {
     }
 
-    public houseRvModel(String ownerEmail, String houseBillUrl, String houseDescription, String nearHospitalName, String nearMallsName, String nearSchoolName, String hospitalDistance, String houseArea, String houseSqFt, String houseAdvance, String houseBathroom, String houseFacing, String houseFloor, String houseFoodPrefer, String houseOwnerName, String houseParking, String housePetPrefer, String housePhoneNo, String housePrefer, String houseUrl2, String houseUrl3, String houseUrl4, String houseWaterSupply, String mallDistance, String nearPetrolBunkDistance, String nearbusStopDistance, String schoolDistance, String houseAddress, String houseBHK, String housePrise, String houseUrl1, String type,String ownerUId) {
+    public houseRvModel(String ownerEmail, String houseBillUrl, String houseDescription, String nearHospitalName, String nearMallsName, String nearSchoolName, String hospitalDistance, String houseArea, String houseSqFt, String houseAdvance, String houseBathroom, String houseFacing, String houseFloor, String houseFoodPrefer, String houseOwnerName, String houseParking, String housePetPrefer, String housePhoneNo, String housePrefer, String houseUrl2, String houseUrl3, String houseUrl4, String houseWaterSupply, String mallDistance, String nearPetrolBunkDistance, String nearbusStopDistance, String schoolDistance, String houseAddress, String houseBHK, String housePrise, String houseUrl1, String type,String ownerUId,String houseFav,String currentUser) {
         OwnerEmail = ownerEmail;
         HouseBillUrl = houseBillUrl;
         HouseDescription = houseDescription;
@@ -72,10 +74,29 @@ public class houseRvModel {
         this.houseUrl1 = houseUrl1;
         this.type = type;
         this.ownerUId = ownerUId;
+        HouseFav = houseFav;
+        this.currentUsers = currentUser;
+
+    }
+
+    public String getCurrentUsers() {
+        return currentUsers;
+    }
+
+    public void setCurrentUser(String currentUser) {
+        this.currentUsers = currentUser;
     }
 
     public String getOwnerUId() {
         return ownerUId;
+    }
+
+    public String getHouseFav() {
+        return HouseFav;
+    }
+
+    public void setHouseFav(String houseFav) {
+        HouseFav = houseFav;
     }
 
     public void setOwnerUId(String ownerUId) {
