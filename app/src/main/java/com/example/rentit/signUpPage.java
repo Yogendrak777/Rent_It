@@ -83,7 +83,6 @@ public class signUpPage extends AppCompatActivity {
                         map.put("userNameDb",UserName);
                         map.put("userPhoneDb",UserPhone);
                         map.put("UserId",userId);
-                        map.put("UserPass",UserPassword);
                         map.put("Status","offline");
                         map.put("UserIMage","");
 

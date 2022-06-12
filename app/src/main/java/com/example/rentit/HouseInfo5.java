@@ -1,10 +1,8 @@
 package com.example.rentit;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,8 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -25,10 +25,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 public class HouseInfo5 extends AppCompatActivity {
@@ -37,12 +40,16 @@ public class HouseInfo5 extends AppCompatActivity {
     DatabaseReference databaseReference1;
     FirebaseAuth firebaseAuth;
 
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
+
     EditText Name1,Address1,Advance1,Rent1,SqFt1,Area1,MallName1,HospitalName1,SchoolName1,Desc1;
     ImageView img1,img2,img3,img4;
     String parking1,BHK1,WATER1,FLOOR1,FACING1,BATHROOMS1,FAMILY1,FOOD1,PET1,OwnerNo;
     Spinner MallDis1,SchoolDis1,HospitalDis1,FuelDis1,BusDis1;
     String MallDistance,SchoolDistance,HospitalDistance,FuelDistance,BusDistance;
     Button Upload;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +65,9 @@ public class HouseInfo5 extends AppCompatActivity {
         SchoolName1 = (EditText)findViewById(R.id.SchoolName);
         HospitalName1 = (EditText)findViewById(R.id.HospitalName);
         Desc1 = (EditText)findViewById(R.id.houseDesc);
+
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
 
         Spinner park = (Spinner) findViewById(R.id.ParkingSpinner);
         Spinner bhk = (Spinner) findViewById(R.id.BhkSpinner);
@@ -79,6 +89,8 @@ public class HouseInfo5 extends AppCompatActivity {
         img2 = (ImageView)findViewById(R.id.objImg2);
         img3 = (ImageView)findViewById(R.id.objImg3);
         img4 = (ImageView)findViewById(R.id.objImg4);
+
+
 
         Upload = (Button)findViewById(R.id.Upload) ;
 
@@ -124,15 +136,8 @@ public class HouseInfo5 extends AppCompatActivity {
         SchoolName1.setText(SchoolName);
         MallName1.setText(MallName);
         HospitalName1.setText(HospitalName);
-//        img1.setImageURI(Uri.parse(ImgUrl1));
-//        img2.setImageURI(Uri.parse(ImgUrl2));
-//        img3.setImageURI(Uri.parse(ImgUrl3));
-//        img4.setImageURI(Uri.parse(ImgUrl4));
 
-        Picasso.get().load(ImgUrl1).into(img1);
-        Picasso.get().load(ImgUrl2).into(img2);
-        Picasso.get().load(ImgUrl3).into(img3);
-        Picasso.get().load(ImgUrl4).into(img4);
+
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.parking, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -404,6 +409,44 @@ public class HouseInfo5 extends AppCompatActivity {
                 for(DataSnapshot ds : snapshot.getChildren()){
                     if(ds.child("userEmailDb").getValue().equals(user.getEmail())){
                          OwnerNo = ds.child("userPhoneDb").getValue(String.class);
+
+                        StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+ImgUrl1);
+                        StorageReference storageReference2 = FirebaseStorage.getInstance().getReference("images/"+ImgUrl2);
+                        StorageReference storageReference3 = FirebaseStorage.getInstance().getReference("images/"+ImgUrl3);
+                        StorageReference storageReference4 = FirebaseStorage.getInstance().getReference("images/"+ImgUrl4);
+                        try {
+                            File file1 = File.createTempFile("randomKey","");
+                            File file2 = File.createTempFile("randomKey","");
+                            File file3 = File.createTempFile("randomKey","");
+                            File file4 = File.createTempFile("randomKey","");
+                            storageReference1.getFile(file1);
+                            storageReference2.getFile(file2);
+                            storageReference3.getFile(file3);
+                            storageReference4.getFile(file4)
+                                    .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                        @Override
+                                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                            Toast.makeText(HouseInfo5.this, "please wait", Toast.LENGTH_SHORT).show();
+                                            Bitmap bitmap1 = BitmapFactory.decodeFile(file1.getAbsolutePath());
+                                            Bitmap bitmap2 = BitmapFactory.decodeFile(file2.getAbsolutePath());
+                                            Bitmap bitmap3 = BitmapFactory.decodeFile(file3.getAbsolutePath());
+                                            Bitmap bitmap4 = BitmapFactory.decodeFile(file4.getAbsolutePath());
+                                            img1.setImageBitmap(bitmap1);
+                                            img2.setImageBitmap(bitmap2);
+                                            img3.setImageBitmap(bitmap3);
+                                            img4.setImageBitmap(bitmap4);
+
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(HouseInfo5.this, "Image can't Retrieve", Toast.LENGTH_SHORT).show();
+
+                                        }
+                                    });
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
 
@@ -414,6 +457,8 @@ public class HouseInfo5 extends AppCompatActivity {
 
             }
         });
+
+
 
         Upload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -470,7 +515,7 @@ public class HouseInfo5 extends AppCompatActivity {
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(HouseInfo5.this, "Data Upload Failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(HouseInfo5.this, "Data Upload Failed"+ e, Toast.LENGTH_SHORT).show();
 
                             }
                         });

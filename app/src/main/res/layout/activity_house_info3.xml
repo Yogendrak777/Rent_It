@@ -31,8 +31,8 @@
 
         <ImageView
             android:id="@+id/objImg1"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:src="@mipmap/ic_launcher"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp"
@@ -50,10 +50,23 @@
             android:gravity="center"
             android:layout_margin="3dp"/>
 
+        <TextView
+            android:id="@+id/img_save_btn"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:background="@drawable/next_button"
+            android:padding="3dp"
+            android:text="Save"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
         <ImageView
             android:id="@+id/objImg2"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:src="@mipmap/ic_launcher"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp"
@@ -71,11 +84,23 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_margin="3dp"/>
+        <TextView
+            android:id="@+id/img_save_btn1"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:background="@drawable/next_button"
+            android:padding="3dp"
+            android:text="Save"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/objImg3"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:src="@mipmap/ic_launcher"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp"
@@ -95,10 +120,23 @@
             android:gravity="center"
             android:layout_margin="3dp"/>
 
+        <TextView
+            android:id="@+id/img_save_btn2"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:background="@drawable/next_button"
+            android:padding="3dp"
+            android:text="Save"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
         <ImageView
             android:id="@+id/objImg4"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
             android:layout_marginTop="25dp"
             android:src="@mipmap/ic_launcher"
             app:civ_border_color="#FF000000"
@@ -116,6 +154,18 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_margin="3dp"/>
+        <TextView
+            android:id="@+id/img_save_btn3"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:background="@drawable/next_button"
+            android:padding="3dp"
+            android:text="Save"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -132,19 +182,31 @@
 
         <ImageView
             android:id="@+id/objImgBill"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
             android:src="@mipmap/ic_launcher"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp"
             android:layout_gravity="center"
             android:layout_margin="15dp"/>
+        <TextView
+            android:id="@+id/img_save_btn4"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:background="@drawable/next_button"
+            android:padding="3dp"
+            android:text="Save"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="25dp">
 
             <Button

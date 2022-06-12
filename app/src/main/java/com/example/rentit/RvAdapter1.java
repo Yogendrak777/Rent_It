@@ -1,6 +1,8 @@
 package com.example.rentit;
 
 import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +19,6 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -25,10 +26,14 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
-import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,33 +66,41 @@ public class RvAdapter1 extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter1.
         holder.Prise.setText("\u20B9"+" "+model.getHousePrise() +" /month");
         holder.Area.setText(model.getHouseArea());
 
-        Glide.with(holder.img.getContext())
-                .load(model.getHouseUrl1())
-                .placeholder(R.drawable.com_logo)
-                // .circleCrop()
-                .error(R.drawable.ic_baseline_account_circle_24)
-                .into(holder.img);
+        StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+model.getHouseUrl2());
+        try {
+            File file = File.createTempFile("randomKey","");
+            storageReference1.getFile(file)
+                    .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                            Toast.makeText(holder.img.getContext(), "please wait", Toast.LENGTH_SHORT).show();
+                            Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+                            holder.img.setImageBitmap(bitmap);
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(holder.img.getContext(), "Image can't Retrieve", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
                         .setContentHolder(new ViewHolder(R.layout.activity_house_info5))
-                        .setExpanded(true, 2700)
+                        .setExpanded(true, 2400)
                         .create();
                 View view = dialogPlus.getHolderView();
                 FirebaseDatabase firebaseDatabase;
                 DatabaseReference databaseReference1;
                 FirebaseAuth firebaseAuth;
 
-
-
-//                EditText Name1,Address1,Advance1,Rent1,SqFt1,Area1,MallName1,HospitalName1,SchoolName1,Desc1;
-//                ImageView img1,img2,img3,img4;
-//                String parking1,BHK1,WATER1,FLOOR1,FACING1,BATHROOMS1,FAMILY1,FOOD1,PET1,OwnerNo;
-//                Spinner MallDis1,SchoolDis1,HospitalDis1,FuelDis1,BusDis1;
-//                String MallDistance,SchoolDistance,HospitalDistance,FuelDistance,BusDistance;
-//                Button Upload;
 
                 Name1 = (EditText)view.findViewById(R.id.Name);
                 Address1 = (EditText)view.findViewById(R.id.Address);
@@ -135,10 +148,45 @@ public class RvAdapter1 extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter1.
                 MallName1.setText(model.getNearMallsName());
                 HospitalName1.setText(model.NearHospitalName);
 
-                Picasso.get().load(model.getHouseUrl1()).into(img1);
-                Picasso.get().load(model.getHouseUrl2()).into(img2);
-                Picasso.get().load(model.getHouseUrl3()).into(img3);
-                Picasso.get().load(model.getHouseUrl4()).into(img4);
+
+                StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+model.getHouseUrl1());
+                StorageReference storageReference2 = FirebaseStorage.getInstance().getReference("images/"+model.getHouseUrl2());
+                StorageReference storageReference3 = FirebaseStorage.getInstance().getReference("images/"+model.getHouseUrl3());
+                StorageReference storageReference4 = FirebaseStorage.getInstance().getReference("images/"+model.getHouseUrl4());
+                try {
+                    File file1 = File.createTempFile("randomKey","");
+                    File file2 = File.createTempFile("randomKey","");
+                    File file3 = File.createTempFile("randomKey","");
+                    File file4 = File.createTempFile("randomKey","");
+                    storageReference1.getFile(file1);
+                    storageReference2.getFile(file2);
+                    storageReference3.getFile(file3);
+                    storageReference4.getFile(file4)
+                            .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                    Toast.makeText(img1.getContext(), "please wait", Toast.LENGTH_SHORT).show();
+                                    Bitmap bitmap1 = BitmapFactory.decodeFile(file1.getAbsolutePath());
+                                    Bitmap bitmap2 = BitmapFactory.decodeFile(file2.getAbsolutePath());
+                                    Bitmap bitmap3 = BitmapFactory.decodeFile(file3.getAbsolutePath());
+                                    Bitmap bitmap4 = BitmapFactory.decodeFile(file4.getAbsolutePath());
+                                    img1.setImageBitmap(bitmap1);
+                                    img2.setImageBitmap(bitmap2);
+                                    img3.setImageBitmap(bitmap3);
+                                    img4.setImageBitmap(bitmap4);
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(img1.getContext(), "Image can't Retrieve", Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
 
 
                 ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(park.getContext(), R.array.parking, android.R.layout.simple_spinner_item);
@@ -419,7 +467,6 @@ public class RvAdapter1 extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter1.
                         map.put("houseFoodPrefer",FOOD1);
                         map.put("houseParking",parking1);
                         map.put("housePetPrefer",PET1);
-                        //map.put("housePhoneNo",OwnerNo);
                         map.put("housePrefer",FAMILY1);
 //                        map.put("houseUrl2",ImgUrl2);
 //                        map.put("houseUrl3",ImgUrl3);

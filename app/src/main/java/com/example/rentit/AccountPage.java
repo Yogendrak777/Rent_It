@@ -40,6 +40,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -52,6 +53,7 @@ public class AccountPage extends AppCompatActivity {
     //EmailT,PhoneNoT;
     //String PhoneNoT;
     ImageView profileImg;
+    byte[] imageByte;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference1;
@@ -217,7 +219,10 @@ public class AccountPage extends AppCompatActivity {
                 if(imageUpdated == 0){
                     Toast.makeText(view.getContext(), "Change the Photo to Update", Toast.LENGTH_SHORT).show();
                 } else {
-                    upload_profile_img();
+
+                    upload_profile_img(imageByte);
+
+
                     HashMap<String,Object> map1 = new HashMap<>();
                     map1.put("UserIMage",randomKey);
 
@@ -243,13 +248,13 @@ public class AccountPage extends AppCompatActivity {
         });
     }
 
-    private void upload_profile_img(){
+    private void upload_profile_img(byte[] imageByte){
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setTitle("Uploading Image...");
         pd.show();
        // final String randomKey = UUID.randomUUID().toString();
         StorageReference storageReference = this.storageReference.child("images/"+randomKey);
-        storageReference.putFile(imgURI)
+        storageReference.putBytes(imageByte)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -280,7 +285,17 @@ public class AccountPage extends AppCompatActivity {
                     if(result.getResultCode() == Activity.RESULT_OK){
                         Intent data = result.getData();
                         imgURI = data.getData();
-                        profileImg.setImageURI(data.getData());
+                        try {
+                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imgURI);
+                            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG,25,stream);
+                            profileImg.setImageBitmap(bitmap);
+                            imageByte = stream.toByteArray();
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                       // profileImg.setImageURI(data.getData());
                     }
                 }
             }
