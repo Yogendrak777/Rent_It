@@ -1,22 +1,30 @@
 package com.example.rentit;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
-import com.squareup.picasso.Picasso;
+
+import java.io.File;
+import java.io.IOException;
 
 public class carRvAdapter extends FirebaseRecyclerAdapter<carRvModel,carRvAdapter.myViewHolder> {
 
@@ -37,19 +45,35 @@ public class carRvAdapter extends FirebaseRecyclerAdapter<carRvModel,carRvAdapte
         holder.CarFuel.setText(model.getCarFuel());
         holder.CarArea.setText(model.getCarArea());
 
-        Glide.with(holder.imgOfCar.getContext())
-                .load(model.getCarUrl1())
-                .placeholder(R.drawable.com_logo)
-                // .circleCrop()
-                .error(R.drawable.ic_baseline_account_circle_24)
-                .into(holder.imgOfCar);
+        StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+model.getCarUrl());
+        try {
+            File file = File.createTempFile("randomKey","");
+            storageReference1.getFile(file)
+                    .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                            Toast.makeText(holder.imgOfCar.getContext(), "please wait", Toast.LENGTH_SHORT).show();
+                            Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+                            holder.imgOfCar.setImageBitmap(bitmap);
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(holder.imgOfCar.getContext(), "Image can't Retrieve", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.imgOfCar.getContext())
                         .setContentHolder(new ViewHolder(R.layout.car_details_page))
-                        .setExpanded(true, 2700)
+                        .setExpanded(true, 2100)
                         .create();
 
                 View view = dialogPlus.getHolderView();
@@ -88,10 +112,50 @@ public class carRvAdapter extends FirebaseRecyclerAdapter<carRvModel,carRvAdapte
                 DlastService.setText(model.getCarServiceDate());
                 DcarDes.setText(model.getCarDescription());
 
-                Picasso.get().load(model.getCarUrl()).into(imgC1);
-                Picasso.get().load(model.getCarUrl1()).into(imgC2);
-                Picasso.get().load(model.getCarUrl2()).into(imgC3);
-                Picasso.get().load(model.getCarUrl3()).into(imgC4);
+                StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+model.getCarUrl());
+                StorageReference storageReference2 = FirebaseStorage.getInstance().getReference("images/"+model.getCarUrl1());
+                StorageReference storageReference3 = FirebaseStorage.getInstance().getReference("images/"+model.getCarUrl2());
+                StorageReference storageReference4 = FirebaseStorage.getInstance().getReference("images/"+model.getCarUrl3());
+                try {
+                    File file1 = File.createTempFile("randomKey","");
+                    File file2 = File.createTempFile("randomKey","");
+                    File file3 = File.createTempFile("randomKey","");
+                    File file4 = File.createTempFile("randomKey","");
+                    storageReference1.getFile(file1);
+                    storageReference2.getFile(file2);
+                    storageReference3.getFile(file3);
+                    storageReference4.getFile(file4)
+                            .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                    Toast.makeText(DAirBag.getContext(), "please wait", Toast.LENGTH_SHORT).show();
+                                    Bitmap bitmap1 = BitmapFactory.decodeFile(file1.getAbsolutePath());
+                                    Bitmap bitmap2 = BitmapFactory.decodeFile(file2.getAbsolutePath());
+                                    Bitmap bitmap3 = BitmapFactory.decodeFile(file3.getAbsolutePath());
+                                    Bitmap bitmap4 = BitmapFactory.decodeFile(file4.getAbsolutePath());
+                                    imgC1.setImageBitmap(bitmap1);
+                                    imgC2.setImageBitmap(bitmap2);
+                                    imgC3.setImageBitmap(bitmap3);
+                                    imgC4.setImageBitmap(bitmap4);
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(DAirBag.getContext(), "Image can't Retrieve", Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+
+
+
+
+
 
                 dialogPlus.show();
 
@@ -110,7 +174,6 @@ public class carRvAdapter extends FirebaseRecyclerAdapter<carRvModel,carRvAdapte
     public class myViewHolder extends RecyclerView.ViewHolder{
         ImageView imgOfCar;
         TextView CarModel,CarPrise,CarArea,CarFuel;
-        Button DetailsOfCar;
         CardView cardView;
 
         public myViewHolder(@NonNull View itemView) {
@@ -124,7 +187,6 @@ public class carRvAdapter extends FirebaseRecyclerAdapter<carRvModel,carRvAdapte
             cardView = (CardView)itemView.findViewById(R.id.card);
 
 
-            DetailsOfCar = (Button)itemView.findViewById(R.id.ShowCarDetails);
 
         }
     }

@@ -1,7 +1,5 @@
 package com.example.rentit;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +7,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class CarInfo2 extends AppCompatActivity {
 
@@ -179,12 +178,13 @@ public class CarInfo2 extends AppCompatActivity {
         String Model = intent.getStringExtra("Model");
         String Area = intent.getStringExtra("Area");
         String Desc = intent.getStringExtra("Desc");
+        String Service = intent.getStringExtra("Service");
 
 
         NextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(CarInfo2.this,HouseInfo3.class);
+                Intent intent1 = new Intent(CarInfo2.this,CarInfo3.class);
                 intent1.putExtra("Name",Name);
                 intent1.putExtra("Address",Address);
                 intent1.putExtra("Advance",Advance);
@@ -201,6 +201,7 @@ public class CarInfo2 extends AppCompatActivity {
                 intent1.putExtra("FASTTAG",FASTTAG);
                 intent1.putExtra("BODYTYPE",BODYTYPE);
                 intent1.putExtra("Desc",Desc);
+                intent1.putExtra("Service",Service);
 
                 startActivity(intent1);
 

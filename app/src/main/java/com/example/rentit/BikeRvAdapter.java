@@ -3,11 +3,11 @@ package com.example.rentit;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -42,7 +42,7 @@ public class BikeRvAdapter extends FirebaseRecyclerAdapter<bikeRvModel,BikeRvAda
               .error(R.drawable.ic_baseline_account_circle_24)
               .into(holder.imgOfBike);
 
-      holder.DetailsOfBike.setOnClickListener(new View.OnClickListener() {
+      holder.cardBike.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
             final DialogPlus dialogPlus = DialogPlus.newDialog(holder.imgOfBike.getContext())
@@ -96,7 +96,7 @@ public class BikeRvAdapter extends FirebaseRecyclerAdapter<bikeRvModel,BikeRvAda
    public class myViewHolder extends RecyclerView.ViewHolder{
       ImageView imgOfBike;
       TextView BikeModel,BikePrise,BikeArea;
-      Button DetailsOfBike;
+      CardView cardBike;
 
 
       public myViewHolder(@NonNull View itemView) {
@@ -107,7 +107,7 @@ public class BikeRvAdapter extends FirebaseRecyclerAdapter<bikeRvModel,BikeRvAda
          BikePrise = (TextView) itemView.findViewById(R.id.ObjBikePrise);
          BikeArea = (TextView) itemView.findViewById(R.id.ObjBikeArea);
 
-         DetailsOfBike = (Button) itemView.findViewById(R.id.ShowBikeDetails);
+         cardBike = (CardView) itemView.findViewById(R.id.CardBike);
 
 
       }

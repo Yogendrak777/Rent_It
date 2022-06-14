@@ -113,9 +113,10 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 TextView Dwater = view.findViewById(R.id.Dwater);
                 chart = view.findViewById(R.id.chart);
                 TextView next = view.findViewById(R.id.next);
-                ImageButton favOn;
+                ImageButton favOn,share;
 
                 favOn = view.findViewById(R.id.favOn);
+                share = view.findViewById(R.id.share);
 
 
                 ImageView img1 = view.findViewById(R.id.objImg1);
@@ -202,6 +203,18 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                         intent.putExtra("UserId", model.getOwnerUId());
                         intent.putExtra("PhoneNo",model.getHousePhoneNo());
                         img1.getContext().startActivity(intent);
+
+                    }
+                });
+
+                share.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                      Intent intent = new Intent(Intent.ACTION_SEND);
+                      intent.setType("text/plain");
+                      intent.putExtra(Intent.EXTRA_SUBJECT,"House Info \n");
+                      intent.putExtra(Intent.EXTRA_TEXT,model.getHouseBHK() + "," + model.getHouseAddress() + "," + model.getHouseArea());
+                      img1.getContext().startActivity(Intent.createChooser(intent,"share Via"));
 
                     }
                 });

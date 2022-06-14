@@ -1,17 +1,16 @@
 package com.example.rentit;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class carInfo1 extends AppCompatActivity {
 
-    EditText Name,Address,Advance,Rent,Area,Desc,model;
+    EditText Name,Address,Advance,Rent,Area,Desc,model,service;
 
     Button NextButton;
 
@@ -27,8 +26,9 @@ public class carInfo1 extends AppCompatActivity {
         Rent = (EditText)findViewById(R.id.Rent);
         Area = (EditText)findViewById(R.id.Area);
         NextButton = (Button)findViewById(R.id.NextButton);
-        Desc = (EditText)findViewById(R.id.houseDesc);
+        Desc = (EditText)findViewById(R.id.CarDesc);
         model = (EditText)findViewById(R.id.modelName);
+        service = findViewById(R.id.service);
 
         NextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +42,8 @@ public class carInfo1 extends AppCompatActivity {
                 intent.putExtra("Area",Area.getText().toString().trim());
                 intent.putExtra("Desc",Desc.getText().toString().trim());
                 intent.putExtra("Model",model.getText().toString().trim());
+                intent.putExtra("Service",service.getText().toString().trim());
+
 
                 startActivity(intent);
 

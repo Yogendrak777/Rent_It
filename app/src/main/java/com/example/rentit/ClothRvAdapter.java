@@ -3,11 +3,11 @@ package com.example.rentit;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -43,7 +43,7 @@ public class ClothRvAdapter extends FirebaseRecyclerAdapter<ClothRvModel,ClothRv
                 .error(R.drawable.ic_baseline_account_circle_24)
                 .into(holder.imgOfCloth);
 
-        holder.DetailsOfCloth.setOnClickListener(new View.OnClickListener() {
+        holder.cardClot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.imgOfCloth.getContext())
@@ -103,7 +103,7 @@ public class ClothRvAdapter extends FirebaseRecyclerAdapter<ClothRvModel,ClothRv
     public class myViewHolder extends RecyclerView.ViewHolder{
         ImageView imgOfCloth;
         TextView ClothName,ClothPrise,ClothArea,ClothBrand;
-        Button DetailsOfCloth;
+        CardView cardClot;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -113,8 +113,8 @@ public class ClothRvAdapter extends FirebaseRecyclerAdapter<ClothRvModel,ClothRv
             ClothPrise = (TextView)itemView.findViewById(R.id.ObjClothPrise);
             ClothArea = (TextView)itemView.findViewById(R.id.ObjClothArea);
             ClothBrand = (TextView) itemView.findViewById(R.id.ObjClothBrand);
+            cardClot = (CardView)itemView.findViewById(R.id.CardClot);
 
-            DetailsOfCloth = (Button)itemView.findViewById(R.id.ShowClothDetails);
         }
     }
 }

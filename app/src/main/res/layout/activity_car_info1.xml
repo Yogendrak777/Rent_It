@@ -155,6 +155,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="italic"
+            android:text="Enter Last Service Date: "
+            android:textSize="20sp"
+            android:layout_marginTop="35dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <EditText
+            android:id="@+id/service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="20sp"
+            android:textAllCaps="true"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:hint="Eg: 12/07/2015"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
             android:text="Enter short Description on Car "
             android:textSize="20sp"
             android:layout_marginTop="35dp"

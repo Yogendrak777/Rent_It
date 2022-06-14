@@ -1,20 +1,20 @@
 package com.example.rentit;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SearchItemPage extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
-    CardView cardCar,CardHome;
+    CardView cardCar,CardHome,CardBike,CardSpeaker,CardSports,CardCamera,CardCloths;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +24,49 @@ public class SearchItemPage extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.buttomNavigationBar);
         cardCar = (CardView)findViewById(R.id.cardCar);
         CardHome = (CardView)findViewById(R.id.cardHome);
+        CardBike = (CardView)findViewById(R.id.bike);
+        CardCamera = (CardView)findViewById(R.id.camera);
+        CardSpeaker = (CardView)findViewById(R.id.speakers);
+        CardSports = (CardView)findViewById(R.id.sports);
+        CardCloths = (CardView)findViewById(R.id.cloths);
 
         bottomNavigationView.setSelectedItemId(R.id.menuSearch);
+
+        CardBike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SearchItemPage.this,BikeRvContainer.class));
+            }
+        });
+
+        CardCloths.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SearchItemPage.this,ClothRvContiner.class));
+            }
+        });
+
+        CardCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SearchItemPage.this,CameraDetailsPage.class));
+            }
+        });
+
+        CardSpeaker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SearchItemPage.this,SpeakerRvContainer.class));
+            }
+        });
+
+        CardSports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SearchItemPage.this,SportsRvContainer.class));
+            }
+        });
+
 
         cardCar.setOnClickListener(new View.OnClickListener() {
             @Override

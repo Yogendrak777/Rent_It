@@ -3,11 +3,11 @@ package com.example.rentit;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -42,7 +42,7 @@ public class CameraRvAdapter extends FirebaseRecyclerAdapter<CameraRvModel,Camer
                 .error(R.drawable.ic_baseline_account_circle_24)
                 .into(holder.imgOfCamera);
 
-        holder.DetailsOfCam.setOnClickListener(new View.OnClickListener() {
+        holder.cardCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.imgOfCamera.getContext())
@@ -101,7 +101,7 @@ public class CameraRvAdapter extends FirebaseRecyclerAdapter<CameraRvModel,Camer
     public class myViewHolder extends RecyclerView.ViewHolder{
         ImageView imgOfCamera;
         TextView CamModel,CamPrise,CamArea;
-        Button DetailsOfCam;
+        CardView cardCamera;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -110,8 +110,9 @@ public class CameraRvAdapter extends FirebaseRecyclerAdapter<CameraRvModel,Camer
             CamModel = (TextView) itemView.findViewById(R.id.ObjCamModel);
             CamPrise = (TextView)itemView.findViewById(R.id.ObjCamPrise);
             CamArea = (TextView) itemView.findViewById(R.id.ObjCamArea);
+            cardCamera = (CardView)itemView.findViewById(R.id.CardCamer);
 
-            DetailsOfCam = (Button)itemView.findViewById(R.id.ShowCamDetails);
+
         }
     }
 

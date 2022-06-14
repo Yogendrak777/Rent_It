@@ -29,6 +29,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/ic_baseline_settings.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/ic_baseline_settings_phone_24.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/ic_baseline_speaker_group_24.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/ic_baseline_wechat_24.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1705" />
@@ -52,6 +53,8 @@
         <entry key="app/src/main/res/layout/activity_camera_details_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_car_info1.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_car_info2.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_car_info3.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_car_info4.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_car_rv_container.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_cart_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_chart.xml" value="0.2833333333333333" />
