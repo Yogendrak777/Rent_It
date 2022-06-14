@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookEnter"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:text="Enter your Name As in Ardhar Card: "
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textStyle="italic"
+        android:hint="Eg: Shree"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:text="Enter Permanent Address: "
+        android:textSize="20sp"
+        android:layout_marginTop="35dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+
+    <EditText
+        android:id="@+id/Address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textStyle="italic"
+        android:hint="Eg: #44, 2nd cross, 3rd main road, jp nagar 7th phase, near Narayana college"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:text="Enter your in Ardhar Card No: "
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+
+    <EditText
+        android:id="@+id/ArddharNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textStyle="italic"
+        android:hint="Eg: Shree"
+        />
+
+        <ImageView
+            android:id="@+id/objImg1"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@mipmap/ic_launcher"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Photo of Ardhar"
+            android:textColor="#ff43"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="3dp"/>
+
+        <TextView
+            android:id="@+id/img_save_btn"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:background="@drawable/next_button"
+            android:padding="3dp"
+            android:text="Save"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/next"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:layout_margin="15dp"
+            android:layout_marginLeft="150dp"
+            android:background="@drawable/next_button"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</ScrollView>

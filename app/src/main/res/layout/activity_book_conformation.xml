@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookConformation"
+    android:orientation="vertical"
+    android:layout_margin="5dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:text="Thank you for Booking : "
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:text="we Notify the owner about your Booked Item "
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:text="Please wait....."
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:text="oR"
+        android:textSize="25sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:text="call Onwer."
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+
+    <TextView
+        android:id="@+id/num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:layout_gravity="center"
+        android:text="num"
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+
+</LinearLayout>

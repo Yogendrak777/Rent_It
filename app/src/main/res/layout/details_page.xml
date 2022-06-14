@@ -104,6 +104,21 @@
                 android:layout_margin ="10dp"
                 android:background="@drawable/ic_baseline_favorite_24"/>
 
+            <TextView
+                android:id="@+id/next"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:layout_margin="15dp"
+                android:layout_marginLeft="150dp"
+                android:background="@drawable/next_button"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="Book"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
         </androidx.cardview.widget.CardView>
 
 

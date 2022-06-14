@@ -112,6 +112,7 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 TextView Dfamily = view.findViewById(R.id.DFamily);
                 TextView Dwater = view.findViewById(R.id.Dwater);
                 chart = view.findViewById(R.id.chart);
+                TextView next = view.findViewById(R.id.next);
                 ImageButton favOn;
 
                 favOn = view.findViewById(R.id.favOn);
@@ -198,6 +199,17 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(img1.getContext(), ChartActivity.class);
+                        intent.putExtra("UserId", model.getOwnerUId());
+                        intent.putExtra("PhoneNo",model.getHousePhoneNo());
+                        img1.getContext().startActivity(intent);
+
+                    }
+                });
+
+                next.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(img1.getContext(), BookEnter.class);
                         intent.putExtra("UserId", model.getOwnerUId());
                         img1.getContext().startActivity(intent);
 
