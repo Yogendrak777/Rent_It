@@ -6,183 +6,199 @@
     android:layout_height="match_parent"
     tools:context=".HouseInfo1"
     android:scrollbars="none"
+    android:background="@drawable/signin_page"
     android:orientation="vertical">
-
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add house"
-            android:textColor="#ff43"
-            android:textAllCaps="true"
-            android:textSize="28sp"
-            android:textStyle="italic"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_margin="5dp"/>
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:textStyle="italic"
-       android:text="Enter Owner Name: "
-       android:textSize="20sp"
-       android:layout_marginTop="25dp"
-       android:textAppearance="?android:textAppearanceMedium"
-       />
-
-        <EditText
-            android:id="@+id/Name"
+        android:layout_margin="16dp"
+        android:background="@color/white"
+        app:cardCornerRadius="30dp">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="20sp"
-            android:layout_marginTop="5dp"
-            android:textStyle="italic"
-            android:hint="Eg: Shree"
-            />
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_margin="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:text="Enter House Address: "
-            android:textSize="20sp"
-            android:layout_marginTop="35dp"
-            android:textAppearance="?android:textAppearanceMedium"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add house"
+                android:textColor="#ff43"
+                android:textAllCaps="true"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Enter Owner Name: "
+                android:textSize="20sp"
+                android:layout_marginTop="25dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
 
-        <EditText
-            android:id="@+id/Address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="20sp"
-            android:layout_marginTop="5dp"
-            android:textStyle="italic"
-            android:hint="Eg: #44, 2nd cross, 3rd main road, jp nagar 7th phase, near Narayana college"
-            />
+            <EditText
+                android:id="@+id/Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:hint="Eg: Shree"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:text="Enter House Advance: "
-            android:textSize="20sp"
-            android:layout_marginTop="35dp"
-            android:textAppearance="?android:textAppearanceMedium"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Enter House Address: "
+                android:textSize="20sp"
+                android:layout_marginTop="35dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
 
-        <EditText
-            android:id="@+id/Advance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="20sp"
-            android:layout_marginTop="5dp"
-            android:textStyle="italic"
-            android:hint="Eg :50,000"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:text="Enter House Rent: "
-            android:textSize="20sp"
-            android:layout_marginTop="35dp"
-            android:textAppearance="?android:textAppearanceMedium"
-            />
+            <EditText
+                android:id="@+id/Address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:hint="Eg: #44, 2nd cross, 3rd main road, jp nagar 7th phase, near Narayana college"
+                />
 
-        <EditText
-            android:id="@+id/Rent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="20sp"
-            android:layout_marginTop="5dp"
-            android:textStyle="italic"
-            android:hint="Eg: 10,000"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Enter House Advance: "
+                android:textSize="20sp"
+                android:layout_marginTop="35dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:text="Enter House Area: "
-            android:textSize="20sp"
-            android:layout_marginTop="35dp"
-            android:textAppearance="?android:textAppearanceMedium"
-            />
+            <EditText
+                android:id="@+id/Advance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:hint="Eg :50,000"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Enter House Rent: "
+                android:textSize="20sp"
+                android:layout_marginTop="35dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
 
-        <EditText
-            android:id="@+id/Area"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="20sp"
-            android:textAllCaps="true"
-            android:layout_marginTop="5dp"
-            android:textStyle="italic"
-            android:hint="Eg: JP NAGAR"
-            />
+            <EditText
+                android:id="@+id/Rent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:hint="Eg: 10,000"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:text="Enter House SquareFeet: "
-            android:textSize="20sp"
-            android:layout_marginTop="35dp"
-            android:textAppearance="?android:textAppearanceMedium"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Enter House Area: "
+                android:textSize="20sp"
+                android:layout_marginTop="35dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
 
-        <EditText
-            android:id="@+id/SqFt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="20sp"
-            android:layout_marginTop="5dp"
-            android:textStyle="italic"
-            android:hint="Eg :1200 SqFt"
-            />
+            <EditText
+                android:id="@+id/Area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="20sp"
+                android:textAllCaps="true"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:hint="Eg: JP NAGAR"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:text="Enter Description "
-            android:textSize="20sp"
-            android:layout_marginTop="35dp"
-            android:textAppearance="?android:textAppearanceMedium"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Enter House SquareFeet: "
+                android:textSize="20sp"
+                android:layout_marginTop="35dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
 
-        <EditText
-            android:id="@+id/houseDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="20sp"
-            android:layout_marginTop="5dp"
-            android:textStyle="italic"
-            android:hint="Eg: house is a single-unit residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems."
-            />
+            <EditText
+                android:id="@+id/SqFt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:hint="Eg :1200 SqFt"
+                />
 
-        <Button
-            android:id="@+id/NextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="Next"
-            android:layout_margin="15dp"
-            android:layout_marginBottom="50dp"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Enter Description "
+                android:textSize="20sp"
+                android:layout_marginTop="35dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/houseDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:hint="Eg: house is a single-unit residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems."
+                />
+
+            <Button
+                android:id="@+id/NextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="Next"
+                android:layout_margin="15dp"
+                android:layout_marginBottom="50dp"
+                />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 
 </ScrollView>

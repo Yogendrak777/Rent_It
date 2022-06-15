@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/background_right.xml" value="0.176" />
         <entry key="app/src/main/res/drawable/forgot_back.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/header.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/home_icon_bg.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1605" />
         <entry key="app/src/main/res/drawable/ic_baseline_add_a_photo_24.xml" value="0.1605" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.1705" />
@@ -33,6 +34,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_speaker_group_24.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/ic_baseline_wechat_24.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/img_rounded.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/linear_layout_corners.xml" value="0.1945" />
         <entry key="app/src/main/res/drawable/logo_bg.xml" value="0.21" />
         <entry key="app/src/main/res/drawable/nav_corners.xml" value="0.1945" />
@@ -89,7 +91,7 @@
         <entry key="app/src/main/res/layout/chart_item_right.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/cloth_detail_page.xml" value="0.26171529619805484" />
         <entry key="app/src/main/res/layout/cloth_rv_item.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/details_page.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/details_page.xml" value="0.165" />
         <entry key="app/src/main/res/layout/favourite_adapter_item.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/favourite_item.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.2833333333333333" />

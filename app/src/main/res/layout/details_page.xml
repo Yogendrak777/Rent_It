@@ -5,23 +5,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:scrollbars="none"
-    android:background="#ede7f6"
+    android:background="@color/white"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="200dp"
         >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Details"
-        android:background="#9575cd"
+        android:background="#0061FF"
         android:textSize="25dp"
         android:gravity="center"
-        android:textColor="#ffffff"/>
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
 
         <HorizontalScrollView
             android:layout_width="match_parent"
@@ -33,6 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:background="@color/white"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -91,18 +95,19 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffcdd2"
+            android:background="@color/white"
+            app:cardCornerRadius="10dp"
             android:layout_margin="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp">
 
 
             <ImageButton
+                android:id="@+id/favOn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:id="@+id/favOn"
-                android:layout_margin ="10dp"
-                android:background="@drawable/ic_baseline_favorite_24"/>
+                android:layout_margin="10dp"
+                android:background="@drawable/ic_baseline_favorite_24" />
 
             <ImageButton
                 android:layout_width="50dp"
@@ -121,10 +126,9 @@
                 android:layout_marginLeft="150dp"
                 android:background="@drawable/next_button"
                 android:gravity="center"
-                android:padding="3dp"
                 android:text="Book"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
         </androidx.cardview.widget.CardView>
@@ -134,7 +138,8 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffcdd2"
+            android:background="@color/white"
+            app:cardCornerRadius="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp">
 
@@ -143,6 +148,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Overview"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:textSize="23sp"
             />
         </androidx.cardview.widget.CardView>
@@ -152,6 +160,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            app:cardCornerRadius="10dp"
             android:layout_marginTop="3dp"
 
             android:background="#ffcdd2">
@@ -167,6 +176,7 @@
                     android:layout_width="190dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:background="@color/white"
                     android:padding="15dp">
 
                     <LinearLayout
@@ -186,6 +196,8 @@
                         android:layout_width="97dp"
                         android:layout_height="wrap_content"
                         android:text=" BHK"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
                         android:textSize="19sp"
                         android:textAppearance="?android:textAppearanceSmall"/>
 
@@ -197,6 +209,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
                         android:text=" "
+                        android:textColor="@color/black"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -205,6 +218,8 @@
                         android:layout_width="104dp"
                         android:layout_height="wrap_content"
                         android:text="Advance"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textAppearance="?android:textAppearanceSmall"
                         android:textSize="19sp" />
 
@@ -214,6 +229,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
                         android:text=" "
+                        android:textColor="@color/black"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -222,6 +238,8 @@
                         android:layout_width="146dp"
                         android:layout_height="wrap_content"
                         android:text="Rent /Month"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
                         android:textAppearance="?android:textAppearanceSmall"
                         android:textSize="19sp" />
 
@@ -231,6 +249,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
                         android:text=" "
+                        android:textColor="@color/black"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -239,6 +258,8 @@
                         android:layout_width="97dp"
                         android:layout_height="wrap_content"
                         android:text="Area"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textAppearance="?android:textAppearanceSmall"
                         android:textSize="19sp"/>
 
@@ -248,6 +269,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
                         android:text=" "
+                        android:textColor="@color/black"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -256,6 +278,8 @@
                         android:layout_width="104dp"
                         android:layout_height="wrap_content"
                         android:text="Facing"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textAppearance="?android:textAppearanceSmall"
                         android:textSize="19sp"
                          />
@@ -266,6 +290,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
                         android:text=" "
+                        android:textColor="@color/black"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -274,6 +299,8 @@
                         android:layout_width="163dp"
                         android:layout_height="wrap_content"
                         android:text="Food Prefer"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textSize="19sp"
                         android:textAppearance="?android:textAppearanceSmall"
                        />
@@ -284,6 +311,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
                         android:text=" "
+                        android:textColor="@color/black"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -296,6 +324,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
                     android:orientation="vertical"
+                    android:background="@color/white"
                     android:padding="15dp">
 
                     <TextView
@@ -304,6 +333,8 @@
                         android:textSize="19sp"
                         android:textAppearance="?android:textAppearanceSmall"
                         android:text="Parking"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
                         />
 
                     <TextView
@@ -314,12 +345,15 @@
                         android:text=" "
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
 
                     <TextView
                         android:layout_width="159dp"
                         android:layout_height="wrap_content"
-                        android:text="water Supply"
+                        android:text="Water Supply"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textSize="19sp"
                         android:textAppearance="?android:textAppearanceSmall"
                         />
@@ -330,6 +364,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
                         android:text=" "
+                        android:textColor="@color/black"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -338,6 +373,8 @@
                         android:layout_width="104dp"
                         android:layout_height="wrap_content"
                         android:text="Floor"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
                         android:textSize="19sp"
                         android:textAppearance="?android:textAppearanceSmall"
                          />
@@ -348,6 +385,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
                         android:text=" "
+                        android:textColor="@color/black"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -356,6 +394,8 @@
                         android:layout_width="114dp"
                         android:layout_height="wrap_content"
                         android:text="SqFt"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textSize="19sp"
                         android:textAppearance="?android:textAppearanceSmall" />
 
@@ -367,12 +407,15 @@
                         android:text=" "
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textSize="20sp"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="127dp"
                         android:layout_height="wrap_content"
                         android:text="BathRoom"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textSize="19sp"
                         android:textAppearance="?android:textAppearanceSmall"
                         />
@@ -383,6 +426,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
                         android:text=" "
+                        android:textColor="@color/black"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -402,6 +446,8 @@
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:text="Family/batchelor"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textAppearance="?android:textAppearanceSmall"
                         android:textSize="19sp" />
 
@@ -413,6 +459,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
                         android:text=" "
+                        android:textColor="@color/black"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -433,6 +480,8 @@
                         android:layout_height="wrap_content"
                         android:text=" Pet Perfer"
                         android:textSize="19sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textAppearance="?android:textAppearanceSmall"/>
                     </LinearLayout>
 
@@ -442,6 +491,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:text=" "
+                        android:textColor="@color/black"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -460,7 +510,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_gravity="end"
-            android:backgroundTint="@color/teal_700">
+            android:backgroundTint="#0061FF">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -472,15 +522,17 @@
                 android:layout_height="38dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_baseline_wechat_24" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chart"
-                android:textColor="@color/white"
-                android:textSize="35sp"
+                android:paddingTop="10dp"
                 android:paddingEnd="10dp"
                 android:paddingBottom="10dp"
-                android:paddingTop="10dp"/>
+                android:text="Chat"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
         </LinearLayout>
 
@@ -490,7 +542,8 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffcdd2"
+            android:background="@color/white"
+            app:cardCornerRadius="10dp"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp">
@@ -500,6 +553,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Near by"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:textSize="23sp"
             />
 
@@ -512,12 +568,14 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="3dp"
-            android:background="#ffcdd2">
+            android:background="@color/white"
+            app:cardCornerRadius="10dp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
             android:orientation="horizontal"
            >
 
@@ -526,6 +584,7 @@
                 android:layout_width="194dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:background="@color/white"
                 android:padding="15dp">
 
                 <TextView
@@ -598,6 +657,7 @@
                 android:layout_width="188dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
+                android:background="@color/white"
                 android:orientation="vertical"
                 android:padding="15dp">
 

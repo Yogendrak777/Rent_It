@@ -65,6 +65,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="170dp"
+                        android:layout_marginTop="25dp"
                         android:background="@color/white"
                         android:orientation="vertical"
                         android:padding="6dp">
@@ -200,6 +201,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:padding="16dp"
+                    android:background="@color/white"
                     android:text="Favourite List"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:textColor="@color/black"

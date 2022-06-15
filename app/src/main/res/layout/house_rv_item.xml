@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
+    app:cardCornerRadius="30dp"
     android:elevation="6dp"
     android:id="@+id/card1"
+    android:background="@color/white"
     app:cardUseCompatPadding="true"
     >
 
@@ -13,8 +14,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="6dp"
-        android:background="#f3e5f5"
+        android:padding="16dp"
+        android:background="@color/white"
         android:orientation="vertical"
         >
 
@@ -22,7 +23,10 @@
             android:id="@+id/objImg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipToOutline="true"
+            android:background="@drawable/img_rounded"
             android:src="@mipmap/ic_launcher"
+            android:layout_margin="16dp"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp" />
 
@@ -40,9 +44,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Address"
+            android:layout_margin="16dp"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/black"
-            android:textSize="19sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -51,8 +56,9 @@
             android:layout_height="wrap_content"
             android:text="Rs."
             android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@color/purple_700"
-            android:textSize="25sp"
+            android:textColor="#0061FF"
+            android:layout_margin="16dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -60,9 +66,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Area"
+            android:layout_margin="16dp"
+            android:textStyle="bold"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
 
         </LinearLayout>

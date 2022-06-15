@@ -46,10 +46,14 @@ public class MainActivity extends AppCompatActivity{
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try{
                 for(DataSnapshot ds : snapshot.getChildren()){
                     if(ds.child("userEmailDb").getValue().equals(user.getEmail())){
                         userName.setText(ds.child("userNameDb").getValue(String.class));
                     }
+                }}
+                catch (Exception e){
+
                 }
 
             }

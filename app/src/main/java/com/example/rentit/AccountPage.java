@@ -96,6 +96,7 @@ public class AccountPage extends AppCompatActivity {
         databaseReference1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try{
                 for(DataSnapshot ds : snapshot.getChildren()){
                     if(ds.child("userEmailDb").getValue().equals(user.getEmail())){
 
@@ -126,6 +127,9 @@ public class AccountPage extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
+                }}
+                catch (Exception e){
+
                 }
 
             }

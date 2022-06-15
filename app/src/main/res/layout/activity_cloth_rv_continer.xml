@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/signin_page"
     tools:context=".ClothRvContiner">
 
     <LinearLayout
@@ -12,16 +13,17 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.122">
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search5"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="10dp"
-            app:queryHint="Address"
-            >
+            app:queryHint="Address">
 
         </androidx.appcompat.widget.SearchView>
 
@@ -30,8 +32,7 @@
             android:id="@+id/Rv5"
             android:layout_width="409dp"
             android:layout_height="664dp"
-            android:layout_margin="2dp"
-            />
+            android:layout_margin="2dp" />
 
         <ProgressBar
             android:id="@+id/progress"

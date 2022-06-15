@@ -3,15 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
+    app:cardCornerRadius="30dp"
     android:elevation="6dp"
     android:id="@+id/card6"
+    android:background="@color/white"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#f3e5f5"
+        android:background="@color/white"
         android:orientation="vertical"
         android:padding="6dp">
 
@@ -20,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
+            android:layout_margin="16dp"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp" />
 
@@ -37,9 +39,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sport Name"
+            android:layout_margin="16dp"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/black"
-            android:textSize="19sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -48,26 +51,29 @@
             android:layout_height="wrap_content"
             android:text="Rs."
             android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@color/purple_700"
-            android:textSize="25sp"
+            android:textColor="#0061FF"
+            android:textSize="20sp"
+            android:layout_margin="16dp"
             android:textStyle="bold" />
         <TextView
             android:id="@+id/ObjSporBrand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Brand"
+            android:layout_margin="16dp"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/ObjSporArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Area"
+            android:layout_margin="16dp"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
 
 

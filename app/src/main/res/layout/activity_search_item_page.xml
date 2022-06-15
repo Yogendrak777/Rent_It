@@ -32,7 +32,7 @@
                 android:paddingLeft="16dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:text="Rentit and icon"
+                android:text="Rentit"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="25sp"
@@ -386,7 +386,7 @@
                             android:layout_width="69dp"
                             android:layout_height="54dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_baseline_home_24" />
+                            android:src="@drawable/clothes_img" />
 
 
                         <TextView
@@ -395,7 +395,7 @@
                             android:layout_gravity="center"
                             android:padding="5dp"
                             android:text="Cloths"
-                            android:textAllCaps="true"
+                            android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -440,7 +440,7 @@
                             android:layout_gravity="center"
                             android:padding="5dp"
                             android:text="Car"
-                            android:textAllCaps="true"
+                            android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
