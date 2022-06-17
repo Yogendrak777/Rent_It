@@ -6,15 +6,25 @@ public class BookRvModel {
     String BuyerName;
     String BuyerAddress;
     String ArdharNum;
+    String Status;
 
     public BookRvModel(){}
 
-    public BookRvModel(String buyerAdharIMage, String userId, String buyerName, String buyerAddress, String ardharNum) {
+    public BookRvModel(String buyerAdharIMage, String userId, String buyerName, String buyerAddress, String ardharNum,String status) {
         BuyerAdharIMage = buyerAdharIMage;
         UserId = userId;
         BuyerName = buyerName;
         BuyerAddress = buyerAddress;
         ArdharNum = ardharNum;
+        Status = status;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
     }
 
     public String getBuyerAdharIMage() {

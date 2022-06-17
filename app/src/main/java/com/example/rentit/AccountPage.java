@@ -48,7 +48,7 @@ import java.util.UUID;
 
 public class AccountPage extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
-    CardView myCart,AddItem,Fav,logOut,ChartUs;
+    CardView myCart,AddItem,Fav,logOut,ChartUs,service;
     TextView NameT;
     //EmailT,PhoneNoT;
     //String PhoneNoT;
@@ -77,6 +77,7 @@ public class AccountPage extends AppCompatActivity {
         Fav = (CardView)findViewById(R.id.Fav);
         NameT = (TextView)findViewById(R.id.Name);
         logOut = (CardView)findViewById(R.id.logOut);
+        service = (CardView)findViewById(R.id.myservice);
         //EmailT = (TextView)findViewById(R.id.Email);
         //PhoneNoT = (TextView)findViewById(R.id.PhoneNumber);
         profileImg = findViewById(R.id.profile_img_view);
@@ -140,6 +141,13 @@ public class AccountPage extends AppCompatActivity {
             }
         });
 
+        service.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AccountPage.this,serviceInfo1.class));
+            }
+        });
+
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -176,7 +184,7 @@ public class AccountPage extends AppCompatActivity {
         AddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AccountPage.this,carInfo1.class));
+                startActivity(new Intent(AccountPage.this,CameraInfo1.class));
             }
         });
 
@@ -190,6 +198,10 @@ public class AccountPage extends AppCompatActivity {
                         return true;
                     case R.id.menuSearch:
                         startActivity(new Intent(AccountPage.this,SearchItemPage.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.menuService:
+                        startActivity(new Intent(AccountPage.this,ServicesAddPage.class));
                         overridePendingTransition(0,0);
                         return true;
 

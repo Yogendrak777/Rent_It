@@ -1,8 +1,10 @@
 package com.example.rentit;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -85,6 +87,34 @@ public class ClothRvAdapter extends FirebaseRecyclerAdapter<ClothRvModel,ClothRv
                 Picasso.get().load(model.getClothUrl2()).into(imgC2);
                 Picasso.get().load(model.getClothUrl3()).into(imgC3);
                 Picasso.get().load(model.getClothUrl4()).into(imgC4);
+
+                TextView next = view.findViewById(R.id.next);
+                ImageButton favOn,share;
+
+                favOn = view.findViewById(R.id.favOn);
+                share = view.findViewById(R.id.share);
+
+                share.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("text/plain");
+                        intent.putExtra(Intent.EXTRA_SUBJECT,"House Info \n");
+                        intent.putExtra(Intent.EXTRA_TEXT,model.getClothBrand() + "," + model.getClothColor() + "," + model.getClothRent());
+                        imgC1.getContext().startActivity(Intent.createChooser(intent,"share Via"));
+
+                    }
+                });
+
+                next.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(imgC1.getContext(), BookEnter.class);
+                        intent.putExtra("UserId", model.getUserId());
+                        imgC1.getContext().startActivity(intent);
+
+                    }
+                });
 
                 dialogPlus.show();
 

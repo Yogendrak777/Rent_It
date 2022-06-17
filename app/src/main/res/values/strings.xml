@@ -136,4 +136,86 @@
         <item>SUV</item>
         <item>Normal</item>
     </string-array>
+
+    <string-array name="BikeType">
+        <item>Scotty</item>
+        <item>Bike</item>
+    </string-array>
+
+    <string-array name="CameraFlash">
+        <item>N/A</item>
+        <item>Build In</item>
+        <item>Pop-up</item>
+        <item>External</item>
+    </string-array>
+
+    <string-array name="Led">
+        <item>yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="Focus">
+        <item>yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="MovieFormat">
+        <item>N/A</item>
+        <item>Mp4</item>
+        <item>HDR</item>
+        <item>Mov</item>
+        <item>OGG</item>
+        <item>MPG</item>
+        <item>AVI</item>
+        <item>WEBM</item>
+        <item>MKV</item>
+    </string-array>
+
+    <string-array name="CameraType">
+        <item>DSLR</item>
+        <item>MirrorLess</item>
+        <item>Point and Shoot</item>
+        <item>Bridge</item>
+        <item>Medium Format</item>
+        <item>Film</item>
+        <item>Polaroid</item>
+        <item>Digital Cine</item>
+        <item>Action/GoPro</item>
+        <item>360-degree</item>
+        <item>Rugged</item>
+    </string-array>
+
+    <string-array name="Zoom">
+        <item>3x</item>
+        <item>5x</item>
+        <item>10x</item>
+        <item>15x</item>
+        <item>20x</item>
+        <item>25x</item>
+        <item>30x</item>
+        <item>40x</item>
+    </string-array>
+
+    <string-array name="Services">
+        <item>Mechanical</item>
+        <item>Plumber</item>
+        <item>Electrical</item>
+        <item>Construction works</item>
+        <item>house hold works</item>
+        <item>Beatuician</item>
+        <item>Paints</item>
+        <item>Interior Designers</item>
+    </string-array>
+
+    <string-array name="Searchouse">
+        <item>houseArea</item>
+        <item>houseBHK</item>
+    </string-array>
+
+    <string-array name="SearchServices">
+        <item>Area</item>
+        <item>jobName</item>
+    </string-array>
+
+
 </resources>

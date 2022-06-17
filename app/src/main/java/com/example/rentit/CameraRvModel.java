@@ -19,10 +19,13 @@ public class CameraRvModel {
     String cameraType;
     String type;
     String cameraDescription;
+    String OwnerEmail;
+    String phoneNo;
+    String UserId;
 
     public CameraRvModel(){}
 
-    public CameraRvModel(String camUrl1, String camUrl2, String camUrl3, String camUrl4, String cameraAddress, String cameraAdvance, String cameraArea, String cameraBrand, String cameraFlash, String cameraLedMonitor, String cameraManualFous, String cameraModel, String cameraMovieFormat, String cameraOptialZoom, String cameraRent, String cameraType, String type, String cameraDescription) {
+    public CameraRvModel(String camUrl1, String camUrl2, String camUrl3, String camUrl4, String cameraAddress, String cameraAdvance, String cameraArea, String cameraBrand, String cameraFlash, String cameraLedMonitor, String cameraManualFous, String cameraModel, String cameraMovieFormat, String cameraOptialZoom, String cameraRent, String cameraType, String type, String cameraDescription, String ownerEmail, String phoneNo, String userId) {
         this.camUrl1 = camUrl1;
         this.camUrl2 = camUrl2;
         this.camUrl3 = camUrl3;
@@ -41,14 +44,9 @@ public class CameraRvModel {
         this.cameraType = cameraType;
         this.type = type;
         this.cameraDescription = cameraDescription;
-    }
-
-    public String getCameraDescription() {
-        return cameraDescription;
-    }
-
-    public void setCameraDescription(String cameraDescription) {
-        this.cameraDescription = cameraDescription;
+        OwnerEmail = ownerEmail;
+        this.phoneNo = phoneNo;
+        UserId = userId;
     }
 
     public String getCamUrl1() {
@@ -185,5 +183,37 @@ public class CameraRvModel {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getCameraDescription() {
+        return cameraDescription;
+    }
+
+    public void setCameraDescription(String cameraDescription) {
+        this.cameraDescription = cameraDescription;
+    }
+
+    public String getOwnerEmail() {
+        return OwnerEmail;
+    }
+
+    public void setOwnerEmail(String ownerEmail) {
+        OwnerEmail = ownerEmail;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
+    public String getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(String userId) {
+        UserId = userId;
     }
 }

@@ -19,10 +19,13 @@ public class SportRvModel {
     String spoUrl3;
     String spoUrl4;
     String type;
+    String OwnerEmail;
+    String phoneNo;
+    String UserId;
 
     public SportRvModel(){}
 
-    public SportRvModel(String spoModel, String spoAddress, String spoAdvance, String spoArea, String spoBrand, String spoColor, String spoDesc, String spoIdelFor, String spoMeterial, String spoName, String spoPacks, String spoRent, String spoType, String spoUrl1, String spoUrl2, String spoUrl3, String spoUrl4, String type) {
+    public SportRvModel(String spoModel, String spoAddress, String spoAdvance, String spoArea, String spoBrand, String spoColor, String spoDesc, String spoIdelFor, String spoMeterial, String spoName, String spoPacks, String spoRent, String spoType, String spoUrl1, String spoUrl2, String spoUrl3, String spoUrl4, String type, String ownerEmail, String phoneNo, String userId) {
         SpoModel = spoModel;
         this.spoAddress = spoAddress;
         this.spoAdvance = spoAdvance;
@@ -41,6 +44,9 @@ public class SportRvModel {
         this.spoUrl3 = spoUrl3;
         this.spoUrl4 = spoUrl4;
         this.type = type;
+        OwnerEmail = ownerEmail;
+        this.phoneNo = phoneNo;
+        UserId = userId;
     }
 
     public String getSpoModel() {
@@ -185,5 +191,29 @@ public class SportRvModel {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getOwnerEmail() {
+        return OwnerEmail;
+    }
+
+    public void setOwnerEmail(String ownerEmail) {
+        OwnerEmail = ownerEmail;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
+    public String getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(String userId) {
+        UserId = userId;
     }
 }

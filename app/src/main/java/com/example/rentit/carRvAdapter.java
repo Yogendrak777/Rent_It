@@ -1,10 +1,12 @@
 package com.example.rentit;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -149,12 +151,33 @@ public class carRvAdapter extends FirebaseRecyclerAdapter<carRvModel,carRvAdapte
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                TextView next = view.findViewById(R.id.next);
+                ImageButton favOn,share;
 
+                favOn = view.findViewById(R.id.favOn);
+                share = view.findViewById(R.id.share);
 
+                share.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("text/plain");
+                        intent.putExtra(Intent.EXTRA_SUBJECT,"House Info \n");
+                        intent.putExtra(Intent.EXTRA_TEXT,model.getCarModel() + "," + model.getCarPrice() + "," + model.getCarMilage());
+                        imgC1.getContext().startActivity(Intent.createChooser(intent,"share Via"));
 
+                    }
+                });
 
+                next.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(imgC1.getContext(), BookEnter.class);
+                        intent.putExtra("UserId", model.getUserId());
+                        imgC1.getContext().startActivity(intent);
 
-
+                    }
+                });
 
 
                 dialogPlus.show();

@@ -19,6 +19,45 @@
         android:theme="@style/Theme.RentIt"
         tools:targetApi="31">
         <activity
+            android:name=".AddItemPage"
+            android:exported="false" />
+        <activity
+            android:name=".serviceInfo3"
+            android:exported="false" />
+        <activity
+            android:name=".serviceInfo2"
+            android:exported="false" />
+        <activity
+            android:name=".serviceInfo1"
+            android:exported="false" />
+        <activity
+            android:name=".ServicesAddPage"
+            android:exported="false" />
+        <activity
+            android:name=".CameraInfo4"
+            android:exported="false" />
+        <activity
+            android:name=".CameraInfo3"
+            android:exported="false" />
+        <activity
+            android:name=".CameraInfo2"
+            android:exported="false" />
+        <activity
+            android:name=".CameraInfo1"
+            android:exported="false" />
+        <activity
+            android:name=".BikeInfo4"
+            android:exported="false" />
+        <activity
+            android:name=".BikeInfo3"
+            android:exported="false" />
+        <activity
+            android:name=".BikeInfo2"
+            android:exported="false" />
+        <activity
+            android:name=".BikeInfo1"
+            android:exported="false" />
+        <activity
             android:name=".CarInfo4"
             android:exported="false" />
         <activity

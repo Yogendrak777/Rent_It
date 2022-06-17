@@ -112,6 +112,7 @@ public class BookEnter extends AppCompatActivity {
                     map1.put("BuyerName",Name.getText().toString().trim());
                     map1.put("BuyerAddress",Address.getText().toString().trim());
                     map1.put("ArdharNum",ArddharNum.getText().toString().trim());
+                    map1.put("Status","show");
 
 
                     FirebaseDatabase.getInstance().getReference().child("RentIt").child("BookList")

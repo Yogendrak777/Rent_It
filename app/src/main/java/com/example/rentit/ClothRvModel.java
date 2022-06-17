@@ -18,10 +18,13 @@ public class ClothRvModel {
     String clothUrl3;
     String clothUrl4;
     String type;
+    String OwnerEmail;
+    String phoneNo;
+    String UserId;
 
     public ClothRvModel(){}
 
-    public ClothRvModel(String clothAddress, String clothAdvance, String clothArea, String clothBrand, String clothColor, String clothDesc, String clothFitSize, String clothMetal, String clothName, String clothRent, String clothSizeNo, String clothType, String clothUrl1, String clothUrl2, String clothUrl3, String clothUrl4, String type) {
+    public ClothRvModel(String clothAddress, String clothAdvance, String clothArea, String clothBrand, String clothColor, String clothDesc, String clothFitSize, String clothMetal, String clothName, String clothRent, String clothSizeNo, String clothType, String clothUrl1, String clothUrl2, String clothUrl3, String clothUrl4, String type, String ownerEmail, String phoneNo, String userId) {
         this.clothAddress = clothAddress;
         this.clothAdvance = clothAdvance;
         this.clothArea = clothArea;
@@ -39,6 +42,9 @@ public class ClothRvModel {
         this.clothUrl3 = clothUrl3;
         this.clothUrl4 = clothUrl4;
         this.type = type;
+        OwnerEmail = ownerEmail;
+        this.phoneNo = phoneNo;
+        UserId = userId;
     }
 
     public String getClothAddress() {
@@ -175,5 +181,29 @@ public class ClothRvModel {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getOwnerEmail() {
+        return OwnerEmail;
+    }
+
+    public void setOwnerEmail(String ownerEmail) {
+        OwnerEmail = ownerEmail;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
+    public String getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(String userId) {
+        UserId = userId;
     }
 }

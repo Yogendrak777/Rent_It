@@ -1,9 +1,10 @@
 package com.example.rentit;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -86,6 +87,34 @@ public class SportsRvAdapter extends FirebaseRecyclerAdapter<SportRvModel,Sports
                 Picasso.get().load(model.getSpoUrl2()).into(img2);
                 Picasso.get().load(model.getSpoUrl3()).into(img3);
                 Picasso.get().load(model.getSpoUrl4()).into(img4);
+
+                TextView next = view.findViewById(R.id.next);
+                ImageButton favOn,share;
+
+                favOn = view.findViewById(R.id.favOn);
+                share = view.findViewById(R.id.share);
+
+                share.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("text/plain");
+                        intent.putExtra(Intent.EXTRA_SUBJECT,"House Info \n");
+                        intent.putExtra(Intent.EXTRA_TEXT,model.getSpoModel() + "," + model.getSpoBrand() + "," + model.getSpoRent());
+                        img1.getContext().startActivity(Intent.createChooser(intent,"share Via"));
+
+                    }
+                });
+
+                next.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(img1.getContext(), BookEnter.class);
+                        intent.putExtra("UserId", model.getUserId());
+                        img1.getContext().startActivity(intent);
+
+                    }
+                });
 
                 dialogPlus.show();
 

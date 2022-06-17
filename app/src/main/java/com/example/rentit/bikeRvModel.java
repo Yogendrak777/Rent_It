@@ -16,10 +16,14 @@ public class bikeRvModel {
     String bikeUrl3;
     String bikeUrl4;
     String type;
+    String bikeFastTag;
+    String OwnerEmail;
+    String phoneNo;
+    String UserId;
 
     public bikeRvModel(){}
 
-    public bikeRvModel(String bikeAddress, String bikeAdvance, String bikeAge, String bikeArea, String bikeDescription, String bikeMileage, String bikeModel, String bikeRent, String bikeServiceDate, String bikeType, String bikeUrl1, String bikeUrl2, String bikeUrl3, String bikeUrl4, String type) {
+    public bikeRvModel(String bikeAddress, String bikeAdvance, String bikeAge, String bikeArea, String bikeDescription, String bikeMileage, String bikeModel, String bikeRent, String bikeServiceDate, String bikeType, String bikeUrl1, String bikeUrl2, String bikeUrl3, String bikeUrl4, String type, String bikeFastTag, String ownerEmail, String phoneNo, String userId) {
         this.bikeAddress = bikeAddress;
         this.bikeAdvance = bikeAdvance;
         this.bikeAge = bikeAge;
@@ -35,6 +39,10 @@ public class bikeRvModel {
         this.bikeUrl3 = bikeUrl3;
         this.bikeUrl4 = bikeUrl4;
         this.type = type;
+        this.bikeFastTag = bikeFastTag;
+        OwnerEmail = ownerEmail;
+        this.phoneNo = phoneNo;
+        UserId = userId;
     }
 
     public String getBikeAddress() {
@@ -155,5 +163,37 @@ public class bikeRvModel {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getBikeFastTag() {
+        return bikeFastTag;
+    }
+
+    public void setBikeFastTag(String bikeFastTag) {
+        this.bikeFastTag = bikeFastTag;
+    }
+
+    public String getOwnerEmail() {
+        return OwnerEmail;
+    }
+
+    public void setOwnerEmail(String ownerEmail) {
+        OwnerEmail = ownerEmail;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
+    public String getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(String userId) {
+        UserId = userId;
     }
 }

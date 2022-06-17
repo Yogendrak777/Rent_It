@@ -133,7 +133,7 @@ public class CarInfo4 extends AppCompatActivity {
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Fuel.setAdapter(adapter1);
         int Ful;
-        Ful = adapter.getPosition(FUEL);
+        Ful = adapter1.getPosition(FUEL);
         Fuel.setSelection(Ful);
         Fuel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -151,7 +151,7 @@ public class CarInfo4 extends AppCompatActivity {
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Millage.setAdapter(adapter2);
         int mil;
-        mil = adapter.getPosition(MILLAGE);
+        mil = adapter2.getPosition(MILLAGE);
         Millage.setSelection(mil);
         Millage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -169,7 +169,7 @@ public class CarInfo4 extends AppCompatActivity {
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         AirBag.setAdapter(adapter3);
         int air;
-        air = adapter.getPosition(AIRBAG);
+        air = adapter3.getPosition(AIRBAG);
         AirBag.setSelection(air);
         AirBag.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -188,7 +188,7 @@ public class CarInfo4 extends AppCompatActivity {
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Seats.setAdapter(adapter4);
         int set;
-        set = adapter.getPosition(SEATS);
+        set = adapter4.getPosition(SEATS);
         Seats.setSelection(set);
         Seats.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -207,7 +207,7 @@ public class CarInfo4 extends AppCompatActivity {
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         CarAge.setAdapter(adapter5);
         int car;
-        car = adapter.getPosition(CARAGE);
+        car = adapter5.getPosition(CARAGE);
         CarAge.setSelection(car);
         CarAge.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -225,7 +225,7 @@ public class CarInfo4 extends AppCompatActivity {
         adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         GearBox.setAdapter(adapter6);
         int gear;
-        gear = adapter.getPosition(GEARBOX);
+        gear = adapter6.getPosition(GEARBOX);
         GearBox.setSelection(gear);
         GearBox.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -243,7 +243,7 @@ public class CarInfo4 extends AppCompatActivity {
         adapter7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         FastTag.setAdapter(adapter7);
         int fast;
-        fast =  adapter.getPosition(FASTTAG);
+        fast =  adapter7.getPosition(FASTTAG);
         FastTag.setSelection(fast);
         FastTag.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -261,7 +261,7 @@ public class CarInfo4 extends AppCompatActivity {
         adapter8.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         BodyType.setAdapter(adapter8);
         int body;
-        body = adapter.getPosition(BODYTYPE);
+        body = adapter8.getPosition(BODYTYPE);
         BodyType.setSelection(body);
 
         BodyType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

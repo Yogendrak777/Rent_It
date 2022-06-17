@@ -427,19 +427,13 @@
                         android:orientation="vertical"
                         android:padding="16dp">
 
-                        <ImageView
-                            android:layout_width="69dp"
-                            android:layout_height="54dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_baseline_directions_car" />
-
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:padding="5dp"
-                            android:text="Car"
+                            android:text="Commimg Soon..."
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textSize="20sp"

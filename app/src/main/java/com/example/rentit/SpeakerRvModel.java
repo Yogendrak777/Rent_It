@@ -18,10 +18,13 @@ public class SpeakerRvModel {
     String speUrl4;
     String type;
     String speBrand;
+    String OwnerEmail;
+    String phoneNo;
+    String UserId;
 
     public SpeakerRvModel(){}
 
-    public SpeakerRvModel(String speAddress, String speAdvance, String speArea, String speBluetooth, String speDescription, String speDisplayType, String speMemoryCardSlot, String speModel, String spePowerSource, String speRent, String speType, String speUrl1, String speUrl2, String speUrl3, String speUrl4, String type, String speBrand) {
+    public SpeakerRvModel(String speAddress, String speAdvance, String speArea, String speBluetooth, String speDescription, String speDisplayType, String speMemoryCardSlot, String speModel, String spePowerSource, String speRent, String speType, String speUrl1, String speUrl2, String speUrl3, String speUrl4, String type, String speBrand, String ownerEmail, String phoneNo, String userId) {
         this.speAddress = speAddress;
         this.speAdvance = speAdvance;
         this.speArea = speArea;
@@ -39,18 +42,13 @@ public class SpeakerRvModel {
         this.speUrl4 = speUrl4;
         this.type = type;
         this.speBrand = speBrand;
+        OwnerEmail = ownerEmail;
+        this.phoneNo = phoneNo;
+        UserId = userId;
     }
 
     public String getSpeAddress() {
         return speAddress;
-    }
-
-    public String getSpeBrand() {
-        return speBrand;
-    }
-
-    public void setSpeBrand(String speBrand) {
-        this.speBrand = speBrand;
     }
 
     public void setSpeAddress(String speAddress) {
@@ -175,5 +173,37 @@ public class SpeakerRvModel {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getSpeBrand() {
+        return speBrand;
+    }
+
+    public void setSpeBrand(String speBrand) {
+        this.speBrand = speBrand;
+    }
+
+    public String getOwnerEmail() {
+        return OwnerEmail;
+    }
+
+    public void setOwnerEmail(String ownerEmail) {
+        OwnerEmail = ownerEmail;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
+    public String getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(String userId) {
+        UserId = userId;
     }
 }

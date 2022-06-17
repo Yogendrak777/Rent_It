@@ -15,9 +15,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Favourite extends AppCompatActivity {
 
-    RecyclerView recyclerView1, recyclerView2;
+    RecyclerView recyclerView1;
     RvAdapterFavourite rvAdapter1;
-    carRvAdapter CarRvAdapter;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     FirebaseAuth firebaseAuth;
@@ -34,18 +33,13 @@ public class Favourite extends AppCompatActivity {
         Toast.makeText(this, "data is Loading...", Toast.LENGTH_SHORT).show();
 
         recyclerView1 = (RecyclerView) findViewById(R.id.Rv1);
-        recyclerView2 = (RecyclerView) findViewById(R.id.Rv2);
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView2.setLayoutManager(new LinearLayoutManager(this));
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("RentIt").child("RentBy");
         FirebaseUser user = firebaseAuth.getCurrentUser();
         assert user != null;
         email = user.getEmail();
-
-
-
 
         FirebaseRecyclerOptions<houseRvModel> options =
                 new FirebaseRecyclerOptions.Builder<houseRvModel>()
@@ -56,13 +50,23 @@ public class Favourite extends AppCompatActivity {
         rvAdapter1 = new RvAdapterFavourite(options);
         recyclerView1.setAdapter(rvAdapter1);
 
-        FirebaseRecyclerOptions<carRvModel> options1 =
-                new FirebaseRecyclerOptions.Builder<carRvModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("car"), carRvModel.class)
-                        .build();
+//        FirebaseRecyclerOptions<carRvModel> options1 =
+//                new FirebaseRecyclerOptions.Builder<carRvModel>()
+//                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("car"), carRvModel.class)
+//                        .build();
+//
+//        CarRvAdapter = new carRvAdapter(options1);
+//        recyclerView2.setAdapter(CarRvAdapter);
+//
+//
+//        FirebaseRecyclerOptions<bikeRvModel> options2 =
+//                new FirebaseRecyclerOptions.Builder<bikeRvModel>()
+//                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Bike"),bikeRvModel.class)
+//                        .build();
+//
+//        bikeRvAdapter = new BikeRvAdapter(options2);
+//        recyclerView3.setAdapter(bikeRvAdapter);
 
-        CarRvAdapter = new carRvAdapter(options1);
-        recyclerView2.setAdapter(CarRvAdapter);
 
 
     }
@@ -71,15 +75,14 @@ public class Favourite extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         txtSearch(email);
-        CarRvAdapter.startListening();
         rvAdapter1.startListening();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        CarRvAdapter.stopListening();
         rvAdapter1.stopListening();
+
     }
 
     public void txtSearch(String str) {
@@ -93,15 +96,15 @@ public class Favourite extends AppCompatActivity {
 
         recyclerView1.setAdapter(rvAdapter1);
 
-        FirebaseRecyclerOptions<carRvModel> options2 =
-                new FirebaseRecyclerOptions.Builder<carRvModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("car").orderByChild("OwnerEmail").startAt(str).endAt(str+"~"),carRvModel.class)
-                        .build();
-
-        CarRvAdapter = new carRvAdapter(options2);
-        CarRvAdapter.startListening();
-
-        recyclerView2.setAdapter(CarRvAdapter);
+//        FirebaseRecyclerOptions<carRvModel> options2 =
+//                new FirebaseRecyclerOptions.Builder<carRvModel>()
+//                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("car").orderByChild("OwnerEmail").startAt(str).endAt(str+"~"),carRvModel.class)
+//                        .build();
+//
+//        CarRvAdapter = new carRvAdapter(options2);
+//        CarRvAdapter.startListening();
+//
+//        recyclerView2.setAdapter(CarRvAdapter);
 
     }
 

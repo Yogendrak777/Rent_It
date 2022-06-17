@@ -95,6 +95,10 @@ public class SearchItemPage extends AppCompatActivity {
                         startActivity(new Intent(SearchItemPage.this,AccountPage.class));
                         overridePendingTransition(0,0);
                         return true;
+                    case R.id.menuService:
+                        startActivity(new Intent(SearchItemPage.this,ServicesAddPage.class));
+                        overridePendingTransition(0,0);
+                        return true;
                 }
                 return false;
             }

@@ -23,11 +23,12 @@ public class carRvModel {
     String carUrl3;
     String type;
     String OwnerEmail;
+    String UserId;
 
 
     public carRvModel(){}
 
-    public carRvModel(String carAddress, String carAdvance, String carAge, String carAirbag, String carArea, String carBodyType, String carDescription, String carFastTag, String carFuel, String carGearBox, String carMilage, String carModel, String carPrice, String carSeats, String carServiceDate, String carTransmission, String carUrl, String carUrl1, String carUrl2, String carUrl3, String type, String OwnerEmail) {
+    public carRvModel(String carAddress, String carAdvance, String carAge, String carAirbag, String carArea, String carBodyType, String carDescription, String carFastTag, String carFuel, String carGearBox, String carMilage, String carModel, String carPrice, String carSeats, String carServiceDate, String carTransmission, String carUrl, String carUrl1, String carUrl2, String carUrl3, String type, String ownerEmail,String userId) {
         this.carAddress = carAddress;
         this.carAdvance = carAdvance;
         this.carAge = carAge;
@@ -49,7 +50,16 @@ public class carRvModel {
         this.carUrl2 = carUrl2;
         this.carUrl3 = carUrl3;
         this.type = type;
-        OwnerEmail = OwnerEmail;
+        UserId = userId;
+        OwnerEmail = ownerEmail;
+    }
+
+    public String getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(String userId) {
+        UserId = userId;
     }
 
     public String getOwnerEmail() {

@@ -71,21 +71,23 @@ public class MainActivity extends AppCompatActivity{
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds : snapshot.getChildren()){
                     if(ds.child("UserId").getValue().equals(user.getUid())) {
+                        if (ds.child("Status").getValue().equals("show")) {
 
-                        Toast.makeText(MainActivity.this, "wait it loading", Toast.LENGTH_SHORT).show();
-                       final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                        builder.setTitle("your Itenm is Booked");
-                        builder.setMessage("someone booked ur item please chick here to see details");
+                            Toast.makeText(MainActivity.this, "wait it loading", Toast.LENGTH_SHORT).show();
+                            final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                            builder.setTitle("your Itenm is Booked");
+                            builder.setMessage("someone booked ur item please chick here to see details");
 
-                        builder.setPositiveButton("see Detail", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                startActivity(new Intent(MainActivity.this, BookContainer.class));
-                            }
-                        });
-                        AlertDialog alertDialog = builder.create();
+                            builder.setPositiveButton("see Detail", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    startActivity(new Intent(MainActivity.this, BookContainer.class));
+                                }
+                            });
+                            AlertDialog alertDialog = builder.create();
                             alertDialog.show();
-                        //builder.show();
+                            //builder.show();
+                        }
                     }
                 }
 
@@ -113,12 +115,17 @@ public class MainActivity extends AppCompatActivity{
                         startActivity(new Intent(MainActivity.this,SearchItemPage.class));
                         overridePendingTransition(0,0);
                         return true;
-                        case R.id.menuAccount:
+                    case R.id.menuChart:
+                        startActivity(new Intent(MainActivity.this,ChartMainPage.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.menuAccount:
                         startActivity(new Intent(MainActivity.this,AccountPage.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.menuChart:
-                        startActivity(new Intent(MainActivity.this,ChartMainPage.class));
+
+                    case R.id.menuService:
+                        startActivity(new Intent(MainActivity.this,ServicesAddPage.class));
                         overridePendingTransition(0,0);
                         return true;
                 }
