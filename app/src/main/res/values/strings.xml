@@ -217,5 +217,36 @@
         <item>jobName</item>
     </string-array>
 
+    <string-array name="SpeakerBluetooth">
+        <item>yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="SpeakerDisplay">
+        <item>LED</item>
+        <item>QLED</item>
+        <item>AMOLED</item>
+    </string-array>
+
+    <string-array name="SpeakerMemory">
+        <item>yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="SpeakerPower">
+        <item>Battery</item>
+        <item>Cell</item>
+        <item>Electric</item>
+    </string-array>
+
+    <string-array name="SpeakerType">
+        <item>Tower/Floor</item>
+        <item>Bookshelf </item>
+        <item>Surround</item>
+        <item>Center-Channel</item>
+        <item>Subwoofers</item>
+        <item>In-Wall</item>
+    </string-array>
+
 
 </resources>

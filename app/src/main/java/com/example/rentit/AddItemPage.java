@@ -52,7 +52,7 @@ public class AddItemPage extends AppCompatActivity {
         CardSpeaker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(AddItemPage.this,SpeakerRvContainer.class));
+                startActivity(new Intent(AddItemPage.this,SpeakerInfo1.class));
             }
         });
 
