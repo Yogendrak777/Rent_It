@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity{
                         return true;
 
                     case R.id.menuService:
-                        startActivity(new Intent(MainActivity.this,ServicesAddPage.class));
+                        startActivity(new Intent(MainActivity.this,ServiceAddPage.class));
                         overridePendingTransition(0,0);
                         return true;
                 }

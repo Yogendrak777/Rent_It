@@ -48,6 +48,7 @@
         <entry key="app/src/main/res/font/poppins_extrabold.xml" value="0.32395833333333335" />
         <entry key="app/src/main/res/layout/activity_account_page.xml" value="0.3157894736842105" />
         <entry key="app/src/main/res/layout/activity_add_item_page.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_beatuician_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_bike_info1.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_bike_info2.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_bike_info3.xml" value="0.2833333333333333" />
@@ -71,7 +72,9 @@
         <entry key="app/src/main/res/layout/activity_chart.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_chart_main_page.xml" value="0.2677083333333333" />
         <entry key="app/src/main/res/layout/activity_cloth_rv_continer.xml" value="0.2677083333333333" />
+        <entry key="app/src/main/res/layout/activity_construction_works_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_display_content_page.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_electrical_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_favourite.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_forgot_password_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_hart_main_page.xml" value="0.2833333333333333" />
@@ -80,10 +83,15 @@
         <entry key="app/src/main/res/layout/activity_house_info3.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_house_info4.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_house_info5.xml" value="0.2607929515418502" />
+        <entry key="app/src/main/res/layout/activity_householdworks_page.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_interior_designers_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.2780441227977887" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2546875" />
+        <entry key="app/src/main/res/layout/activity_paints_pages.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_pay_ment_page.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_plumber_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_search_item_page.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_service_add_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_service_info1.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_service_info2.xml" value="0.2677083333333333" />
         <entry key="app/src/main/res/layout/activity_service_info3.xml" value="0.2833333333333333" />
@@ -116,6 +124,7 @@
         <entry key="app/src/main/res/layout/sports_details_pages.xml" value="0.26171529619805484" />
         <entry key="app/src/main/res/layout/sports_rv_items.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/user_chart_item.xml" value="0.3265060240963855" />
+        <entry key="app/src/main/res/layout/workers_details_page.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/menu/navigation_menu.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/menu/search.xml" value="0.28229166666666666" />
       </map>

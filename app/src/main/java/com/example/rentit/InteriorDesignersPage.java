@@ -1,10 +1,6 @@
 package com.example.rentit;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,17 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class ServicesAddPage extends AppCompatActivity {
+public class InteriorDesignersPage extends AppCompatActivity {
+
     RecyclerView recyclerView;
     serviceRVAdapter rvAdapter;
     SearchView searchView;
-    String work;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_services_add_page);
-        Spinner bhk = (Spinner) findViewById(R.id.BhkSpinner);
+        setContentView(R.layout.activity_interior_designers_page);
 
         Toast.makeText(this, "Please wait...", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "data is Loading...", Toast.LENGTH_SHORT).show();
@@ -34,25 +29,9 @@ public class ServicesAddPage extends AppCompatActivity {
         searchView = findViewById(R.id.search);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,R.array.SearchServices, android.R.layout.simple_spinner_item);
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        bhk.setAdapter(adapter1);
-        bhk.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                work = adapterView.getItemAtPosition(i).toString();
-               // change(work);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
         FirebaseRecyclerOptions<ServiceRVModel> options =
                 new FirebaseRecyclerOptions.Builder<ServiceRVModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Service"),ServiceRVModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("InteriorDesigners"),ServiceRVModel.class)
                         .build();
 
         rvAdapter = new serviceRVAdapter(options);
@@ -89,11 +68,10 @@ public class ServicesAddPage extends AppCompatActivity {
         rvAdapter.stopListening();
     }
 
-
     public void txtSearch (String str){
         FirebaseRecyclerOptions<ServiceRVModel> options =
                 new FirebaseRecyclerOptions.Builder<ServiceRVModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Service").orderByChild(work).startAt(str).endAt(str+"~"),ServiceRVModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("InteriorDesigners").orderByChild("Area").startAt(str).endAt(str+"~"),ServiceRVModel.class)
                         .build();
 
         rvAdapter = new serviceRVAdapter(options);
@@ -103,14 +81,6 @@ public class ServicesAddPage extends AppCompatActivity {
 
     }
 
-//    public void change(String str) {
-//        FirebaseRecyclerOptions<ServiceRVModel> options1 =
-//                new FirebaseRecyclerOptions.Builder<ServiceRVModel>()
-//                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Service").orderByChild("jobName").startAt(str).endAt(str + "~"), ServiceRVModel.class)
-//                        .build();
-//        rvAdapter = new serviceRVAdapter(options1);
-//        rvAdapter.startListening();
-//
-//        recyclerView.setAdapter(rvAdapter);
-//    }
+
 }
+

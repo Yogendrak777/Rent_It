@@ -189,6 +189,7 @@ public class serviceInfo3 extends AppCompatActivity {
                 map.put("Name", Name1.getText().toString().trim());
                 map.put("Experience", Exp1.getText().toString().trim());
                 map.put("Address", Address1.getText().toString().trim());
+                map.put("Charge",Rent1.getText().toString().trim());
                 map.put("jobName", job1);
                 map.put("Area", Area1.getText().toString().trim());
                 map.put("workingTime", workTime1.getText().toString().trim());
@@ -204,24 +205,163 @@ public class serviceInfo3 extends AppCompatActivity {
                 map.put("UserId",user.getUid());
                 map.put("PhoneNo",OwnerNo);
 
-                FirebaseDatabase.getInstance().getReference().child("RentIt").child("Service").push()
-                        .setValue(map)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(serviceInfo3.this, "Data Upload Successfully", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(serviceInfo3.this,CartPage.class));
-                                finish();
+                if(job1.equals("Mechanical")) {
 
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(serviceInfo3.this, "Data Upload Failed"+ e, Toast.LENGTH_SHORT).show();
+                    FirebaseDatabase.getInstance().getReference().child("RentIt").child("Mechanical").push()
+                            .setValue(map)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Successfully", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(serviceInfo3.this, CartPage.class));
+                                    finish();
 
-                            }
-                        });
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Failed" + e, Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                }else if (job1.equals("Plumber")){
+                    FirebaseDatabase.getInstance().getReference().child("RentIt").child("Plumber").push()
+                            .setValue(map)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Successfully", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(serviceInfo3.this, CartPage.class));
+                                    finish();
+
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Failed" + e, Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+
+                }else if(job1.equals("Electrical")){
+                    FirebaseDatabase.getInstance().getReference().child("RentIt").child("Electrical").push()
+                            .setValue(map)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Successfully", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(serviceInfo3.this, CartPage.class));
+                                    finish();
+
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Failed" + e, Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+
+                } else if(job1.equals("ConstructionWorks")){
+                    FirebaseDatabase.getInstance().getReference().child("RentIt").child("ConstructionWorks").push()
+                            .setValue(map)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Successfully", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(serviceInfo3.this, CartPage.class));
+                                    finish();
+
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Failed" + e, Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                } else if (job1.equals("householdworks")){
+                    FirebaseDatabase.getInstance().getReference().child("RentIt").child("householdworks").push()
+                            .setValue(map)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Successfully", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(serviceInfo3.this, CartPage.class));
+                                    finish();
+
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Failed" + e, Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                }else if(job1.equals("Beatuician")){
+                    FirebaseDatabase.getInstance().getReference().child("RentIt").child("Beatuician").push()
+                            .setValue(map)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Successfully", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(serviceInfo3.this, CartPage.class));
+                                    finish();
+
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Failed" + e, Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                } else if(job1.equals("Paints")){
+                    FirebaseDatabase.getInstance().getReference().child("RentIt").child("Paints").push()
+                            .setValue(map)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Successfully", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(serviceInfo3.this, CartPage.class));
+                                    finish();
+
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Failed" + e, Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                } else if(job1.equals("InteriorDesigners")){
+                    FirebaseDatabase.getInstance().getReference().child("RentIt").child("InteriorDesigners").push()
+                            .setValue(map)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Successfully", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(serviceInfo3.this, CartPage.class));
+                                    finish();
+
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(serviceInfo3.this, "Data Upload Failed" + e, Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                }
+
 
             }
         });

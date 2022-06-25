@@ -184,7 +184,7 @@ public class AccountPage extends AppCompatActivity {
         AddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AccountPage.this,CameraInfo1.class));
+                startActivity(new Intent(AccountPage.this,AddItemPage.class));
             }
         });
 
@@ -201,7 +201,7 @@ public class AccountPage extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.menuService:
-                        startActivity(new Intent(AccountPage.this,ServicesAddPage.class));
+                        startActivity(new Intent(AccountPage.this, ServiceAddPage.class));
                         overridePendingTransition(0,0);
                         return true;
 

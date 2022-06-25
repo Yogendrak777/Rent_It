@@ -91,12 +91,17 @@ public class SearchItemPage extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
 
+                    case R.id.menuChart:
+                        startActivity(new Intent(SearchItemPage.this,ChartMainPage.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
                     case R.id.menuAccount:
                         startActivity(new Intent(SearchItemPage.this,AccountPage.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.menuService:
-                        startActivity(new Intent(SearchItemPage.this,ServicesAddPage.class));
+                        startActivity(new Intent(SearchItemPage.this, MechanicalAddPage.class));
                         overridePendingTransition(0,0);
                         return true;
                 }

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +28,7 @@ public class ChartMainPage extends AppCompatActivity {
     RecyclerView recyclerView;
     Button button;
     UserAdapter userAdapter;
+    BottomNavigationView bottomNavigationView;
     List<personInfoRvModel>  mUsers;
     FirebaseUser firebaseUser;
     DatabaseReference databaseReference;

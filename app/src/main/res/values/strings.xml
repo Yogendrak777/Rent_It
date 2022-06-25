@@ -200,11 +200,11 @@
         <item>Mechanical</item>
         <item>Plumber</item>
         <item>Electrical</item>
-        <item>Construction works</item>
-        <item>house hold works</item>
+        <item>ConstructionWorks</item>
+        <item>householdworks</item>
         <item>Beatuician</item>
         <item>Paints</item>
-        <item>Interior Designers</item>
+        <item>InteriorDesigners</item>
     </string-array>
 
     <string-array name="Searchouse">

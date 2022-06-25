@@ -19,6 +19,36 @@
         android:theme="@style/Theme.RentIt"
         tools:targetApi="31">
         <activity
+            android:name=".SpeakerInfo2"
+            android:exported="false" />
+        <activity
+            android:name=".SpeakerInfo1"
+            android:exported="false" />
+        <activity
+            android:name=".ServiceAddPage"
+            android:exported="false" />
+        <activity
+            android:name=".InteriorDesignersPage"
+            android:exported="false" />
+        <activity
+            android:name=".PaintsPages"
+            android:exported="false" />
+        <activity
+            android:name=".BeatuicianPage"
+            android:exported="false" />
+        <activity
+            android:name=".householdworksPage"
+            android:exported="false" />
+        <activity
+            android:name=".ConstructionWorksPage"
+            android:exported="false" />
+        <activity
+            android:name=".ElectricalPage"
+            android:exported="false" />
+        <activity
+            android:name=".PlumberPage"
+            android:exported="false" />
+        <activity
             android:name=".AddItemPage"
             android:exported="false" />
         <activity
@@ -31,7 +61,7 @@
             android:name=".serviceInfo1"
             android:exported="false" />
         <activity
-            android:name=".ServicesAddPage"
+            android:name=".MechanicalAddPage"
             android:exported="false" />
         <activity
             android:name=".CameraInfo4"

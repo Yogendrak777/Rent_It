@@ -125,7 +125,8 @@
                             android:id="@+id/img_save_btn"
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="150dp"
+                            android:layout_marginLeft="90dp"
+
                             android:background="@drawable/next_button"
                             android:padding="3dp"
                             android:text="Save"
