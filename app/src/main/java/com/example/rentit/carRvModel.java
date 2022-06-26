@@ -24,11 +24,12 @@ public class carRvModel {
     String type;
     String OwnerEmail;
     String UserId;
+    String CarOwnerName;
 
 
     public carRvModel(){}
 
-    public carRvModel(String carAddress, String carAdvance, String carAge, String carAirbag, String carArea, String carBodyType, String carDescription, String carFastTag, String carFuel, String carGearBox, String carMilage, String carModel, String carPrice, String carSeats, String carServiceDate, String carTransmission, String carUrl, String carUrl1, String carUrl2, String carUrl3, String type, String ownerEmail,String userId) {
+    public carRvModel(String carAddress, String carAdvance, String carAge, String carAirbag, String carArea, String carBodyType, String carDescription, String carFastTag, String carFuel, String carGearBox, String carMilage, String carModel, String carPrice, String carSeats, String carServiceDate, String carTransmission, String carUrl, String carUrl1, String carUrl2, String carUrl3, String type, String ownerEmail, String userId, String carOwnerName) {
         this.carAddress = carAddress;
         this.carAdvance = carAdvance;
         this.carAge = carAge;
@@ -50,24 +51,9 @@ public class carRvModel {
         this.carUrl2 = carUrl2;
         this.carUrl3 = carUrl3;
         this.type = type;
-        UserId = userId;
         OwnerEmail = ownerEmail;
-    }
-
-    public String getUserId() {
-        return UserId;
-    }
-
-    public void setUserId(String userId) {
         UserId = userId;
-    }
-
-    public String getOwnerEmail() {
-        return OwnerEmail;
-    }
-
-    public void setOwnerEmail(String ownerEmail) {
-        OwnerEmail = ownerEmail;
+        CarOwnerName = carOwnerName;
     }
 
     public String getCarAddress() {
@@ -236,5 +222,29 @@ public class carRvModel {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getOwnerEmail() {
+        return OwnerEmail;
+    }
+
+    public void setOwnerEmail(String ownerEmail) {
+        OwnerEmail = ownerEmail;
+    }
+
+    public String getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(String userId) {
+        UserId = userId;
+    }
+
+    public String getCarOwnerName() {
+        return CarOwnerName;
+    }
+
+    public void setCarOwnerName(String carOwnerName) {
+        CarOwnerName = carOwnerName;
     }
 }

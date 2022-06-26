@@ -344,6 +344,7 @@ public class CarInfo4 extends AppCompatActivity {
 
 
                 Map<String,Object> map = new HashMap<>();
+                map.put("CarOwnerName",Name1.getText().toString().trim());
                 map.put("carAddress",Address1.getText().toString().trim());
                 map.put("carAdvance",Advance1.getText().toString().trim());
                 map.put("carAge",CARAGE1);

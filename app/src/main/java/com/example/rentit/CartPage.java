@@ -17,7 +17,7 @@ public class CartPage extends AppCompatActivity {
 
     RecyclerView recyclerView1, recyclerView2, recyclerView3, recyclerView4, recyclerView5, recyclerView6, recyclerView7;
     RvAdapter1 rvAdapter1;
-    carRvAdapter CarRvAdapter;
+    CarRvAdapter1 CarRvAdapter;
     BikeRvAdapter bikeRvAdapter;
     CameraRvAdapter cameraRvAdapter;
     ClothRvAdapter clothRvAdapter;
@@ -71,7 +71,7 @@ public class CartPage extends AppCompatActivity {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("car"), carRvModel.class)
                         .build();
 
-        CarRvAdapter = new carRvAdapter(options1);
+        CarRvAdapter = new CarRvAdapter1(options1);
         recyclerView2.setAdapter(CarRvAdapter);
 
         FirebaseRecyclerOptions<bikeRvModel> options3 =
@@ -120,6 +120,11 @@ public class CartPage extends AppCompatActivity {
         super.onStart();
         txtSearch(email);
         CarRvAdapter.startListening();
+        bikeRvAdapter.startListening();
+        cameraRvAdapter.startListening();
+        clothRvAdapter.startListening();
+        sportsRvAdapter.startListening();
+        speakerRvAdapter.startListening();
         rvAdapter1.startListening();
     }
 
@@ -127,6 +132,11 @@ public class CartPage extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         CarRvAdapter.stopListening();
+        bikeRvAdapter.stopListening();
+        cameraRvAdapter.stopListening();
+        clothRvAdapter.stopListening();
+        sportsRvAdapter.stopListening();
+        speakerRvAdapter.stopListening();
         rvAdapter1.stopListening();
     }
 
@@ -146,14 +156,14 @@ public class CartPage extends AppCompatActivity {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("car").orderByChild("OwnerEmail").startAt(str).endAt(str+"~"),carRvModel.class)
                         .build();
 
-        CarRvAdapter = new carRvAdapter(options2);
+        CarRvAdapter = new CarRvAdapter1(options2);
         CarRvAdapter.startListening();
 
         recyclerView2.setAdapter(CarRvAdapter);
 
         FirebaseRecyclerOptions<bikeRvModel> options3 =
                 new FirebaseRecyclerOptions.Builder<bikeRvModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Bike").orderByChild("bikeArea").startAt(str).endAt(str+"~"),bikeRvModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Bike").orderByChild("OwnerEmail").startAt(str).endAt(str+"~"),bikeRvModel.class)
                         .build();
 
         bikeRvAdapter = new BikeRvAdapter(options3);
@@ -163,7 +173,7 @@ public class CartPage extends AppCompatActivity {
 
         FirebaseRecyclerOptions<CameraRvModel> options4 =
                 new FirebaseRecyclerOptions.Builder<CameraRvModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("camera").orderByChild("cameraArea").startAt(str).endAt(str+"~"),CameraRvModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("camera").orderByChild("OwnerEmail").startAt(str).endAt(str+"~"),CameraRvModel.class)
                         .build();
 
         cameraRvAdapter = new CameraRvAdapter(options4);
@@ -173,7 +183,7 @@ public class CartPage extends AppCompatActivity {
 
         FirebaseRecyclerOptions<ClothRvModel> options5 =
                 new FirebaseRecyclerOptions.Builder<ClothRvModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("clothes").orderByChild("clothArea").startAt(str).endAt(str+"~"),ClothRvModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("clothes").orderByChild("OwnerEmail").startAt(str).endAt(str+"~"),ClothRvModel.class)
                         .build();
 
         clothRvAdapter = new ClothRvAdapter(options5);
@@ -183,7 +193,7 @@ public class CartPage extends AppCompatActivity {
 
         FirebaseRecyclerOptions<SpeakerRvModel> options6 =
                 new FirebaseRecyclerOptions.Builder<SpeakerRvModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("speakers").orderByChild("speArea").startAt(str).endAt(str+"~"),SpeakerRvModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("speakers").orderByChild("OwnerEmail").startAt(str).endAt(str+"~"),SpeakerRvModel.class)
                         .build();
 
         speakerRvAdapter = new SpeakerRvAdapter(options6);
@@ -193,7 +203,7 @@ public class CartPage extends AppCompatActivity {
 
         FirebaseRecyclerOptions<SportRvModel> options7 =
                 new FirebaseRecyclerOptions.Builder<SportRvModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("sports").orderByChild("spoArea").startAt(str).endAt(str+"~"),SportRvModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("sports").orderByChild("OwnerEmail").startAt(str).endAt(str+"~"),SportRvModel.class)
                         .build();
 
         sportsRvAdapter = new SportsRvAdapter(options7);

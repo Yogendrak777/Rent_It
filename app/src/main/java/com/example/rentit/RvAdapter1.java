@@ -548,7 +548,6 @@ public class RvAdapter1 extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter1.
 
     class myViewHolder extends RecyclerView.ViewHolder {
 
-        //CircleImageView img;
         ImageView img;
         TextView Address;
         CardView cardView;
