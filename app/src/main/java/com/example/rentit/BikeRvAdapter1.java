@@ -44,10 +44,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CarRvAdapter1 extends FirebaseRecyclerAdapter<carRvModel,CarRvAdapter1.myViewHolder> {
+public class BikeRvAdapter1 extends FirebaseRecyclerAdapter<bikeRvModel,BikeRvAdapter1.myViewHolder> {
 
     EditText Name1,Address1,Advance1,Rent1,Area1,Desc1,model1,Service1;
-    String TRASNMISSION1,FUEL1,MILLAGE1,AIRBAG1,SEATS1,CARAGE1,GEARBOX1,FASTTAG1,BODYTYPE1,OwnerNo;
+    String MILLAGE1,CARAGE1,FASTTAG1,BODYTYPE1,OwnerNo;
     ImageView Img2,Img3,Img4,profileImg;
 
     Button upload;
@@ -58,20 +58,19 @@ public class CarRvAdapter1 extends FirebaseRecyclerAdapter<carRvModel,CarRvAdapt
 
     private FirebaseStorage storage;
     private StorageReference storageReference;
-
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
      * {@link FirebaseRecyclerOptions} for configuration options.
      *
      * @param options
      */
-    public CarRvAdapter1(@NonNull FirebaseRecyclerOptions<carRvModel> options) {
+    public BikeRvAdapter1(@NonNull FirebaseRecyclerOptions<bikeRvModel> options) {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull carRvModel model) {
-        holder.Address.setText(model.getCarModel());
+    protected void onBindViewHolder(@NonNull myViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull bikeRvModel model) {
+        holder.Address.setText(model.getBikeModel());
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,7 +104,7 @@ public class CarRvAdapter1 extends FirebaseRecyclerAdapter<carRvModel,CarRvAdapt
             }
         });
 
-        StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+model.getCarUrl1());
+        StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+model.getBikeUrl1());
         try {
             File file = File.createTempFile("randomKey","");
             storageReference1.getFile(file)
@@ -132,86 +131,45 @@ public class CarRvAdapter1 extends FirebaseRecyclerAdapter<carRvModel,CarRvAdapt
             @Override
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
-                        .setContentHolder(new ViewHolder(R.layout.activity_car_info4))
+                        .setContentHolder(new ViewHolder(R.layout.activity_bike_info4))
                         .setExpanded(true, 2200)
                         .create();
                 View view = dialogPlus.getHolderView();
-                Name1 = (EditText)view.findViewById(R.id.Name);
-                Address1 = (EditText)view.findViewById(R.id.Address);
-                Advance1 = (EditText)view.findViewById(R.id.Advance);
-                Rent1 = (EditText)view.findViewById(R.id.Rent);
-                Area1 = (EditText)view.findViewById(R.id.Area);
-                Desc1 = (EditText)view.findViewById(R.id.CarDesc);
-                model1 = (EditText)view.findViewById(R.id.modelName);
+                Name1 = (EditText) view.findViewById(R.id.Name);
+                Address1 = (EditText) view.findViewById(R.id.Address);
+                Advance1 = (EditText) view.findViewById(R.id.Advance);
+                Rent1 = (EditText) view.findViewById(R.id.Rent);
+                Area1 = (EditText) view.findViewById(R.id.Area);
+                Desc1 = (EditText) view.findViewById(R.id.CarDesc);
+                model1 = (EditText) view.findViewById(R.id.modelName);
                 Service1 = view.findViewById(R.id.service);
 
-                upload = (Button)view.findViewById(R.id.Upload);
+                upload = (Button) view.findViewById(R.id.Upload);
 
-                Spinner Trans = (Spinner)view.findViewById(R.id.GearSpinner);
-                Spinner Fuel = (Spinner)view.findViewById(R.id.FuelSpinner);
-                Spinner Millage = (Spinner)view.findViewById(R.id.MillageSpinner);
-                Spinner AirBag = (Spinner)view.findViewById(R.id.AirBagSpinner);
-                Spinner Seats = (Spinner)view.findViewById(R.id.SeatsSpinner);
-                Spinner CarAge = (Spinner)view.findViewById(R.id.AgeSpinner);
-                Spinner GearBox = (Spinner)view.findViewById(R.id.BoxSpeedSpinner);
-                Spinner FastTag = (Spinner)view.findViewById(R.id.FastTagSpinner);
-                Spinner BodyType = (Spinner)view.findViewById(R.id.BodyTypeSpinner);
+                Spinner Millage = (Spinner) view.findViewById(R.id.MillageSpinner);
+                Spinner CarAge = (Spinner) view.findViewById(R.id.AgeSpinner);
+                Spinner FastTag = (Spinner) view.findViewById(R.id.FastTagSpinner);
+                Spinner BodyType = (Spinner) view.findViewById(R.id.BodyTypeSpinner);
 
-                profileImg =view.findViewById(R.id.objImg1);
-                Img2 = (ImageView)view.findViewById(R.id.objImg2);
-                Img3 = (ImageView)view.findViewById(R.id.objImg3);
-                Img4 = (ImageView)view.findViewById(R.id.objImg4);
+                profileImg = view.findViewById(R.id.objImg1);
+                Img2 = (ImageView) view.findViewById(R.id.objImg2);
+                Img3 = (ImageView) view.findViewById(R.id.objImg3);
+                Img4 = (ImageView) view.findViewById(R.id.objImg4);
 
-                Name1.setText(model.getCarOwnerName());
-                Address1.setText(model.getCarAddress());
-                Advance1.setText(model.getCarAdvance());
-                Rent1.setText(model.getCarPrice());
-                Area1.setText(model.getCarArea());
-                Desc1.setText(model.getCarDescription());
-                model1.setText(model.getCarModel());
-                Service1.setText(model.getCarServiceDate());
-
-                ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(Trans.getContext(),R.array.Transmission, android.R.layout.simple_spinner_item);
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                Trans.setAdapter(adapter);
-                int Tra;
-                Tra = adapter.getPosition(model.getCarTransmission());
-                Trans.setSelection(Tra);
-                Trans.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        TRASNMISSION1 = adapterView.getItemAtPosition(i).toString();
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-
-                ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(Fuel.getContext(),R.array.Fuel, android.R.layout.simple_spinner_item);
-                adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                Fuel.setAdapter(adapter1);
-                int Ful;
-                Ful = adapter1.getPosition(model.getCarFuel());
-                Fuel.setSelection(Ful);
-                Fuel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        FUEL1 = adapterView.getItemAtPosition(i).toString();
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
+                Name1.setText(model.getBikeOwnerName());
+                Address1.setText(model.getBikeAddress());
+                Advance1.setText(model.getBikeAdvance());
+                Rent1.setText(model.getBikeRent());
+                Area1.setText(model.getBikeArea());
+                Desc1.setText(model.getBikeDescription());
+                model1.setText(model.getBikeModel());
+                Service1.setText(model.getBikeServiceDate());
 
                 ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(Millage.getContext(), R.array.Millage, android.R.layout.simple_spinner_item);
                 adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 Millage.setAdapter(adapter2);
                 int mil;
-                mil = adapter2.getPosition(model.getCarMilage());
+                mil = adapter2.getPosition(model.getBikeMileage());
                 Millage.setSelection(mil);
                 Millage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
@@ -225,49 +183,12 @@ public class CarRvAdapter1 extends FirebaseRecyclerAdapter<carRvModel,CarRvAdapt
                     }
                 });
 
-                ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(AirBag.getContext(), R.array.AirBags, android.R.layout.simple_spinner_item);
-                adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                AirBag.setAdapter(adapter3);
-                int air;
-                air = adapter3.getPosition(model.getCarAirbag());
-                AirBag.setSelection(air);
-                AirBag.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        AIRBAG1 = adapterView.getItemAtPosition(i).toString();
 
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-
-                ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(Seats.getContext(), R.array.Seats, android.R.layout.simple_spinner_item);
-                adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                Seats.setAdapter(adapter4);
-                int set;
-                set = adapter4.getPosition(model.getCarSeats());
-                Seats.setSelection(set);
-                Seats.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        SEATS1 = adapterView.getItemAtPosition(i).toString();
-
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-
-                ArrayAdapter<CharSequence> adapter5 = ArrayAdapter.createFromResource(CarAge.getContext(),R.array.CarAge, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapter5 = ArrayAdapter.createFromResource(CarAge.getContext(), R.array.CarAge, android.R.layout.simple_spinner_item);
                 adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 CarAge.setAdapter(adapter5);
                 int car;
-                car = adapter5.getPosition(model.getCarAge());
+                car = adapter5.getPosition(model.getBikeAge());
                 CarAge.setSelection(car);
                 CarAge.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
@@ -281,29 +202,12 @@ public class CarRvAdapter1 extends FirebaseRecyclerAdapter<carRvModel,CarRvAdapt
                     }
                 });
 
-                ArrayAdapter<CharSequence> adapter6 = ArrayAdapter.createFromResource(GearBox.getContext(), R.array.GearBox, android.R.layout.simple_spinner_item);
-                adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                GearBox.setAdapter(adapter6);
-                int gear;
-                gear = adapter6.getPosition(model.getCarGearBox());
-                GearBox.setSelection(gear);
-                GearBox.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        GEARBOX1 = adapterView.getItemAtPosition(i).toString();
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
 
                 ArrayAdapter<CharSequence> adapter7 = ArrayAdapter.createFromResource(FastTag.getContext(), R.array.FastTag, android.R.layout.simple_spinner_item);
                 adapter7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 FastTag.setAdapter(adapter7);
                 int fast;
-                fast =  adapter7.getPosition(model.getCarFastTag());
+                fast = adapter7.getPosition(model.getBikeFastTag());
                 FastTag.setSelection(fast);
                 FastTag.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
@@ -317,11 +221,11 @@ public class CarRvAdapter1 extends FirebaseRecyclerAdapter<carRvModel,CarRvAdapt
                     }
                 });
 
-                ArrayAdapter<CharSequence> adapter8 = ArrayAdapter.createFromResource(BodyType.getContext(), R.array.BodyType, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapter8 = ArrayAdapter.createFromResource(BodyType.getContext(), R.array.BikeType, android.R.layout.simple_spinner_item);
                 adapter8.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 BodyType.setAdapter(adapter8);
                 int body;
-                body = adapter8.getPosition(model.getCarBodyType());
+                body = adapter8.getPosition(model.getBikeType());
                 BodyType.setSelection(body);
 
                 BodyType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -348,10 +252,10 @@ public class CarRvAdapter1 extends FirebaseRecyclerAdapter<carRvModel,CarRvAdapt
                             if (ds.child("userEmailDb").getValue().equals(user.getEmail())) {
                                 OwnerNo = ds.child("userPhoneDb").getValue(String.class);
 
-                                StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/" + model.getCarUrl());
-                                StorageReference storageReference2 = FirebaseStorage.getInstance().getReference("images/" + model.getCarUrl1());
-                                StorageReference storageReference3 = FirebaseStorage.getInstance().getReference("images/" + model.getCarUrl2());
-                                StorageReference storageReference4 = FirebaseStorage.getInstance().getReference("images/" + model.getCarUrl3());
+                                StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/" + model.getBikeUrl1());
+                                StorageReference storageReference2 = FirebaseStorage.getInstance().getReference("images/" + model.getBikeUrl2());
+                                StorageReference storageReference3 = FirebaseStorage.getInstance().getReference("images/" + model.getBikeUrl3());
+                                StorageReference storageReference4 = FirebaseStorage.getInstance().getReference("images/" + model.getBikeUrl4());
                                 try {
                                     File file1 = File.createTempFile("randomKey", "");
                                     File file2 = File.createTempFile("randomKey", "");
@@ -395,6 +299,7 @@ public class CarRvAdapter1 extends FirebaseRecyclerAdapter<carRvModel,CarRvAdapt
 
                     }
                 });
+
                 upload.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -403,37 +308,36 @@ public class CarRvAdapter1 extends FirebaseRecyclerAdapter<carRvModel,CarRvAdapt
 
 
                         Map<String, Object> map = new HashMap<>();
-                        map.put("CarOwnerName", Name1.getText().toString().trim());
-                        map.put("carAddress", Address1.getText().toString().trim());
-                        map.put("carAdvance", Advance1.getText().toString().trim());
-                        map.put("carAge", CARAGE1);
-                        map.put("carAirbag", AIRBAG1);
-                        map.put("carArea", Area1.getText().toString().trim());
-                        map.put("carBodyType", BODYTYPE1);
-                        map.put("carDescription", Desc1.getText().toString());
-                        map.put("carFastTag", FASTTAG1);
-                        map.put("carFuel", FUEL1);
-                        map.put("carGearBox", GEARBOX1);
-                        map.put("carMilage", MILLAGE1);
-                        map.put("carModel", model1.getText().toString());
-                        map.put("carPrice", Rent1.getText().toString());
-                        map.put("carSeats", SEATS1);
-                        map.put("carServiceDate", Service1.getText().toString());
-                        map.put("carTransmission", TRASNMISSION1);
+                        map.put("bikeOwnerName", Name1.getText().toString().trim());
+                        map.put("bikeAddress", Address1.getText().toString().trim());
+                        map.put("bikeAdvance", Advance1.getText().toString().trim());
+                        map.put("bikeAge", CARAGE1);
+                        map.put("bikeArea", Area1.getText().toString().trim());
+                        map.put("bikeType", BODYTYPE1);
+                        map.put("bikeDescription", Desc1.getText().toString());
+                        map.put("bikeFastTag", FASTTAG1);
+                        map.put("bikeMileage", MILLAGE1);
+                        map.put("bikeModel", model1.getText().toString());
+                        map.put("bikeRent", Rent1.getText().toString());
+                        map.put("bikeServiceDate", Service1.getText().toString());
+                        map.put("type", "BIKE");
+                        map.put("OwnerEmail", user.getEmail());
+                        map.put("UserId", user.getUid());
+                        map.put("PhoneNo", OwnerNo);
 
-                        FirebaseDatabase.getInstance().getReference().child("RentIt").child("car")
+                        FirebaseDatabase.getInstance().getReference().child("RentIt").child("Bike")
                                 .child(getRef(position).getKey()).updateChildren(map)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
-                                        Toast.makeText(holder.Address.getContext(), "Successfully updated", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Name1.getContext(), "Successfully updated", Toast.LENGTH_SHORT).show();
                                         dialogPlus.dismiss();
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(holder.Address.getContext(), "Failed updated", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Name1.getContext(), "Failed updated", Toast.LENGTH_SHORT).show();
                                         dialogPlus.dismiss();
                                     }
                                 });
@@ -441,10 +345,10 @@ public class CarRvAdapter1 extends FirebaseRecyclerAdapter<carRvModel,CarRvAdapt
                     }
 
 
-                    });
+                });
 
 
-                        dialogPlus.show();
+                dialogPlus.show();
             }
         });
     }
@@ -457,7 +361,6 @@ public class CarRvAdapter1 extends FirebaseRecyclerAdapter<carRvModel,CarRvAdapt
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder{
-
         ImageView img;
         TextView Address;
         CardView cardView;

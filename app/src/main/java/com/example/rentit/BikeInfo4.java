@@ -83,13 +83,13 @@ public class BikeInfo4 extends AppCompatActivity {
         String Model = intent.getStringExtra("Model");
         String Area = intent.getStringExtra("Area");
         String Desc = intent.getStringExtra("Desc");
-        String TRASNMISSION = intent.getStringExtra("TRASNMISSION");
-        String FUEL = intent.getStringExtra("FUEL");
+       // String TRASNMISSION = intent.getStringExtra("TRASNMISSION");
+        //String FUEL = intent.getStringExtra("FUEL");
         String MILLAGE = intent.getStringExtra("MILLAGE");
-        String AIRBAG = intent.getStringExtra("AIRBAG");
-        String SEATS = intent.getStringExtra("SEATS");
+        //String AIRBAG = intent.getStringExtra("AIRBAG");
+       // String SEATS = intent.getStringExtra("SEATS");
         String CARAGE = intent.getStringExtra("CARAGE");
-        String GEARBOX = intent.getStringExtra("GEARBOX");
+       // String GEARBOX = intent.getStringExtra("GEARBOX");
         String FASTTAG = intent.getStringExtra("FASTTAG");
         String BODYTYPE = intent.getStringExtra("BODYTYPE");
         String ImgUrl1 = intent.getStringExtra("ImgUrl1");
@@ -164,7 +164,7 @@ public class BikeInfo4 extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter<CharSequence> adapter8 = ArrayAdapter.createFromResource(this,R.array.BodyType, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter8 = ArrayAdapter.createFromResource(this,R.array.BikeType, android.R.layout.simple_spinner_item);
         adapter8.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         BodyType.setAdapter(adapter8);
         int body;
@@ -251,6 +251,7 @@ public class BikeInfo4 extends AppCompatActivity {
 
 
                 Map<String,Object> map = new HashMap<>();
+                map.put("bikeOwnerName",Name1.getText().toString().trim());
                 map.put("bikeAddress",Address1.getText().toString().trim());
                 map.put("bikeAdvance",Advance1.getText().toString().trim());
                 map.put("bikeAge",CARAGE1);
@@ -266,7 +267,7 @@ public class BikeInfo4 extends AppCompatActivity {
                 map.put("bikeUrl2",ImgUrl2);
                 map.put("bikeUrl3",ImgUrl3);
                 map.put("bikeUrl4",ImgUrl4);
-                map.put("type","CAR");
+                map.put("type","BIKE");
                 map.put("OwnerEmail",user.getEmail());
                 map.put("UserId",user.getUid());
                 map.put("PhoneNo",OwnerNo);

@@ -18,7 +18,7 @@ public class CartPage extends AppCompatActivity {
     RecyclerView recyclerView1, recyclerView2, recyclerView3, recyclerView4, recyclerView5, recyclerView6, recyclerView7;
     RvAdapter1 rvAdapter1;
     CarRvAdapter1 CarRvAdapter;
-    BikeRvAdapter bikeRvAdapter;
+    BikeRvAdapter1 bikeRvAdapter;
     CameraRvAdapter cameraRvAdapter;
     ClothRvAdapter clothRvAdapter;
     SpeakerRvAdapter speakerRvAdapter;
@@ -79,7 +79,7 @@ public class CartPage extends AppCompatActivity {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Bike"),bikeRvModel.class)
                         .build();
 
-        bikeRvAdapter = new BikeRvAdapter(options3);
+        bikeRvAdapter = new BikeRvAdapter1(options3);
         recyclerView3.setAdapter(bikeRvAdapter);
 
         FirebaseRecyclerOptions<CameraRvModel> options4 =
@@ -166,7 +166,7 @@ public class CartPage extends AppCompatActivity {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Bike").orderByChild("OwnerEmail").startAt(str).endAt(str+"~"),bikeRvModel.class)
                         .build();
 
-        bikeRvAdapter = new BikeRvAdapter(options3);
+        bikeRvAdapter = new BikeRvAdapter1(options3);
         bikeRvAdapter.startListening();
 
         recyclerView3.setAdapter(bikeRvAdapter);

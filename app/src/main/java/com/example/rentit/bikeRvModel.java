@@ -20,10 +20,11 @@ public class bikeRvModel {
     String OwnerEmail;
     String phoneNo;
     String UserId;
+    String bikeOwnerName;
 
     public bikeRvModel(){}
 
-    public bikeRvModel(String bikeAddress, String bikeAdvance, String bikeAge, String bikeArea, String bikeDescription, String bikeMileage, String bikeModel, String bikeRent, String bikeServiceDate, String bikeType, String bikeUrl1, String bikeUrl2, String bikeUrl3, String bikeUrl4, String type, String bikeFastTag, String ownerEmail, String phoneNo, String userId) {
+    public bikeRvModel(String bikeAddress, String bikeAdvance, String bikeAge, String bikeArea, String bikeDescription, String bikeMileage, String bikeModel, String bikeRent, String bikeServiceDate, String bikeType, String bikeUrl1, String bikeUrl2, String bikeUrl3, String bikeUrl4, String type, String bikeFastTag, String ownerEmail, String phoneNo, String userId, String bikeOwnerName) {
         this.bikeAddress = bikeAddress;
         this.bikeAdvance = bikeAdvance;
         this.bikeAge = bikeAge;
@@ -43,6 +44,7 @@ public class bikeRvModel {
         OwnerEmail = ownerEmail;
         this.phoneNo = phoneNo;
         UserId = userId;
+        this.bikeOwnerName = bikeOwnerName;
     }
 
     public String getBikeAddress() {
@@ -195,5 +197,13 @@ public class bikeRvModel {
 
     public void setUserId(String userId) {
         UserId = userId;
+    }
+
+    public String getBikeOwnerName() {
+        return bikeOwnerName;
+    }
+
+    public void setBikeOwnerName(String bikeOwnerName) {
+        this.bikeOwnerName = bikeOwnerName;
     }
 }
