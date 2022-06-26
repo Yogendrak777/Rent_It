@@ -1,6 +1,7 @@
 package com.example.rentit;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -10,12 +11,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -47,9 +50,6 @@ public class RvAdapter1 extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter1.
     Button Upload;
 
 
-
-
-
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
      * {@link FirebaseRecyclerOptions} for configuration options.
@@ -63,8 +63,40 @@ public class RvAdapter1 extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter1.
     @Override
     protected void onBindViewHolder(@NonNull myViewHolder holder, @SuppressLint("RecyclerView") final int position, @NonNull houseRvModel model) {
         holder.Address.setText(model.getHouseBHK()+", "+model.getHouseAddress());
-        holder.Prise.setText("\u20B9"+" "+model.getHousePrise() +" /month");
-        holder.Area.setText(model.getHouseArea());
+
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(holder.Address.getContext());
+                builder.setTitle("Are You Sure!!!");
+                builder.setMessage("item will Delete Permanently");
+
+
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        FirebaseDatabase.getInstance().getReference().child("RentIt").child("house")
+                                .child(getRef(position).getKey()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(holder.Address.getContext(), "Item Removed", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(holder.Address.getContext(), "Cancelled", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+            }
+        });
 
         StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+model.getHouseUrl1());
         try {
@@ -510,7 +542,7 @@ public class RvAdapter1 extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter1.
     @NonNull
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.house_rv_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_rv_item,parent,false);
         return new myViewHolder(view);
     }
 
@@ -518,18 +550,18 @@ public class RvAdapter1 extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter1.
 
         //CircleImageView img;
         ImageView img;
-        TextView Address, Prise, Area;
+        TextView Address;
         CardView cardView;
+        ImageButton delete;
 
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
-            img = (ImageView) itemView.findViewById(R.id.objImg);
-            Address = (TextView) itemView.findViewById(R.id.ObjName);
-            Prise = (TextView) itemView.findViewById(R.id.ObjPrise);
-            Area = (TextView) itemView.findViewById(R.id.ObjArea);
+            img = (ImageView) itemView.findViewById(R.id.objImgCart);
+            Address = (TextView) itemView.findViewById(R.id.ObjNameCart);
+            delete = itemView.findViewById(R.id.delete);
 
-            cardView = (CardView) itemView.findViewById(R.id.card1);
+            cardView = (CardView) itemView.findViewById(R.id.CardCart);
 
         }
     }

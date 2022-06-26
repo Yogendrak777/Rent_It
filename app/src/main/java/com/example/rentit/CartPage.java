@@ -15,15 +15,18 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class CartPage extends AppCompatActivity {
 
-    RecyclerView recyclerView1, recyclerView2;
+    RecyclerView recyclerView1, recyclerView2, recyclerView3, recyclerView4, recyclerView5, recyclerView6, recyclerView7;
     RvAdapter1 rvAdapter1;
     carRvAdapter CarRvAdapter;
+    BikeRvAdapter bikeRvAdapter;
+    CameraRvAdapter cameraRvAdapter;
+    ClothRvAdapter clothRvAdapter;
+    SpeakerRvAdapter speakerRvAdapter;
+    SportsRvAdapter sportsRvAdapter;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     FirebaseAuth firebaseAuth;
-
     String email;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +39,18 @@ public class CartPage extends AppCompatActivity {
 
         recyclerView1 = (RecyclerView) findViewById(R.id.Rv1);
         recyclerView2 = (RecyclerView) findViewById(R.id.Rv2);
+        recyclerView3 = (RecyclerView) findViewById(R.id.Rv3);
+        recyclerView4 = (RecyclerView) findViewById(R.id.Rv4);
+        recyclerView5 = (RecyclerView) findViewById(R.id.Rv5);
+        recyclerView6 = (RecyclerView) findViewById(R.id.Rv6);
+        recyclerView7 = (RecyclerView) findViewById(R.id.Rv7);
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));
         recyclerView2.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView3.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView4.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView5.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView6.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView7.setLayoutManager(new LinearLayoutManager(this));
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("RentIt").child("RentBy");
@@ -45,15 +58,10 @@ public class CartPage extends AppCompatActivity {
         email = user.getEmail();
 
 
-
-
-
         FirebaseRecyclerOptions<houseRvModel> options =
                 new FirebaseRecyclerOptions.Builder<houseRvModel>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("house"), houseRvModel.class)
                         .build();
-
-
 
         rvAdapter1 = new RvAdapter1(options);
         recyclerView1.setAdapter(rvAdapter1);
@@ -66,7 +74,45 @@ public class CartPage extends AppCompatActivity {
         CarRvAdapter = new carRvAdapter(options1);
         recyclerView2.setAdapter(CarRvAdapter);
 
+        FirebaseRecyclerOptions<bikeRvModel> options3 =
+                new FirebaseRecyclerOptions.Builder<bikeRvModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Bike"),bikeRvModel.class)
+                        .build();
 
+        bikeRvAdapter = new BikeRvAdapter(options3);
+        recyclerView3.setAdapter(bikeRvAdapter);
+
+        FirebaseRecyclerOptions<CameraRvModel> options4 =
+                new FirebaseRecyclerOptions.Builder<CameraRvModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("camera"),CameraRvModel.class)
+                        .build();
+
+        cameraRvAdapter = new CameraRvAdapter(options4);
+        recyclerView4.setAdapter(cameraRvAdapter);
+
+        FirebaseRecyclerOptions<ClothRvModel> options5 =
+                new FirebaseRecyclerOptions.Builder<ClothRvModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("clothes"),ClothRvModel.class)
+                        .build();
+
+        clothRvAdapter = new ClothRvAdapter(options5);
+        recyclerView5.setAdapter(clothRvAdapter);
+
+        FirebaseRecyclerOptions<SpeakerRvModel> options6 =
+                new FirebaseRecyclerOptions.Builder<SpeakerRvModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("speakers"),SpeakerRvModel.class)
+                        .build();
+
+        speakerRvAdapter = new SpeakerRvAdapter(options6);
+        recyclerView6.setAdapter(speakerRvAdapter);
+
+        FirebaseRecyclerOptions<SportRvModel> options7 =
+                new FirebaseRecyclerOptions.Builder<SportRvModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("sports"),SportRvModel.class)
+                        .build();
+
+        sportsRvAdapter = new SportsRvAdapter(options7);
+        recyclerView7.setAdapter(sportsRvAdapter);
     }
 
     @Override
@@ -104,6 +150,56 @@ public class CartPage extends AppCompatActivity {
         CarRvAdapter.startListening();
 
         recyclerView2.setAdapter(CarRvAdapter);
+
+        FirebaseRecyclerOptions<bikeRvModel> options3 =
+                new FirebaseRecyclerOptions.Builder<bikeRvModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Bike").orderByChild("bikeArea").startAt(str).endAt(str+"~"),bikeRvModel.class)
+                        .build();
+
+        bikeRvAdapter = new BikeRvAdapter(options3);
+        bikeRvAdapter.startListening();
+
+        recyclerView3.setAdapter(bikeRvAdapter);
+
+        FirebaseRecyclerOptions<CameraRvModel> options4 =
+                new FirebaseRecyclerOptions.Builder<CameraRvModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("camera").orderByChild("cameraArea").startAt(str).endAt(str+"~"),CameraRvModel.class)
+                        .build();
+
+        cameraRvAdapter = new CameraRvAdapter(options4);
+        cameraRvAdapter.startListening();
+
+        recyclerView4.setAdapter(cameraRvAdapter);
+
+        FirebaseRecyclerOptions<ClothRvModel> options5 =
+                new FirebaseRecyclerOptions.Builder<ClothRvModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("clothes").orderByChild("clothArea").startAt(str).endAt(str+"~"),ClothRvModel.class)
+                        .build();
+
+        clothRvAdapter = new ClothRvAdapter(options5);
+        clothRvAdapter.startListening();
+
+        recyclerView5.setAdapter(clothRvAdapter);
+
+        FirebaseRecyclerOptions<SpeakerRvModel> options6 =
+                new FirebaseRecyclerOptions.Builder<SpeakerRvModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("speakers").orderByChild("speArea").startAt(str).endAt(str+"~"),SpeakerRvModel.class)
+                        .build();
+
+        speakerRvAdapter = new SpeakerRvAdapter(options6);
+        speakerRvAdapter.startListening();
+
+        recyclerView6.setAdapter(speakerRvAdapter);
+
+        FirebaseRecyclerOptions<SportRvModel> options7 =
+                new FirebaseRecyclerOptions.Builder<SportRvModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("sports").orderByChild("spoArea").startAt(str).endAt(str+"~"),SportRvModel.class)
+                        .build();
+
+        sportsRvAdapter = new SportsRvAdapter(options7);
+        sportsRvAdapter.startListening();
+
+        recyclerView7.setAdapter(sportsRvAdapter);
 
     }
 

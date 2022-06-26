@@ -42,7 +42,7 @@
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:layout_margin="16dp"
+            android:layout_margin="6dp"
             android:textStyle="bold" />
 
         <TextView
@@ -52,7 +52,7 @@
             android:text="Cloth brand"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/black"
-            android:layout_margin="16dp"
+            android:layout_margin="6dp"
             android:textSize="16sp" />
 
         <TextView
@@ -62,7 +62,7 @@
             android:text="Rs."
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="#0061FF"
-            android:layout_margin="16dp"
+            android:layout_margin="6dp"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -75,7 +75,7 @@
             android:text="Area"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/black"
-            android:layout_margin="16dp"
+            android:layout_margin="6dp"
             android:textSize="16sp" />
 
 
