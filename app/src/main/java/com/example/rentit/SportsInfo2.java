@@ -33,7 +33,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.UUID;
 
-public class SpeakerInfo3 extends AppCompatActivity {
+public class SportsInfo2 extends AppCompatActivity {
 
     ImageView Img2, Img3, Img4;
     Button NextButton, PrevButton;
@@ -55,7 +55,7 @@ public class SpeakerInfo3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_speaker_info3);
+        setContentView(R.layout.activity_sports_info2);
         saveImgBtn = findViewById(R.id.img_save_btn);
         saveImgBtn1 = findViewById(R.id.img_save_btn1);
         saveImgBtn2 = findViewById(R.id.img_save_btn2);
@@ -74,33 +74,33 @@ public class SpeakerInfo3 extends AppCompatActivity {
         PrevButton = (Button) findViewById(R.id.PrevButton1);
 
         Intent intent = getIntent();
-        String SpeAddress = intent.getStringExtra("SpeAddress");
-        String SpeModel = intent.getStringExtra("SpeModel");
-        String SpeRent = intent.getStringExtra("SpeRent");
-        String SpeAdvance = intent.getStringExtra("SpeAdvance");
-        String SpeArea = intent.getStringExtra("SpeArea");
-        String SpeDesc = intent.getStringExtra("SpeDesc");
-        String BLUETOOTH = intent.getStringExtra("BLUETOOTH");
-        String DISPLAY = intent.getStringExtra("DISPLAY");
-        String MEMORY = intent.getStringExtra("MEMORY");
-        String POWER = intent.getStringExtra("POWER");
-        String SPETYPE = intent.getStringExtra("SPETYPE");
+        String SportAddress = intent.getStringExtra("SportAddress");
+        String SportBrand = intent.getStringExtra("SportBrand");
+        String SportColor = intent.getStringExtra("SportColor");
+        String SportMeteral = intent.getStringExtra("SportMeteral");
+        String SportName = intent.getStringExtra("SportName");
+        String SportAdvance = intent.getStringExtra("SportAdvance");
+        String SportPack = intent.getStringExtra("SportPack");
+        String SportRent = intent.getStringExtra("SportRent");
+        String SportIdel = intent.getStringExtra("SportIdel");
+        String SportArea = intent.getStringExtra("SportArea");
+        String SportDesc = intent.getStringExtra("SportDesc");
 
         NextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SpeakerInfo3.this,SpeakerInfo4.class);
-                intent.putExtra("SpeAddress",SpeAddress);
-                intent.putExtra("SpeModel",SpeModel);
-                intent.putExtra("SpeRent",SpeRent);
-                intent.putExtra("SpeAdvance",SpeAdvance);
-                intent.putExtra("SpeArea",SpeArea);
-                intent.putExtra("SpeDesc",SpeDesc);
-                intent.putExtra("BLUETOOTH",BLUETOOTH);
-                intent.putExtra("DISPLAY",DISPLAY);
-                intent.putExtra("MEMORY",MEMORY);
-                intent.putExtra("POWER",POWER);
-                intent.putExtra("SPETYPE",SPETYPE);
+                Intent intent = new Intent(SportsInfo2.this,SportsInfo3.class);
+                intent.putExtra("SportAddress",SportAddress);
+                intent.putExtra("SportBrand",SportBrand);
+                intent.putExtra("SportColor",SportColor);
+                intent.putExtra("SportMeteral",SportMeteral);
+                intent.putExtra("SportName",SportName);
+                intent.putExtra("SportAdvance",SportAdvance);
+                intent.putExtra("SportPack",SportPack);
+                intent.putExtra("SportRent",SportRent);
+                intent.putExtra("SportIdel",SportIdel);
+                intent.putExtra("SportArea",SportArea);
+                intent.putExtra("SportDesc",SportDesc);
                 intent.putExtra("ImgUrl1", ImgUrl1);
                 intent.putExtra("ImgUrl2", ImgUrl2);
                 intent.putExtra("ImgUrl3", ImgUrl3);

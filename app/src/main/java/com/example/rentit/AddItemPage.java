@@ -59,7 +59,7 @@ public class AddItemPage extends AppCompatActivity {
         CardSports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // startActivity(new Intent(AddItemPage.this,SportsRvContainer.class));
+                startActivity(new Intent(AddItemPage.this,SportsInfo1.class));
             }
         });
 
