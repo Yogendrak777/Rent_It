@@ -1,6 +1,8 @@
 package com.example.rentit;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -13,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -20,10 +24,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ChartActivity extends AppCompatActivity {
 
@@ -32,6 +43,7 @@ public class ChartActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     ImageButton btn_send;
     EditText text_send;
+    CircleImageView profile_image;
     //String PhoneNo;
     String UserId;
     MessageAdapter messageAdapter;
@@ -55,6 +67,7 @@ public class ChartActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         clientName = findViewById(R.id.username);
         text_send = findViewById(R.id.text_send);
+        profile_image = findViewById(R.id.profile_image);
         btn_send = findViewById(R.id.btn_send);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference("RentIt").child("RentBy").child(UserId);
@@ -80,6 +93,30 @@ public class ChartActivity extends AppCompatActivity {
                 personInfoRvModel PersonInfoRvModel = snapshot.getValue(personInfoRvModel.class);
                 assert PersonInfoRvModel != null;
                 clientName.setText(PersonInfoRvModel.getUserNameDb());
+                StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+PersonInfoRvModel.getUserIMage());
+                try {
+                    File file = File.createTempFile("randomKey","");
+                    storageReference1.getFile(file)
+                            .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                    Toast.makeText(ChartActivity.this, "please wait", Toast.LENGTH_SHORT).show();
+                                    Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+                                    profile_image.setImageBitmap(bitmap);
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    //Toast.makeText(holder.img.getContext(), "Image can't Retrieve", Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
                 readMessages(firebaseUser.getUid(),UserId);
 
             }
