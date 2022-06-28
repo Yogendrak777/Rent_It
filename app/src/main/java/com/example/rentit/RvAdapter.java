@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,8 +23,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -36,6 +38,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.myViewHolder> {
 
@@ -44,9 +47,13 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
     DatabaseReference databaseReference;
     FirebaseAuth firebaseAuth;
     public static String currentUser;
+    public static String ran;
+    boolean val = false;
 
 
-    int i = 0;
+    //final String randomKey = UUID.randomUUID().toString();
+
+
 
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
@@ -64,9 +71,14 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
         holder.Prise.setText("\u20B9" + " " + model.getHousePrise() + " /month");
         holder.Area.setText(model.getHouseArea());
 
-        StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+model.getHouseUrl1());
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference1;
+        databaseReference1 = firebaseDatabase.getReference("RentIt").child("Favourite");
+
+        StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/" + model.getHouseUrl1());
         try {
-            File file = File.createTempFile("randomKey","");
+            File file = File.createTempFile("randomKey", "");
             storageReference1.getFile(file)
                     .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                         @Override
@@ -97,6 +109,9 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                         .create();
 
                 View view = dialogPlus.getHolderView();
+
+                final String randomKey = UUID.randomUUID().toString();
+
                 TextView Daddress = view.findViewById(R.id.Daddress);
                 TextView Dbhk = view.findViewById(R.id.DBhk);
                 TextView Dprice = view.findViewById(R.id.Dprise);
@@ -113,10 +128,11 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 TextView Dwater = view.findViewById(R.id.Dwater);
                 chart = view.findViewById(R.id.chart);
                 TextView next = view.findViewById(R.id.next);
-                ImageButton favOn,share;
+                ImageButton favOn, share, favof;
 
                 favOn = view.findViewById(R.id.favOn);
                 share = view.findViewById(R.id.share);
+                favof = view.findViewById(R.id.favOf);
 
 
                 ImageView img1 = view.findViewById(R.id.objImg1);
@@ -158,15 +174,15 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 DbusStand.setText(model.getNearbusStopDistance());
                 Dfuel.setText(model.getNearPetrolBunkDistance());
 
-                StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+model.getHouseUrl1());
-                StorageReference storageReference2 = FirebaseStorage.getInstance().getReference("images/"+model.getHouseUrl2());
-                StorageReference storageReference3 = FirebaseStorage.getInstance().getReference("images/"+model.getHouseUrl3());
-                StorageReference storageReference4 = FirebaseStorage.getInstance().getReference("images/"+model.getHouseUrl4());
+                StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/" + model.getHouseUrl1());
+                StorageReference storageReference2 = FirebaseStorage.getInstance().getReference("images/" + model.getHouseUrl2());
+                StorageReference storageReference3 = FirebaseStorage.getInstance().getReference("images/" + model.getHouseUrl3());
+                StorageReference storageReference4 = FirebaseStorage.getInstance().getReference("images/" + model.getHouseUrl4());
                 try {
-                    File file1 = File.createTempFile("randomKey","");
-                    File file2 = File.createTempFile("randomKey","");
-                    File file3 = File.createTempFile("randomKey","");
-                    File file4 = File.createTempFile("randomKey","");
+                    File file1 = File.createTempFile("randomKey", "");
+                    File file2 = File.createTempFile("randomKey", "");
+                    File file3 = File.createTempFile("randomKey", "");
+                    File file4 = File.createTempFile("randomKey", "");
                     storageReference1.getFile(file1);
                     storageReference2.getFile(file2);
                     storageReference3.getFile(file3);
@@ -196,12 +212,13 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                     e.printStackTrace();
                 }
 
+
                 chart.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(img1.getContext(), ChartActivity.class);
                         intent.putExtra("UserId", model.getOwnerUId());
-                        intent.putExtra("PhoneNo",model.getHousePhoneNo());
+                        intent.putExtra("PhoneNo", model.getHousePhoneNo());
                         img1.getContext().startActivity(intent);
 
                     }
@@ -210,11 +227,11 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 share.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                      Intent intent = new Intent(Intent.ACTION_SEND);
-                      intent.setType("text/plain");
-                      intent.putExtra(Intent.EXTRA_SUBJECT,"House Info \n");
-                      intent.putExtra(Intent.EXTRA_TEXT,model.getHouseBHK() + "," + model.getHouseAddress() + "," + model.getHouseArea());
-                      img1.getContext().startActivity(Intent.createChooser(intent,"share Via"));
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("text/plain");
+                        intent.putExtra(Intent.EXTRA_SUBJECT, "House Info \n");
+                        intent.putExtra(Intent.EXTRA_TEXT, model.getHouseBHK() + "," + model.getHouseAddress() + "," + model.getHouseArea());
+                        img1.getContext().startActivity(Intent.createChooser(intent, "share Via"));
 
                     }
                 });
@@ -222,9 +239,57 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 next.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
                         Intent intent = new Intent(img1.getContext(), BookEnter.class);
                         intent.putExtra("UserId", model.getOwnerUId());
+                        intent.putExtra("ImageUrl1",model.getHouseUrl1());
                         img1.getContext().startActivity(intent);
+
+                    }
+                });
+//                firebaseAuth = FirebaseAuth.getInstance();
+//                firebaseDatabase = FirebaseDatabase.getInstance();
+//                DatabaseReference databaseReference3;
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                String currentUser1 = user.getUid();
+//                databaseReference3 = firebaseDatabase.getReference("RentIt").child("Favourite");
+                databaseReference1.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            if (ds.child("currentUsers").getValue().equals(currentUser1)) {
+                                if (ds.child("ownerUId").getValue().equals(model.getOwnerUId())) {
+                                    if (ds.child("houseUrl1").getValue().equals(model.getHouseUrl1())) {
+                                        ran = ds.child("Random").getValue().toString();
+                                        favof.setVisibility(View.VISIBLE);
+                                        favOn.setVisibility(View.GONE);
+
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(img1.getContext(), "sorry " + error, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                favof.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        favof.setVisibility(View.GONE);
+                        favOn.setVisibility(View.VISIBLE);
+                        FirebaseDatabase.getInstance().getReference().child("RentIt").child("Favourite")
+                                .child(ran).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(holder.Address.getContext(), "Item Removed", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
 
                     }
                 });
@@ -232,86 +297,72 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                 favOn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        i++;
-//                        firebaseAuth = FirebaseAuth.getInstance();
-//                                    firebaseDatabase = FirebaseDatabase.getInstance();
-//                                    databaseReference = firebaseDatabase.getReference("RentIt").child("Favourite");
-//                        databaseReference.removeValue();
 
-                        Handler handler = new Handler();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                if(i==2) {
-                                    firebaseAuth = FirebaseAuth.getInstance();
-                                    firebaseDatabase = FirebaseDatabase.getInstance();
-                                    databaseReference = firebaseDatabase.getReference("RentIt").child("RentBy");
-                                    FirebaseUser user = firebaseAuth.getCurrentUser();
-                                    currentUser = user.getEmail();
+                        favof.setVisibility(View.VISIBLE);
+                        favOn.setVisibility(View.GONE);
 
+                        firebaseAuth = FirebaseAuth.getInstance();
+                        firebaseDatabase = FirebaseDatabase.getInstance();
+                        databaseReference = firebaseDatabase.getReference("RentIt").child("RentBy");
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        currentUser = user.getUid();
 
-                                    Map<String, Object> map = new HashMap<>();
-                                    map.put("currentUsers", currentUser);;
-                                    map.put("houseArea",model.getHouseArea());
-                                    map.put("houseSqFt",model.getHouseSqFt());
-                                    map.put("houseBHK",model.getHouseBHK());
-                                    map.put("housePrise",model.getHousePrise());
-                                    map.put("houseUrl1",model.getHouseUrl1());
-                                    map.put("houseOwnerName",model.getHouseOwnerName());
-                                    map.put("OwnerEmail",model.getOwnerEmail());
-                                    map.put("HouseBillUrl",model.getHouseBillUrl());
-                                    map.put("HouseDescription",model.getHouseDescription());
-                                    map.put("NearHospitalName",model.getNearHospitalName());
-                                    map.put("NearMallsName",model.getNearMallsName());
-                                    map.put("NearSchoolName",model.getNearSchoolName());
-                                    map.put("hospitalDistance",model.getHospitalDistance());
-                                    map.put("houseAdvance",model.getHouseAdvance());
-                                    map.put("houseBathroom",model.getHouseBathroom());
-                                    map.put("houseFacing",model.getHouseFacing());
-                                    map.put("houseFloor",model.getHouseFloor());
-                                    map.put("houseFoodPrefer",model.getHouseFoodPrefer());
-                                    map.put("houseParking",model.getHouseParking());
-                                    map.put("housePetPrefer",model.getHousePetPrefer());
-                                    map.put("ownerUId",model.getOwnerUId());
-                                    map.put("housePhoneNo",model.getHousePhoneNo());
-                                    map.put("housePrefer",model.getHousePrefer());
-                                    map.put("houseUrl2",model.getHouseUrl2());
-                                    map.put("houseUrl3",model.getHouseUrl3());
-                                    map.put("houseUrl4",model.getHouseUrl4());
-                                    map.put("houseWaterSupply",model.getHouseWaterSupply());
-                                    map.put("mallDistance",model.getMallDistance());
-                                    map.put("nearPetrolBunkDistance",model.getNearPetrolBunkDistance());
-                                    map.put("nearbusStopDistance",model.getNearbusStopDistance());
-                                    map.put("schoolDistance",model.getSchoolDistance());
-                                    map.put("houseAddress",model.getHouseAddress());
-                                    map.put("type","HOUSE");
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("currentUsers", currentUser);
+                        map.put("Random", randomKey);
+                        map.put("houseUrl1", model.getHouseUrl1());
+                        map.put("ownerUId", model.getOwnerUId());
+                        map.put("houseOwnerName",model.getHouseOwnerName());
+                        map.put("HouseDescription",model.getHouseDescription());
+                        map.put("NearHospitalName",model.getNearHospitalName());
+                        map.put("houseOwnerName",model.getHouseOwnerName());
+                        map.put("OwnerEmail",user.getEmail());
+                        map.put("NearMallsName",model.getNearMallsName());
+                        map.put("NearSchoolName",model.getNearSchoolName());
+                        map.put("hospitalDistance",model.getHospitalDistance());
+                        map.put("houseArea",model.getHouseArea());
+                        map.put("houseSqFt",model.getHouseSqFt());
+                        map.put("houseAdvance",model.getHouseAdvance());
+                        map.put("houseBathroom",model.getHouseBathroom());
+                        map.put("houseFacing",model.getHouseFacing());
+                        map.put("houseFloor",model.getHouseFloor());
+                        map.put("houseFoodPrefer",model.getHouseFoodPrefer());
+                        map.put("houseParking",model.getHouseParking());
+                        map.put("housePetPrefer",model.getHousePetPrefer());
+                        map.put("housePrefer",model.getHousePrefer());
+                        map.put("houseUrl2",model.getHouseUrl2());
+                        map.put("houseUrl3",model.getHouseUrl3());
+                        map.put("houseUrl4",model.getHouseUrl4());
+                        map.put("houseWaterSupply",model.getHouseWaterSupply());
+                        map.put("mallDistance",model.getMallDistance());
+                        map.put("nearPetrolBunkDistance",model.getNearPetrolBunkDistance());
+                        map.put("nearbusStopDistance",model.getNearbusStopDistance());
+                        map.put("schoolDistance",model.getSchoolDistance());
+                        map.put("houseAddress",model.getHouseAddress());
+                        map.put("houseBHK",model.getHouseBHK());
+                        map.put("housePrise",model.getHousePrise());
+
+                        map.put("type","HOUSE");
 
 
-                                    assert currentUser != null;
-                                    FirebaseDatabase.getInstance().getReference().child("RentIt").child("Favourite")
-                                            .push().setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void unused) {
-                                                    Toast.makeText(Daddress.getContext(), "Item Added to Favourite list", Toast.LENGTH_SHORT).show();
-                                                }
-                                            });
+                        assert currentUser != null;
+                        FirebaseDatabase.getInstance().getReference().child("RentIt").child("Favourite").child(randomKey)
+                                .setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(Daddress.getContext(), "Item Added to Favourite list", Toast.LENGTH_SHORT).show();
+                                        val = false;
+                                    }
+                                });
 
-                               }
-                                    i = 0;
-                                }
-                        },1000);
-
-                        }
-
+                    }
                 });
 
                 dialogPlus.show();
             }
+
         });
-
-
     }
-
 
 
     @NonNull

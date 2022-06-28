@@ -286,6 +286,7 @@ public class CameraInfo4 extends AppCompatActivity {
 
 
                 Map<String,Object> map = new HashMap<>();
+                map.put("cameraOwnerName",Name1.getText().toString().trim());
                 map.put("cameraAddress",Address1.getText().toString().trim());
                 map.put("cameraAdvance",Advance1.getText().toString().trim());
                 map.put("cameraArea",Area1.getText().toString().trim());

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClothInfo1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Cloths"
+            android:textColor="#ff43"
+            android:textAllCaps="true"
+            android:textSize="28sp"
+            android:textStyle="italic"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Enter Owner Name: "
+            android:textSize="20sp"
+            android:layout_marginTop="25dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <EditText
+            android:id="@+id/ClothName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:hint="Eg: Shree"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Enter Owner Address: "
+            android:textSize="20sp"
+            android:layout_marginTop="35dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <EditText
+            android:id="@+id/ClothAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:hint="Eg: #44, 2nd cross, 3rd main road, jp nagar 7th phase, near Narayana college"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Enter Cloth Brand: "
+            android:textSize="20sp"
+            android:layout_marginTop="35dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <EditText
+            android:id="@+id/ClothBrand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:hint="Eg :50,000"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Enter Cloth Advance: "
+            android:textSize="20sp"
+            android:layout_marginTop="35dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <EditText
+            android:id="@+id/ClothAdvance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:hint="Eg :50,000"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Enter Cloth Rent: "
+            android:textSize="20sp"
+            android:layout_marginTop="35dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <EditText
+            android:id="@+id/ClothRent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:hint="Eg: 10,000"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Enter Owner Area: "
+            android:textSize="20sp"
+            android:layout_marginTop="35dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <EditText
+            android:id="@+id/ClothArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="20sp"
+            android:textAllCaps="true"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:hint="Eg: JP NAGAR"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Cloth Color: "
+            android:textSize="20sp"
+            android:layout_marginTop="35dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <EditText
+            android:id="@+id/ClothColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="20sp"
+            android:textAllCaps="true"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:hint="Eg: 12/07/2015"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Cloth Type: "
+            android:textSize="20sp"
+            android:layout_marginTop="35dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <EditText
+            android:id="@+id/ClothType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="20sp"
+            android:textAllCaps="true"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:hint="Eg: suits"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Enter short Description on Color "
+            android:textSize="20sp"
+            android:layout_marginTop="35dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <EditText
+            android:id="@+id/ClothDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:hint="Eg: house is a single-unit residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems."
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Size: "
+                android:textSize="20sp"
+                android:layout_marginTop="25dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
+
+            <Spinner
+                android:id="@+id/ColorSizeSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Meterial"
+                android:textSize="20sp"
+                android:layout_marginTop="25dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
+
+            <Spinner
+                android:id="@+id/ColorMeteralSpinner"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="100dp"
+                android:layout_marginEnd="30dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Fit :  "
+                android:textSize="20sp"
+                android:layout_marginTop="25dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
+
+            <Spinner
+                android:id="@+id/ClothFitSpinner"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="30dp"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/NextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="50dp"
+            />
+
+    </LinearLayout>
+
+
+</ScrollView>

@@ -92,6 +92,40 @@ public class MainActivity extends AppCompatActivity{
                 }
 
             }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, "sorry ", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+            databaseReference = firebaseDatabase.getReference("RentIt").child("BookList");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for(DataSnapshot ds : snapshot.getChildren()){
+                        if(ds.child("BuyerUid").getValue().equals(user.getUid())) {
+                            if (ds.child("Status").getValue().equals("Accept")) {
+
+                                Toast.makeText(MainActivity.this, "wait it loading", Toast.LENGTH_SHORT).show();
+                                final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                builder.setTitle("your Itenm is Booked");
+                                builder.setMessage("your Request Accepted");
+
+                                builder.setPositiveButton("see Detail", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        startActivity(new Intent(MainActivity.this, BookContainer.class));
+                                    }
+                                });
+                                AlertDialog alertDialog = builder.create();
+                                alertDialog.show();
+                                //builder.show();
+                            }
+                        }
+                    }
+
+                }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

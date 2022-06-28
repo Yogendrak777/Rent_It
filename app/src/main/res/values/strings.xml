@@ -248,5 +248,25 @@
         <item>In-Wall</item>
     </string-array>
 
+    <string-array name="ClothSize">
+        <item>small</item>
+        <item>Medium</item>
+        <item>Large</item>
+        <item>Extra-Large</item>
+    </string-array>
+
+    <string-array name="ClothMeterial">
+        <item>Cotton</item>
+        <item>Silk</item>
+        <item>Polyester</item>
+        <item>Lycra</item>
+        <item>woolen</item>
+    </string-array>
+
+    <string-array name="ClothFit">
+        <item>Regular</item>
+        <item>Slim-Fit</item>
+    </string-array>
+
 
 </resources>

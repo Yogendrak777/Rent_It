@@ -7,24 +7,20 @@ public class BookRvModel {
     String BuyerAddress;
     String ArdharNum;
     String Status;
+    String ImageUrl1;
+    String BuyerUid;
 
     public BookRvModel(){}
 
-    public BookRvModel(String buyerAdharIMage, String userId, String buyerName, String buyerAddress, String ardharNum,String status) {
+    public BookRvModel(String buyerAdharIMage, String userId, String buyerName, String buyerAddress, String ardharNum, String status, String imageUrl1, String buyerUid) {
         BuyerAdharIMage = buyerAdharIMage;
         UserId = userId;
         BuyerName = buyerName;
         BuyerAddress = buyerAddress;
         ArdharNum = ardharNum;
         Status = status;
-    }
-
-    public String getStatus() {
-        return Status;
-    }
-
-    public void setStatus(String status) {
-        Status = status;
+        ImageUrl1 = imageUrl1;
+        BuyerUid = buyerUid;
     }
 
     public String getBuyerAdharIMage() {
@@ -65,6 +61,30 @@ public class BookRvModel {
 
     public void setArdharNum(String ardharNum) {
         ArdharNum = ardharNum;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+
+    public String getImageUrl1() {
+        return ImageUrl1;
+    }
+
+    public void setImageUrl1(String imageUrl1) {
+        ImageUrl1 = imageUrl1;
+    }
+
+    public String getBuyerUid() {
+        return BuyerUid;
+    }
+
+    public void setBuyerUid(String buyerUid) {
+        BuyerUid = buyerUid;
     }
 }
 

@@ -22,10 +22,11 @@ public class CameraRvModel {
     String OwnerEmail;
     String phoneNo;
     String UserId;
+    String cameraOwnerName;
 
     public CameraRvModel(){}
 
-    public CameraRvModel(String camUrl1, String camUrl2, String camUrl3, String camUrl4, String cameraAddress, String cameraAdvance, String cameraArea, String cameraBrand, String cameraFlash, String cameraLedMonitor, String cameraManualFous, String cameraModel, String cameraMovieFormat, String cameraOptialZoom, String cameraRent, String cameraType, String type, String cameraDescription, String ownerEmail, String phoneNo, String userId) {
+    public CameraRvModel(String camUrl1, String camUrl2, String camUrl3, String camUrl4, String cameraAddress, String cameraAdvance, String cameraArea, String cameraBrand, String cameraFlash, String cameraLedMonitor, String cameraManualFous, String cameraModel, String cameraMovieFormat, String cameraOptialZoom, String cameraRent, String cameraType, String type, String cameraDescription, String ownerEmail, String phoneNo, String userId, String cameraOwnerName) {
         this.camUrl1 = camUrl1;
         this.camUrl2 = camUrl2;
         this.camUrl3 = camUrl3;
@@ -47,6 +48,7 @@ public class CameraRvModel {
         OwnerEmail = ownerEmail;
         this.phoneNo = phoneNo;
         UserId = userId;
+        this.cameraOwnerName = cameraOwnerName;
     }
 
     public String getCamUrl1() {
@@ -215,5 +217,13 @@ public class CameraRvModel {
 
     public void setUserId(String userId) {
         UserId = userId;
+    }
+
+    public String getCameraOwnerName() {
+        return cameraOwnerName;
+    }
+
+    public void setCameraOwnerName(String cameraOwnerName) {
+        this.cameraOwnerName = cameraOwnerName;
     }
 }

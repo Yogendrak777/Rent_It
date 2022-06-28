@@ -1,6 +1,8 @@
 package com.example.rentit;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Favourite extends AppCompatActivity {
 
     RecyclerView recyclerView1;
-    RvAdapterFavourite rvAdapter1;
+    RvAdapter rvAdapter1;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     FirebaseAuth firebaseAuth;
@@ -39,15 +41,19 @@ public class Favourite extends AppCompatActivity {
         databaseReference = firebaseDatabase.getReference("RentIt").child("RentBy");
         FirebaseUser user = firebaseAuth.getCurrentUser();
         assert user != null;
-        email = user.getEmail();
+        email = user.getUid();
+
+        ImageButton delete = findViewById(R.id.delete);
+
+        delete.setVisibility(View.VISIBLE);
 
         FirebaseRecyclerOptions<houseRvModel> options =
                 new FirebaseRecyclerOptions.Builder<houseRvModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Favourite"), houseRvModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("house"), houseRvModel.class)
                         .build();
 
 
-        rvAdapter1 = new RvAdapterFavourite(options);
+        rvAdapter1 = new RvAdapter(options);
         recyclerView1.setAdapter(rvAdapter1);
 
 //        FirebaseRecyclerOptions<carRvModel> options1 =
@@ -91,7 +97,7 @@ public class Favourite extends AppCompatActivity {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Favourite").orderByChild("currentUsers").startAt(str).endAt(str + "~"), houseRvModel.class)
                         .build();
 
-        rvAdapter1 = new RvAdapterFavourite(options);
+        rvAdapter1 = new RvAdapter(options);
         rvAdapter1.startListening();
 
         recyclerView1.setAdapter(rvAdapter1);
