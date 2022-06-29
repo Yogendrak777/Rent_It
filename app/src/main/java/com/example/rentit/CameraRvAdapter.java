@@ -255,6 +255,7 @@ public class CameraRvAdapter extends FirebaseRecyclerAdapter<CameraRvModel,Camer
 
                         Map<String, Object> map = new HashMap<>();
                         map.put("currentUsers", currentUser);
+                        map.put("ObjUrl1",model.getCamUrl1());
                         map.put("Random", randomKey);
                         map.put("ownerUId", model.getUserId());
                         map.put("cameraAddress",model.getCameraAddress());
