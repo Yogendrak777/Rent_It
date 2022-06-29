@@ -126,7 +126,17 @@
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
-                        android:background="@drawable/ic_baseline_favorite_24" />
+                        android:background="@drawable/ic_baseline_turned_in_not_24" />
+
+                    <ImageButton
+                        android:id="@+id/favOf"
+                        android:layout_width="50dp"
+                        android:visibility="gone"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/ic_baseline_turned_in_24" />
+
 
                     <ImageButton
                         android:id="@+id/share"

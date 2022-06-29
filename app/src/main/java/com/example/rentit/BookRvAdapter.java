@@ -1,7 +1,6 @@
 package com.example.rentit;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -47,6 +45,7 @@ public class BookRvAdapter extends FirebaseRecyclerAdapter<BookRvModel,BookRvAda
     protected void onBindViewHolder(@NonNull myViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull BookRvModel model) {
         holder.name.setText(model.getBuyerName());
         holder.Address.setText(model.getBuyerAddress());
+        holder.PhoneNo.setText(model.getPhoneNo());
         StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/" + model.getImageUrl1());
         try {
             File file = File.createTempFile("randomKey", "");
@@ -76,33 +75,11 @@ public class BookRvAdapter extends FirebaseRecyclerAdapter<BookRvModel,BookRvAda
                 holder.cancle.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(holder.Address.getContext());
-                        builder.setTitle("Are You Sure!!!");
-                        builder.setMessage("item will Delete Permanently");
+                        Map<String,Object> map = new HashMap<>();
+                        map.put("Status","NotAccepted");
 
-
-                        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                FirebaseDatabase.getInstance().getReference().child("RentIt").child("BookList")
-                                        .child(getRef(position).getKey()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void unused) {
-                                                Toast.makeText(holder.Address.getContext(), "Item Removed", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
-
-                            }
-                        });
-
-                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(holder.Address.getContext(), "Cancelled", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                        AlertDialog alertDialog = builder.create();
-                        alertDialog.show();
+                        FirebaseDatabase.getInstance().getReference().child("RentIt").child("BookList")
+                                .child(getRef(position).getKey()).updateChildren(map);
 
                     }
                 });
@@ -135,7 +112,7 @@ public class BookRvAdapter extends FirebaseRecyclerAdapter<BookRvModel,BookRvAda
 
     class myViewHolder extends RecyclerView.ViewHolder{
         ImageView img;
-        TextView name;
+        TextView name,PhoneNo;
         CardView cardView;
         Button active,cancle;
         TextView Address;
@@ -145,11 +122,11 @@ public class BookRvAdapter extends FirebaseRecyclerAdapter<BookRvModel,BookRvAda
 
             img = (ImageView)itemView.findViewById(R.id.objImg);
             name = (TextView) itemView.findViewById(R.id.ObjName);
-
             cardView = (CardView)itemView.findViewById(R.id.card1);
             Address = itemView.findViewById(R.id.ObjAddress);
             active  = itemView.findViewById(R.id.button3);
             cancle = itemView.findViewById(R.id.button4);
+            PhoneNo = itemView.findViewById(R.id.ObjPhone);
         }
     }
 

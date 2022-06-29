@@ -1,26 +1,49 @@
 package com.example.rentit;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
-import com.squareup.picasso.Picasso;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class ClothRvAdapter extends FirebaseRecyclerAdapter<ClothRvModel,ClothRvAdapter.myViewHolder> {
-
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    FirebaseAuth firebaseAuth;
+    public static String currentUser;
+    public static String ran;
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
      * {@link FirebaseRecyclerOptions} for configuration options.
@@ -38,12 +61,34 @@ public class ClothRvAdapter extends FirebaseRecyclerAdapter<ClothRvModel,ClothRv
         holder.ClothPrise.setText(model.getClothRent());
         holder.ClothArea.setText(model.getClothArea());
 
-        Glide.with(holder.imgOfCloth.getContext())
-                .load(model.getClothUrl1())
-                .placeholder(R.drawable.com_logo)
-                // .circleCrop()
-                .error(R.drawable.ic_baseline_account_circle_24)
-                .into(holder.imgOfCloth);
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference1;
+        databaseReference1 = firebaseDatabase.getReference("RentIt").child("FavouriteCloth");
+
+        StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/" + model.getClothUrl1());
+        try {
+            File file = File.createTempFile("randomKey", "");
+            storageReference1.getFile(file)
+                    .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                            Toast.makeText(holder.imgOfCloth.getContext(), "please wait", Toast.LENGTH_SHORT).show();
+                            Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+                            holder.imgOfCloth.setImageBitmap(bitmap);
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            //Toast.makeText(holder.img.getContext(), "Image can't Retrieve", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         holder.cardClot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +99,7 @@ public class ClothRvAdapter extends FirebaseRecyclerAdapter<ClothRvModel,ClothRv
                         .create();
 
                 View view = dialogPlus.getHolderView();
+                final String randomKey = UUID.randomUUID().toString();
                 TextView DClothName = view.findViewById(R.id.DClotheName);
                 TextView DClothAddress = view.findViewById(R.id.DClothAddress);
                 TextView DClothAdv = view.findViewById(R.id.DClothAdvance);
@@ -83,16 +129,51 @@ public class ClothRvAdapter extends FirebaseRecyclerAdapter<ClothRvModel,ClothRv
                 DClothType.setText(model.getClothType());
                 DClothDesc.setText(model.getClothDesc());
 
-                Picasso.get().load(model.getClothUrl1()).into(imgC1);
-                Picasso.get().load(model.getClothUrl2()).into(imgC2);
-                Picasso.get().load(model.getClothUrl3()).into(imgC3);
-                Picasso.get().load(model.getClothUrl4()).into(imgC4);
+                StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/" + model.getClothUrl1());
+                StorageReference storageReference2 = FirebaseStorage.getInstance().getReference("images/" + model.getClothUrl2());
+                StorageReference storageReference3 = FirebaseStorage.getInstance().getReference("images/" + model.getClothUrl3());
+                StorageReference storageReference4 = FirebaseStorage.getInstance().getReference("images/" + model.getClothUrl4());
+                try {
+                    File file1 = File.createTempFile("randomKey", "");
+                    File file2 = File.createTempFile("randomKey", "");
+                    File file3 = File.createTempFile("randomKey", "");
+                    File file4 = File.createTempFile("randomKey", "");
+                    storageReference1.getFile(file1);
+                    storageReference2.getFile(file2);
+                    storageReference3.getFile(file3);
+                    storageReference4.getFile(file4)
+                            .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                    Toast.makeText(imgC1.getContext(), "please wait", Toast.LENGTH_SHORT).show();
+                                    Bitmap bitmap1 = BitmapFactory.decodeFile(file1.getAbsolutePath());
+                                    Bitmap bitmap2 = BitmapFactory.decodeFile(file2.getAbsolutePath());
+                                    Bitmap bitmap3 = BitmapFactory.decodeFile(file3.getAbsolutePath());
+                                    Bitmap bitmap4 = BitmapFactory.decodeFile(file4.getAbsolutePath());
+                                    imgC1.setImageBitmap(bitmap1);
+                                    imgC2.setImageBitmap(bitmap2);
+                                    imgC3.setImageBitmap(bitmap3);
+                                    imgC4.setImageBitmap(bitmap4);
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(imgC1.getContext(), "Image can't Retrieve", Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
 
                 TextView next = view.findViewById(R.id.next);
-                ImageButton favOn,share;
+                ImageButton favOn,share,favof;
 
                 favOn = view.findViewById(R.id.favOn);
                 share = view.findViewById(R.id.share);
+                favof = view.findViewById(R.id.favOf);
 
                 share.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -112,6 +193,100 @@ public class ClothRvAdapter extends FirebaseRecyclerAdapter<ClothRvModel,ClothRv
                         Intent intent = new Intent(imgC1.getContext(), BookEnter.class);
                         intent.putExtra("UserId", model.getUserId());
                         imgC1.getContext().startActivity(intent);
+
+                    }
+                });
+
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                String currentUser1 = user.getUid();
+//                databaseReference3 = firebaseDatabase.getReference("RentIt").child("Favourite");
+                databaseReference1.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            if (ds.child("currentUsers").getValue().equals(currentUser1)) {
+                                if (ds.child("ownerUId").getValue().equals(model.getUserId())) {
+                                    if (ds.child("ObjUrl1").getValue().equals(model.getClothUrl1())) {
+                                        ran = ds.child("Random").getValue().toString();
+                                        favof.setVisibility(View.VISIBLE);
+                                        favOn.setVisibility(View.GONE);
+
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(imgC1.getContext(), "sorry " + error, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                favof.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        favof.setVisibility(View.GONE);
+                        favOn.setVisibility(View.VISIBLE);
+                        FirebaseDatabase.getInstance().getReference().child("RentIt").child("FavouriteCloth")
+                                .child(ran).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(holder.imgOfCloth.getContext(), "Item Removed", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                    }
+                });
+
+                favOn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        favof.setVisibility(View.VISIBLE);
+                        favOn.setVisibility(View.GONE);
+
+                        firebaseAuth = FirebaseAuth.getInstance();
+                        firebaseDatabase = FirebaseDatabase.getInstance();
+                        databaseReference = firebaseDatabase.getReference("RentIt").child("RentBy");
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        currentUser = user.getUid();
+
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("currentUsers", currentUser);
+                        map.put("Random", randomKey);
+                        map.put("ObjUrl1", model.getClothUrl1());
+                        map.put("clothAddress",model.getClothAddress());
+                        map.put("clothAdvance",model.getClothAdvance());
+                        map.put("clothArea",model.getClothArea());
+                        map.put("clothBrand",model.getClothBrand());
+                        map.put("clothColor",model.getClothColor());
+                        map.put("clothDesc",model.getClothDesc());
+                        map.put("clothFitSize",model.getClothFitSize());
+                        map.put("clothMetal",model.getClothMetal());
+                        map.put("clothName",model.getClothName());
+                        map.put("clothRent",model.getClothRent());
+                        map.put("ClothFit",model.getClothFit());
+                        map.put("clothUrl1",model.getClothUrl1());
+                        map.put("clothUrl2",model.getClothUrl2());
+                        map.put("clothUrl3",model.getClothUrl3());
+                        map.put("clothUrl4",model.getClothUrl4());
+                        map.put("type","CLOTHS");
+                        map.put("OwnerEmail",user.getEmail());
+                        map.put("UserId",user.getUid());
+                        map.put("PhoneNo", model.getPhoneNo());
+
+                        assert currentUser != null;
+                        FirebaseDatabase.getInstance().getReference().child("RentIt").child("FavouriteCloth").child(randomKey)
+                                .setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(imgC1.getContext(), "Item Added to Favourite list", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
 
                     }
                 });

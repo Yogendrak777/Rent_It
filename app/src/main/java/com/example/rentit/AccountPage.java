@@ -50,8 +50,6 @@ public class AccountPage extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     CardView myCart,AddItem,Fav,logOut,ChartUs,service;
     TextView NameT;
-    //EmailT,PhoneNoT;
-    //String PhoneNoT;
     ImageView profileImg;
     byte[] imageByte;
 
@@ -160,7 +158,7 @@ public class AccountPage extends AppCompatActivity {
         Fav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AccountPage.this,Favourite.class));
+                startActivity(new Intent(AccountPage.this,FavouriteAllPage.class));
             }
         });
 

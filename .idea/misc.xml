@@ -79,6 +79,13 @@
         <entry key="app/src/main/res/layout/activity_display_content_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_electrical_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_favourite.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_favourite_all_page.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_favourite_bike.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_favourite_camera.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_favourite_car.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_favourite_cloth.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_favourite_speaker.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_favourite_sports.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_forgot_password_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_hart_main_page.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_house_info1.xml" value="0.2677083333333333" />

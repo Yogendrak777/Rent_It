@@ -44,6 +44,15 @@
         android:textColor="@color/black"
         android:textSize="19sp"
         android:textStyle="bold" />
+    <TextView
+        android:id="@+id/ObjPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+919353437216"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/ObjAddress"

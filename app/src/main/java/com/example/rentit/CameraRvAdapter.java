@@ -1,25 +1,49 @@
 package com.example.rentit;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
-import com.squareup.picasso.Picasso;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class CameraRvAdapter extends FirebaseRecyclerAdapter<CameraRvModel,CameraRvAdapter.myViewHolder> {
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    FirebaseAuth firebaseAuth;
+    public static String currentUser;
+    public static String ran;
 
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
@@ -37,12 +61,33 @@ public class CameraRvAdapter extends FirebaseRecyclerAdapter<CameraRvModel,Camer
         holder.CamPrise.setText(model.getCameraRent());
         holder.CamArea.setText(model.getCameraArea());
 
-        Glide.with(holder.imgOfCamera.getContext())
-                .load(model.getCamUrl1())
-                .placeholder(R.drawable.com_logo)
-                // .circleCrop()
-                .error(R.drawable.ic_baseline_account_circle_24)
-                .into(holder.imgOfCamera);
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference1;
+        databaseReference1 = firebaseDatabase.getReference("RentIt").child("FavouriteCamera");
+
+        StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/" + model.getCamUrl1());
+        try {
+            File file = File.createTempFile("randomKey", "");
+            storageReference1.getFile(file)
+                    .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                            Toast.makeText(holder.imgOfCamera.getContext(), "please wait", Toast.LENGTH_SHORT).show();
+                            Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+                            holder.imgOfCamera.setImageBitmap(bitmap);
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            //Toast.makeText(holder.img.getContext(), "Image can't Retrieve", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         holder.cardCamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +98,7 @@ public class CameraRvAdapter extends FirebaseRecyclerAdapter<CameraRvModel,Camer
                         .create();
 
                 View view = dialogPlus.getHolderView();
+                final String randomKey = UUID.randomUUID().toString();
                 TextView DcamModel = view.findViewById(R.id.DCamModel);
                 TextView DcamAddress = view.findViewById(R.id.DCamAddress);
                 TextView DcamAdvance = view.findViewById(R.id.DcamAdvance);
@@ -82,16 +128,51 @@ public class CameraRvAdapter extends FirebaseRecyclerAdapter<CameraRvModel,Camer
                 DcamType.setText(model.getType());
                 DcamDesc.setText(model.getCameraDescription());
 
-                Picasso.get().load(model.getCamUrl1()).into(imgC1);
-                Picasso.get().load(model.getCamUrl2()).into(imgC2);
-                Picasso.get().load(model.getCamUrl3()).into(imgC3);
-                Picasso.get().load(model.getCamUrl4()).into(imgC4);
+                StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/" + model.getCamUrl1());
+                StorageReference storageReference2 = FirebaseStorage.getInstance().getReference("images/" + model.getCamUrl2());
+                StorageReference storageReference3 = FirebaseStorage.getInstance().getReference("images/" + model.getCamUrl3());
+                StorageReference storageReference4 = FirebaseStorage.getInstance().getReference("images/" + model.getCamUrl4());
+                try {
+                    File file1 = File.createTempFile("randomKey", "");
+                    File file2 = File.createTempFile("randomKey", "");
+                    File file3 = File.createTempFile("randomKey", "");
+                    File file4 = File.createTempFile("randomKey", "");
+                    storageReference1.getFile(file1);
+                    storageReference2.getFile(file2);
+                    storageReference3.getFile(file3);
+                    storageReference4.getFile(file4)
+                            .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                    Toast.makeText(imgC1.getContext(), "please wait", Toast.LENGTH_SHORT).show();
+                                    Bitmap bitmap1 = BitmapFactory.decodeFile(file1.getAbsolutePath());
+                                    Bitmap bitmap2 = BitmapFactory.decodeFile(file2.getAbsolutePath());
+                                    Bitmap bitmap3 = BitmapFactory.decodeFile(file3.getAbsolutePath());
+                                    Bitmap bitmap4 = BitmapFactory.decodeFile(file4.getAbsolutePath());
+                                    imgC1.setImageBitmap(bitmap1);
+                                    imgC2.setImageBitmap(bitmap2);
+                                    imgC3.setImageBitmap(bitmap3);
+                                    imgC4.setImageBitmap(bitmap4);
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(imgC1.getContext(), "Image can't Retrieve", Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
 
                 TextView next = view.findViewById(R.id.next);
-                ImageButton favOn,share;
+                ImageButton favOn,share,favof;
 
                 favOn = view.findViewById(R.id.favOn);
                 share = view.findViewById(R.id.share);
+                favof = view.findViewById(R.id.favOf);
 
                 share.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -112,6 +193,101 @@ public class CameraRvAdapter extends FirebaseRecyclerAdapter<CameraRvModel,Camer
                         intent.putExtra("UserId", model.getUserId());
                         imgC1.getContext().startActivity(intent);
 
+                    }
+                });
+
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                String currentUser1 = user.getUid();
+//                databaseReference3 = firebaseDatabase.getReference("RentIt").child("Favourite");
+                databaseReference1.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            if (ds.child("currentUsers").getValue().equals(currentUser1)) {
+                                if (ds.child("ownerUId").getValue().equals(model.getUserId())) {
+                                    if (ds.child("ObjUrl1").getValue().equals(model.getCamUrl1())) {
+                                        ran = ds.child("Random").getValue().toString();
+                                        favof.setVisibility(View.VISIBLE);
+                                        favOn.setVisibility(View.GONE);
+
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(imgC1.getContext(), "sorry " + error, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                favof.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        favof.setVisibility(View.GONE);
+                        favOn.setVisibility(View.VISIBLE);
+                        FirebaseDatabase.getInstance().getReference().child("RentIt").child("FavouriteCamera")
+                                .child(ran).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(holder.imgOfCamera.getContext(), "Item Removed", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                    }
+                });
+
+                favOn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        favof.setVisibility(View.VISIBLE);
+                        favOn.setVisibility(View.GONE);
+
+                        firebaseAuth = FirebaseAuth.getInstance();
+                        firebaseDatabase = FirebaseDatabase.getInstance();
+                        databaseReference = firebaseDatabase.getReference("RentIt").child("RentBy");
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        currentUser = user.getUid();
+
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("currentUsers", currentUser);
+                        map.put("Random", randomKey);
+                        map.put("ownerUId", model.getUserId());
+                        map.put("cameraAddress",model.getCameraAddress());
+                        map.put("cameraAdvance",model.getCameraAdvance());
+                        map.put("cameraArea",model.getCameraArea());
+                        map.put("cameraDescription",model.getCameraDescription());
+                        map.put("cameraBrand",model.getCameraBrand());
+                        map.put("cameraRent",model.getCameraRent());
+                        map.put("camUrl1",model.getCamUrl1());
+                        map.put("camUrl2",model.getCamUrl2());
+                        map.put("camUrl3",model.getCamUrl3());
+                        map.put("cameraFlash",model.getCameraFlash());
+                        map.put("cameraLedMonitor",model.getCameraLedMonitor());
+                        map.put("cameraManualFous",model.getCameraManualFous());
+                        map.put("cameraMovieFormat",model.getCameraMovieFormat());
+                        map.put("cameraOptialZoom",model.getCameraOptialZoom());
+                        map.put("cameraType",model.getCameraType());
+                        map.put("camUrl4",model.getCamUrl4());
+                        map.put("type","CAMERA");
+                        map.put("OwnerEmail",user.getEmail());
+                        map.put("UserId",user.getUid());
+                        map.put("PhoneNo",model.getPhoneNo());
+
+
+                        assert currentUser != null;
+                        FirebaseDatabase.getInstance().getReference().child("RentIt").child("FavouriteCamera").child(randomKey)
+                                .setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(imgC1.getContext(), "Item Added to Favourite list", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
                     }
                 });
 

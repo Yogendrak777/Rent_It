@@ -21,6 +21,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity{
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -70,8 +73,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds : snapshot.getChildren()){
-                    if(ds.child("UserId").getValue().equals(user.getUid())) {
-                        if (ds.child("Status").getValue().equals("show")) {
+                    if(ds.child("UserId").getValue().equals(user.getUid()) && ds.child("Status").getValue().equals("show")) {
 
                             Toast.makeText(MainActivity.this, "wait it loading", Toast.LENGTH_SHORT).show();
                             final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity{
                             AlertDialog alertDialog = builder.create();
                             alertDialog.show();
                             //builder.show();
-                        }
+
                     }
                 }
 
@@ -104,24 +106,28 @@ public class MainActivity extends AppCompatActivity{
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for(DataSnapshot ds : snapshot.getChildren()){
-                        if(ds.child("BuyerUid").getValue().equals(user.getUid())) {
-                            if (ds.child("Status").getValue().equals("Accept")) {
+                        if(ds.child("BuyerUid").getValue().equals(user.getUid()) && ds.child("Status").getValue().equals("Accept") ) {
 
                                 Toast.makeText(MainActivity.this, "wait it loading", Toast.LENGTH_SHORT).show();
                                 final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                                builder.setTitle("your Itenm is Booked");
+                                builder.setTitle("your Item is Booked");
                                 builder.setMessage("your Request Accepted");
 
-                                builder.setPositiveButton("see Detail", new DialogInterface.OnClickListener() {
+                                builder.setPositiveButton("okay", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
-                                        startActivity(new Intent(MainActivity.this, BookContainer.class));
+                                        startActivity(new Intent(MainActivity.this, BookConformation.class));
+                                        Map<String,Object> map = new HashMap<>();
+                                        map.put("Status","Booked");
+
+                                        FirebaseDatabase.getInstance().getReference().child("RentIt").child("BookList")
+                                                .child(user.getUid()).updateChildren(map);
                                     }
                                 });
                                 AlertDialog alertDialog = builder.create();
                                 alertDialog.show();
                                 //builder.show();
-                            }
+
                         }
                     }
 

@@ -90,6 +90,7 @@ public class BookEnter extends AppCompatActivity {
                 HashMap<String,Object> map1 = new HashMap<>();
                 map1.put("BuyerAdharIMage",randomKey);
                 map1.put("UserId",UserId);
+                map1.put("PhoneNo",PhoneNo);
                 map1.put("ImageUrl1",randomKey1);
                 map1.put("BuyerUid",user.getUid());
                 map1.put("BuyerName",Name.getText().toString().trim());

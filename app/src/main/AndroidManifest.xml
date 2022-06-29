@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.rentit" >
+    package="com.example.rentit">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -18,7 +18,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RentIt"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".FavouriteCloth"
+            android:exported="false" />
+        <activity
+            android:name=".FavouriteSports"
+            android:exported="false" />
+        <activity
+            android:name=".FavouriteAllPage"
+            android:exported="false" />
+        <activity
+            android:name=".FavouriteSpeaker"
+            android:exported="false" />
+        <activity
+            android:name=".FavouriteCamera"
+            android:exported="false" />
+        <activity
+            android:name=".FavouriteBike"
+            android:exported="false" />
+        <activity
+            android:name=".FavouriteCar"
+            android:exported="false" />
         <activity
             android:name=".ClothInfo3"
             android:exported="false" />
@@ -204,7 +225,7 @@
             android:exported="false" />
         <activity
             android:name=".welcomePage"
-            android:exported="true" >
+            android:exported="true">
             <tools:validation testUrl="http://schemas.android.com" />
 
             <intent-filter>

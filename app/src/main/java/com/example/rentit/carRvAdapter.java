@@ -19,6 +19,13 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -27,9 +34,16 @@ import com.orhanobut.dialogplus.ViewHolder;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class carRvAdapter extends FirebaseRecyclerAdapter<carRvModel,carRvAdapter.myViewHolder> {
-
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    FirebaseAuth firebaseAuth;
+    public static String currentUser;
+    public static String ran;
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
      * {@link FirebaseRecyclerOptions} for configuration options.
@@ -46,6 +60,11 @@ public class carRvAdapter extends FirebaseRecyclerAdapter<carRvModel,carRvAdapte
         holder.CarPrise.setText("\u20B9"+" "+model.getCarPrice() +" /Day");
         holder.CarFuel.setText(model.getCarFuel());
         holder.CarArea.setText(model.getCarArea());
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference1;
+        databaseReference1 = firebaseDatabase.getReference("RentIt").child("FavouriteCar");
 
         StorageReference storageReference1 = FirebaseStorage.getInstance().getReference("images/"+model.getCarUrl());
         try {
@@ -79,6 +98,8 @@ public class carRvAdapter extends FirebaseRecyclerAdapter<carRvModel,carRvAdapte
                         .create();
 
                 View view = dialogPlus.getHolderView();
+
+                final String randomKey = UUID.randomUUID().toString();
                 TextView DcarModel = view.findViewById(R.id.DCarModel);
                 TextView DcarAddress = view.findViewById(R.id.DCarAddress);
                 TextView DcarAdvance = view.findViewById(R.id.DcarAdvance);
@@ -152,10 +173,11 @@ public class carRvAdapter extends FirebaseRecyclerAdapter<carRvModel,carRvAdapte
                     e.printStackTrace();
                 }
                 TextView next = view.findViewById(R.id.next);
-                ImageButton favOn,share;
+                ImageButton favOn,share,favof;
 
                 favOn = view.findViewById(R.id.favOn);
                 share = view.findViewById(R.id.share);
+                favof = view.findViewById(R.id.favOf);
 
                 share.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -178,6 +200,108 @@ public class carRvAdapter extends FirebaseRecyclerAdapter<carRvModel,carRvAdapte
 
                     }
                 });
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                String currentUser1 = user.getUid();
+//                databaseReference3 = firebaseDatabase.getReference("RentIt").child("Favourite");
+                databaseReference1.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            if (ds.child("currentUsers").getValue().equals(currentUser1)) {
+                                if (ds.child("ownerUId").getValue().equals(model.getUserId())) {
+                                    if (ds.child("ObjUrl1").getValue().equals(model.getCarUrl())) {
+                                        ran = ds.child("Random").getValue().toString();
+                                        favof.setVisibility(View.VISIBLE);
+                                        favOn.setVisibility(View.GONE);
+
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(imgC1.getContext(), "sorry " + error, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                favof.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        favof.setVisibility(View.GONE);
+                        favOn.setVisibility(View.VISIBLE);
+                        FirebaseDatabase.getInstance().getReference().child("RentIt").child("FavouriteCar")
+                                .child(ran).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(holder.imgOfCar.getContext(), "Item Removed", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                    }
+                });
+
+                favOn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        favof.setVisibility(View.VISIBLE);
+                        favOn.setVisibility(View.GONE);
+
+                        firebaseAuth = FirebaseAuth.getInstance();
+                        firebaseDatabase = FirebaseDatabase.getInstance();
+                        databaseReference = firebaseDatabase.getReference("RentIt").child("RentBy");
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        currentUser = user.getUid();
+
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("currentUsers", currentUser);
+                        map.put("Random", randomKey);
+                        map.put("ownerUId", model.getUserId());
+                        map.put("ObjUrl1",model.getCarUrl());
+                        map.put("carAddress",model.getCarAddress());
+                        map.put("carAdvance",model.getCarAdvance());
+                        map.put("carAge",model.getCarAge());
+                        map.put("carAirbag",model.getCarAirbag());
+                        map.put("carArea",model.getCarArea());
+                        map.put("carBodyType",model.getCarBodyType());
+                        map.put("carDescription",model.getCarDescription());
+                        map.put("carFastTag",model.getCarFastTag());
+                        map.put("carFuel",model.getCarFuel());
+                        map.put("carGearBox",model.getCarGearBox());
+                        map.put("carMilage",model.getCarMilage());
+                        map.put("carModel",model.getCarModel());
+                        map.put("carPrice",model.getCarPrice());
+                        map.put("carSeats",model.getCarSeats());
+                        map.put("carServiceDate",model.getCarServiceDate());
+                        map.put("carTransmission",model.getCarTransmission());
+                        map.put("carUrl",model.getCarUrl());
+                        map.put("carUrl1",model.getCarUrl1());
+                        map.put("carUrl2",model.getCarUrl2());
+                        map.put("carUrl3",model.getCarUrl3());
+                        map.put("type","CAR");
+                        map.put("OwnerEmail",user.getEmail());
+                        map.put("UserId",user.getUid());
+                        map.put("PhoneNo",model.getPhoneNo());
+
+
+
+                        assert currentUser != null;
+                        FirebaseDatabase.getInstance().getReference().child("RentIt").child("FavouriteCar").child(randomKey)
+                                .setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(imgC1.getContext(), "Item Added to Favourite list", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+
+                    }
+                });
+
 
 
                 dialogPlus.show();

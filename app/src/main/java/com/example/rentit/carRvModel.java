@@ -25,11 +25,12 @@ public class carRvModel {
     String OwnerEmail;
     String UserId;
     String CarOwnerName;
+    String PhoneNo;
 
 
     public carRvModel(){}
 
-    public carRvModel(String carAddress, String carAdvance, String carAge, String carAirbag, String carArea, String carBodyType, String carDescription, String carFastTag, String carFuel, String carGearBox, String carMilage, String carModel, String carPrice, String carSeats, String carServiceDate, String carTransmission, String carUrl, String carUrl1, String carUrl2, String carUrl3, String type, String ownerEmail, String userId, String carOwnerName) {
+    public carRvModel(String carAddress, String carAdvance, String carAge, String carAirbag, String carArea, String carBodyType, String carDescription, String carFastTag, String carFuel, String carGearBox, String carMilage, String carModel, String carPrice, String carSeats, String carServiceDate, String carTransmission, String carUrl, String carUrl1, String carUrl2, String carUrl3, String type, String ownerEmail, String userId, String carOwnerName, String phoneNo) {
         this.carAddress = carAddress;
         this.carAdvance = carAdvance;
         this.carAge = carAge;
@@ -54,6 +55,7 @@ public class carRvModel {
         OwnerEmail = ownerEmail;
         UserId = userId;
         CarOwnerName = carOwnerName;
+        PhoneNo = phoneNo;
     }
 
     public String getCarAddress() {
@@ -246,5 +248,13 @@ public class carRvModel {
 
     public void setCarOwnerName(String carOwnerName) {
         CarOwnerName = carOwnerName;
+    }
+
+    public String getPhoneNo() {
+        return PhoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        PhoneNo = phoneNo;
     }
 }

@@ -9,10 +9,11 @@ public class BookRvModel {
     String Status;
     String ImageUrl1;
     String BuyerUid;
+    String PhoneNo;
 
     public BookRvModel(){}
 
-    public BookRvModel(String buyerAdharIMage, String userId, String buyerName, String buyerAddress, String ardharNum, String status, String imageUrl1, String buyerUid) {
+    public BookRvModel(String buyerAdharIMage, String userId, String buyerName, String buyerAddress, String ardharNum, String status, String imageUrl1, String buyerUid, String phoneNo) {
         BuyerAdharIMage = buyerAdharIMage;
         UserId = userId;
         BuyerName = buyerName;
@@ -21,6 +22,7 @@ public class BookRvModel {
         Status = status;
         ImageUrl1 = imageUrl1;
         BuyerUid = buyerUid;
+        PhoneNo = phoneNo;
     }
 
     public String getBuyerAdharIMage() {
@@ -85,6 +87,14 @@ public class BookRvModel {
 
     public void setBuyerUid(String buyerUid) {
         BuyerUid = buyerUid;
+    }
+
+    public String getPhoneNo() {
+        return PhoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        PhoneNo = phoneNo;
     }
 }
 

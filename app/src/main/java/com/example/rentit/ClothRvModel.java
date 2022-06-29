@@ -23,10 +23,12 @@ public class ClothRvModel {
     String UserId;
     String clothOwnerName;
     String ClothFit;
+    String currentUsers;
+
 
     public ClothRvModel(){}
 
-    public ClothRvModel(String clothAddress, String clothAdvance, String clothArea, String clothBrand, String clothColor, String clothDesc, String clothFitSize, String clothMetal, String clothName, String clothRent, String clothSizeNo, String clothType, String clothUrl1, String clothUrl2, String clothUrl3, String clothUrl4, String type, String ownerEmail, String phoneNo, String userId, String clothOwnerName, String clothFit) {
+    public ClothRvModel(String clothAddress, String clothAdvance, String clothArea, String clothBrand, String clothColor, String clothDesc, String clothFitSize, String clothMetal, String clothName, String clothRent, String clothSizeNo, String clothType, String clothUrl1, String clothUrl2, String clothUrl3, String clothUrl4, String type, String ownerEmail, String phoneNo, String userId, String clothOwnerName, String clothFit, String currentUsers) {
         this.clothAddress = clothAddress;
         this.clothAdvance = clothAdvance;
         this.clothArea = clothArea;
@@ -49,6 +51,7 @@ public class ClothRvModel {
         UserId = userId;
         this.clothOwnerName = clothOwnerName;
         ClothFit = clothFit;
+        this.currentUsers = currentUsers;
     }
 
     public String getClothAddress() {
@@ -225,5 +228,13 @@ public class ClothRvModel {
 
     public void setClothFit(String clothFit) {
         ClothFit = clothFit;
+    }
+
+    public String getCurrentUsers() {
+        return currentUsers;
+    }
+
+    public void setCurrentUsers(String currentUsers) {
+        this.currentUsers = currentUsers;
     }
 }

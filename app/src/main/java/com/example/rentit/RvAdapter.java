@@ -242,7 +242,7 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
 
                         Intent intent = new Intent(img1.getContext(), BookEnter.class);
                         intent.putExtra("UserId", model.getOwnerUId());
-                        intent.putExtra("ImageUrl1",model.getHouseUrl1());
+                        intent.putExtra("PhoneNo",model.getHousePhoneNo());
                         img1.getContext().startActivity(intent);
 
                     }
@@ -259,7 +259,7 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                         for (DataSnapshot ds : snapshot.getChildren()) {
                             if (ds.child("currentUsers").getValue().equals(currentUser1)) {
                                 if (ds.child("ownerUId").getValue().equals(model.getOwnerUId())) {
-                                    if (ds.child("houseUrl1").getValue().equals(model.getHouseUrl1())) {
+                                    if (ds.child("ObjUrl1").getValue().equals(model.getHouseUrl1())) {
                                         ran = ds.child("Random").getValue().toString();
                                         favof.setVisibility(View.VISIBLE);
                                         favOn.setVisibility(View.GONE);
@@ -310,12 +310,11 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                         Map<String, Object> map = new HashMap<>();
                         map.put("currentUsers", currentUser);
                         map.put("Random", randomKey);
-                        map.put("houseUrl1", model.getHouseUrl1());
+                        map.put("ObjUrl1", model.getHouseUrl1());
                         map.put("ownerUId", model.getOwnerUId());
                         map.put("houseOwnerName",model.getHouseOwnerName());
                         map.put("HouseDescription",model.getHouseDescription());
                         map.put("NearHospitalName",model.getNearHospitalName());
-                        map.put("houseOwnerName",model.getHouseOwnerName());
                         map.put("OwnerEmail",user.getEmail());
                         map.put("NearMallsName",model.getNearMallsName());
                         map.put("NearSchoolName",model.getNearSchoolName());
@@ -331,6 +330,7 @@ public class RvAdapter extends FirebaseRecyclerAdapter<houseRvModel,RvAdapter.my
                         map.put("housePetPrefer",model.getHousePetPrefer());
                         map.put("housePrefer",model.getHousePrefer());
                         map.put("houseUrl2",model.getHouseUrl2());
+                        map.put("houseUrl1",model.getHouseUrl1());
                         map.put("houseUrl3",model.getHouseUrl3());
                         map.put("houseUrl4",model.getHouseUrl4());
                         map.put("houseWaterSupply",model.getHouseWaterSupply());

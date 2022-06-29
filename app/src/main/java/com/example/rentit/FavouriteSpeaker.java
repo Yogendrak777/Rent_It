@@ -13,21 +13,18 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Favourite extends AppCompatActivity {
-
+public class FavouriteSpeaker extends AppCompatActivity {
     RecyclerView recyclerView1;
-    RvAdapter rvAdapter1;
+    SpeakerRvAdapter rvAdapter1;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     FirebaseAuth firebaseAuth;
-
     String email;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_favourite);
+        setContentView(R.layout.activity_favourite_speaker);
 
         Toast.makeText(this, "Please wait...", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "data is Loading...", Toast.LENGTH_SHORT).show();
@@ -41,15 +38,13 @@ public class Favourite extends AppCompatActivity {
         assert user != null;
         email = user.getUid();
 
-
-        FirebaseRecyclerOptions<houseRvModel> options =
-                new FirebaseRecyclerOptions.Builder<houseRvModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Favourite"), houseRvModel.class)
+        FirebaseRecyclerOptions<SpeakerRvModel> options =
+                new FirebaseRecyclerOptions.Builder<SpeakerRvModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("FavouriteSpeaker"), SpeakerRvModel.class)
                         .build();
 
-        rvAdapter1 = new RvAdapter(options);
+        rvAdapter1 = new SpeakerRvAdapter(options);
         recyclerView1.setAdapter(rvAdapter1);
-
 
     }
 
@@ -65,21 +60,15 @@ public class Favourite extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         rvAdapter1.stopListening();
-
     }
-
     private void txtSearch11(String str) {
-        FirebaseRecyclerOptions<houseRvModel> options =
-                new FirebaseRecyclerOptions.Builder<houseRvModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("Favourite").orderByChild("currentUsers").startAt(str).endAt(str + "~"), houseRvModel.class)
+        FirebaseRecyclerOptions<SpeakerRvModel> options =
+                new FirebaseRecyclerOptions.Builder<SpeakerRvModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RentIt").child("FavouriteSpeaker").orderByChild("currentUsers").startAt(str).endAt(str + "~"), SpeakerRvModel.class)
                         .build();
 
-        rvAdapter1 = new RvAdapter(options);
+        rvAdapter1 = new SpeakerRvAdapter(options);
         rvAdapter1.startListening();
         recyclerView1.setAdapter(rvAdapter1);
-
-
-
     }
-
 }
